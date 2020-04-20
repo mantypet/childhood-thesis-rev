@@ -216,13 +216,13 @@ Tutkielman keskeinen kohde on lineaaristen sekamallien soveltuvuuden tarkastelu 
 
 Rekisteriaineistona FinLapset-aineisto sisältää useita tunnettuja ja tuntemattomia harhan ja mittausvirheen lähteitä, mm. tietojen puuttuminen eräiden kuntien osalta ja aineiston edustavuuden vahvistamattomuus. Tällaiset tarkastelut ja korjaavat toimenpiteet on tässä tutkielmassa pitkälti sivuutettu ja siten tämän tutkielman piirissä aineiston perusteella sen taustalla olevasta ilmiöstä tehtävien johtopäätösten suhteen tulee suorittaa varovaisuutta. \\ 
 
+\textbf{Tutkielman aineisto}
+
 Alkuperäinen FinLapset-aineisto käsittää painoindeksihavaintoja aikaväliltä 2.1.2013\textendash9.4.2020. Alkuperäisen aineiston tunnuslukuja on selvyyden vuoksi merkitty tähdellä (*). \\
 
 Havaintoja on kaikkiaan $N* = 718080$ yksilöltä ja mittausten kokonaismäärä $n* = \sum\limits_{i = 1}^{N*} n_{i} = 2768012$. \\
 
 Yksilökohtaisissa mittausten määrissä $n_{i}$ on merkittävää vaihtelua. Mittausten yksilökohtaisten määrien mediaani on 4, kvartiiliväli $[2,5]$ ja vaihteluväli $[1,116]$. \\
-
-Mittausten määrien jakaumista (Taulukko ~\ref{table:mittausmaarat}) huomaamme, että suurimman yksittäisen ryhmän muodostavat yksilöt, joilla on vain yksi mittaus. Tämä selittyy hyvin sillä, että viimeksi aineistoon mukaantulleilla henkilöillä ei ole ehtinyt kertyä vielä mittauksia ja toisaalta aineiston keruun alkuajoilta aineistoa kertyi huomattavasti vähemmän. Huomio on tosin syytä pitää mielessä, sillä yleisesti pitkittäisaineiston oletetaan sisältävän yksilöä kohden vähintään kaksi mittausta \cite{west14}.\\
 
 \begin{table}[ht]
 \centering
@@ -249,65 +249,69 @@ $n_i$ & N*\\
 \label{table:mittausmaarat}
 \end{table}
 
-Valtaosalla aineiston yksilöistä on 1\textendash9 mittausta, joten pitkittäisaineiston edellytysten täyttymisestä ei vaikuta olevan huolta. Yksilöitä, joilla on yli 30 mittausta on koko ainestossa vain 101 kappaletta. \\
+Mittausten määrien jakaumista (Taulukko ~\ref{table:mittausmaarat}) huomaamme, että suurimman yksittäisen ryhmän muodostavat yksilöt, joilla on vain yksi mittaus. Tämä on syytä huomioida, sillä yleisesti pitkittäisaineiston oletetaan sisältävän yksilöä kohden vähintään kaksi mittausta \cite{west14}. Yksilöitä, joilla on yli 30 mittausta on koko ainestossa vain 101 kappaletta. \\\\
 
-FinLapset-aineistossa on seuraavat muuttujat
+Tutkielman soveltavassa vaiheessa tehtyjen havaintojen (REF!!) perusteella todettiin alkuperäisen FinLapset-aineiston analyysiin vaadittujen menetelmien laajentavan tämän tutkielman sille asetetun vaativuustason mukaisten rajausten ulkopuolelle. Kompromissina alkuperäisen FinLapset-aineston sijaan tutkielman aineisto rajoittuu yksilöihin, joiden kotikuntana on kunkin kalenterivuoden lopussa ollut Helsinki. Yksilöiltä, joiden kotikunta on muuttunut seuranta-aikana, otetaan kuitenkin mukaan kaikki saatavilla olevat mittaukset.\\
 
-MUUTTUJAT
+Täten aineiston määrää saatiin rajattua niin, että tarvittavien mallien sovittaminen onnistuu sellaisilla välinellä, joiden esittely katsotaan tämänkaltaisessa tutkielmassa perustelluiksi. Tämä ei tarkoita, että keskustelu alkuperäisen aineston analysointiin tarvittavista menetelmistä sivuutetaan.\\
 
-Sukupuolijakauma (Taulukko ~\ref{table:sukupuolijakauma}) vaikuttaa kuvaavaan Suomen väestöä, jossa poikia on hieman enemmän, kuin tyttöjä. Aineistoa on syntymäkohorteittain kertynyt tasaisesti lukuunottamatta varhaisimpia ja tuoreimpia kohortteja (Taulukko ~\ref{table:ikavuosijakauma})\\
+Tämän rajauksen lisäksi otettiin tarkasteluun mukaan vain sellaiset yksilöt, joilla on 2\textendash9 mittausta, sillä yksilöiden merkittävä osuus, joilla on vain yksi mittaus, vaikutti huomattavasti optimointialgoritmien toimintaan (REF).\\
+
+Tulee kuitenkin painottaa, että rajauksenkin jälkeen aineisto sisältää huomattavan määrän havaintoja suureltä määrältä yksilöitä ja se mahdollistaa samankaltaisten haasteiden kohtaamisen kuin alkuperäinen FinLapset-aineisto.\\
+
+Tutkielman rajatussa aineistossa havaintoja on kaikkiaan $N = 101239$ yksilöltä ja mittausten kokonaismäärä $n = \sum\limits_{i = 1}^{N*} n_{i} = 421660$. \\
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lr}
+\toprule
+$n_i$ & $N$\\
+\midrule
+2 & 20168\\
+3 & 21115\\
+4 & 20186\\
+5 & 17070\\
+\addlinespace
+6 & 12144\\
+7 & 6586\\
+8 & 2811\\
+9 & 1159\\
+\bottomrule
+\end{tabular}
+\caption{Tutkielman rajatun aineiston yksilökohtaisten mittauslukumäärien jakauma}
+\label{table:mittausmaaratrajattu}
+\end{table}
+
+Vaikka yksilökohtaisten mittausmäärien vaihteluväli pieneni (Taulukko ~\ref{table:mittausmaaratrajattu}), mediaani ja kvartiiliväli pysyivät samana. \\
+
+\textbf{Tutkielman aineston muuttujat}\\
+
+Tutkielmassa hyödynnetään seuraavia FinLapset-aineiston muuttujia
+
+\begin{itemize}
+    \item Yksilön pseudonymisoitu tunniste
+    \item Käynnin päivämäärä
+    \item Biologinen sukupuoli
+    \item Syntymäpäivämäärä
+    \item Painoindeksi
+\end{itemize}
+
+CALENDAR HEATMAP
+
+Sukupuolijakauma (Taulukko ~\ref{table:sukupuolijakauma}) vaikuttaa kuvaavaan likimain Suomen väestöä, jossa tyttöjen osuus on hieman poikien osuutta pienempi.\\
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{rr}
 \toprule
-Sukupuoli & N*\\
+Sukupuoli & N\\
 \midrule
-Tytöt & 353253\\
-Pojat & 364827\\
+Tytöt & 49837\\
+Pojat & 51402\\
 \bottomrule
 \end{tabular}
 \caption{FinLapset-aineiston sukupuolijakauma}
 \label{table:sukupuolijakauma}
-\end{table}
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{rr}
-\toprule
-Syntymävuosi & N*\\
-\midrule
-1996 & 4099\\
-1997 & 19977\\
-1998 & 26023\\
-1999 & 30640\\
-2000 & 33611\\
-\addlinespace
-2001 & 34621\\
-2002 & 35074\\
-2003 & 36229\\
-2004 & 36120\\
-2005 & 35993\\
-\addlinespace
-2006 & 36831\\
-2007 & 37237\\
-2008 & 37578\\
-2009 & 38778\\
-2010 & 39430\\
-\addlinespace
-2011 & 38287\\
-2012 & 37381\\
-2013 & 35077\\
-2014 & 34419\\
-2015 & 32465\\
-\addlinespace
-2016 & 29544\\
-2017 & 24356\\
-2018 & 4310\\
-\bottomrule
-\end{tabular}
-\caption{FinLapset-aineiston syntymäkohorttijakauma}
-\label{table:ikavuosijakauma}
 \end{table}
 
 \section{Lineaarinen sekamalli}
