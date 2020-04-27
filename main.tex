@@ -9,7 +9,8 @@
 \usepackage{bm}
 \usepackage{amsmath}
 \usepackage{booktabs}
-
+\usepackage{graphicx}
+\usepackage{float}
 
 
 \begin{document}
@@ -259,7 +260,7 @@ Tämän rajauksen lisäksi otettiin tarkasteluun mukaan vain sellaiset yksilöt,
 
 Tulee kuitenkin painottaa, että rajauksenkin jälkeen aineisto sisältää huomattavan määrän havaintoja suureltä määrältä yksilöitä ja se mahdollistaa samankaltaisten haasteiden kohtaamisen kuin alkuperäinen FinLapset-aineisto.\\
 
-Tutkielman rajatussa aineistossa havaintoja on kaikkiaan $N = 101239$ yksilöltä ja mittausten kokonaismäärä $n = \sum\limits_{i = 1}^{N*} n_{i} = 421660$. \\
+Tutkielman rajatussa aineistossa havaintoja on kaikkiaan $N = 101239$ yksilöltä ja mittausten kokonaismäärä $n = \sum\limits_{i = 1}^{N} n_{i} = 421660$. \\
 
 \begin{table}[ht]
 \centering
@@ -296,11 +297,9 @@ Tutkielmassa hyödynnetään seuraavia FinLapset-aineiston muuttujia
     \item Painoindeksi
 \end{itemize}
 
-CALENDAR HEATMAP
-
 Sukupuolijakauma (Taulukko ~\ref{table:sukupuolijakauma}) vaikuttaa kuvaavaan likimain Suomen väestöä, jossa tyttöjen osuus on hieman poikien osuutta pienempi.\\
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{rr}
 \toprule
@@ -314,15 +313,42 @@ Pojat & 51402\\
 \label{table:sukupuolijakauma}
 \end{table}
 
+Tutkielman aineistossa esiintyy kolme kiinnostavaa aikadimensiota. Ensimmäinen näistä on yksilön ikä mittaushetkellä, toinen on aika, jolloin mittaus on suoritettu ja kolmas on syntymäkohortti. Näillä dimensioilla on muihin muuttujiin verrattuna poikkeuksellinen ominaisuus, sillä kunkin dimension voi yksikäsitteisesti päätellä kahdesta muusta. Nämä dimensiot muodostavat ikä-periodi-kohortti-ilmiön, jota on analysoitu myös lineaaristen sekamallien kirjallisuudessa \cite{yang06}.\\
+
+Tämän tutkielman osalta kiinnitämme huomion kahteen dimensioon, mittausaikaan ja yksilön ikään mittaushetkellä. Näitä voi luontevasti kuvata esimerkiksi Lexis-diagrammeilla (Kuva ~\ref{fig:lexisplot}), joissa pitkittäisaineisto kuvataan yksilökohtaisina polkuina, x-akselin kuvatessa aikadimensiota ja y-akselin ikää mittaushetkellä.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lex_plot.png}
+  \caption{Lexis-diagrammi mittauksen päivämäärän ja mittaushetken iän mukaan. Kaikkien yksilöiden mittausaikajanat esitetty harmaana. Sadan satunnaisesti valitun yksilön mittausaikajanoja on havainnollistettu mustalla ja yksittäisiä mittausajankohtia mustilla palloilla.}
+  \label{fig:lexisplot}
+\end{figure}
+
+Tärkeimpänä muuttujana tarkastelemme viimeiseksi vastemuuttuja painoindeksiä. Painoindeksin jakauma (Kuva ~\ref{fig:bmi_dens}) vaikuttaa olevan positiivisesti vino. Tämä ei kuitenkaan välttämättä ole ongelma, sillä normaalisuusoletus koskee yksinomaan jäännösvirheitä \cite{west14}. Vaikka vastemuuttujan ja jäännösvirheiden jakaumat ovat lineaaristen mallien tapauksessa analogisia \cite{fitzmaurice11}, lineaaristen sekamallien tapauksessa tarkastelemme yksilön toistettujen mittausten jäännösvirheitä.\\
+
+\begin{figure}[ht]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/bmi_dens.png}
+  \caption{Painoindeksihavaintojen empiirinen jakauma}
+  \label{fig:bmi_dens}
+\end{figure}
+
+Toisin sanoen, kunkin yksilön havaintoihin sovitetun lineaarisen mallin (Kuva ~\ref{fig:xyplot}) jäännösvirheiden tulisi noudattaa yksiulotteista normaalijakaumaa. Kuvasta huomaamme, että yksilöiden välillä on huomattavasti vaihtelua, mutta yksittäisen yksilön kohdalla oletus painoindeksin ja iän yhteyden lineaarisuudesta vaikuttaisi alustavasti perustellulta.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/xyplot.png}
+  \caption{Kymmenen satunnaisesti valitun yksilön painoindeksimittaukset yksinkertaisille lineaarisilla sovitesuorilla}
+  \label{fig:xyplot}
+\end{figure}
+
 \section{Lineaarinen sekamalli}
 
-Lineaariset sekamallit (LSM) ovat tilastollisten mallien joukko lähtökohtaisesti [?] jatkuville vastemuuttujille, joiden jäännösvirheet (residuaalit) ovat normaalisti jakautuneita, mutta eivät välttämättä riippumattomia tai niiden varianssi ei ole vakio \cite{west14}. Kyseisten mallien joukkoa kuvaava, yleisesti käytössä oleva englanninkielinen nimi \textit{linear mixed (effect) model}, juontuu mallien ominaisuuksista siten, että mallit ovat parametreiltään lineaarisia ja niihin voi liittyä taustamuuttujien muodossa sekä \textit{kiinteitä} (\textit{fixed}) ja \textit{satunnaisia} (\textit{random}) vaikutuksia (\textit{effects}) \cite{west14}.
+Lineaariset sekamallit (LSM) ovat tilastollisten mallien joukko lähtökohtaisesti jatkuville vastemuuttujille, joiden jäännösvirheet (residuaalit) ovat normaalisti jakautuneita, mutta eivät välttämättä riippumattomia tai niiden varianssi ei ole vakio \cite{west14}. Kyseisten mallien joukkoa kuvaava, yleisesti käytössä oleva englanninkielinen nimi \textit{linear mixed (effect) model}, juontuu mallien ominaisuuksista siten, että mallit ovat parametreiltään lineaarisia ja niihin voi liittyä taustamuuttujien muodossa sekä \textit{kiinteitä} (\textit{fixed}) ja \textit{satunnaisia} (\textit{random}) vaikutuksia (\textit{effects}) \cite{west14}.
 
-\cite{laird82} kuvaavat kiinteiden ja satunnaisvaikutusten yhteyttä seuraavalla tavalla: Olkoon toistettujen mittausten yksilökohtaiset todennäköisyysjakaumat samaa muotoa (\textit{form}) kaikille yksilöille [ENSIMMÄINEN TASO, KIINT. VAIK.], mutta sallittakoon näiden todennäköisyysjakaumien parametrien vaihtelu yksilöiden välillä. Näiden populaation \textit{satunnaisvaikutusten} parametrien jakauma muodostaa mallin toisen tason [TOINEN TASO, SAT. VAIK.].
+\cite{laird82} kuvaavat kiinteiden ja satunnaisvaikutusten yhteyttä seuraavalla tavalla: Olkoon toistettujen mittausten yksilökohtaiset todennäköisyysjakaumat samaa muotoa (\textit{form}) kaikille yksilöille, mutta sallittakoon näiden todennäköisyysjakaumien parametrien vaihtelu yksilöiden välillä. Näiden populaation \textit{satunnaisvaikutusten} parametrien jakauma muodostaa mallin toisen tason.
 
 Siirtääksemme \cite{laird82} esittämän esimerkin FinLapset-aineiston kehikoon oletamme siis, että yksittäisen lapsen painoindeksin ja valittujen taustamuuttujien (esimerkiksi ikä, sukupuoli jne.) välinen yhteys on lineaarinen, mutta kutakin lasta kohden sovitetun lineaarisen regression parametrit voivat vaihdella. Siten, ehdollisesti yksittäisen lapsen parametrejä kohtaan ja, että populaation regressioparametrit noudattavat 2-ulotteista normaalijakaumaa, toistettujen mittausten reunajakauma noudattaa moniulotteista normaalijakaumaa asetelmaa vastaavalla kovarianssirakenteella. 
-
-EHKÄ YKSINKERTAISTUS? JA LISÄÄ: They (LMMs) allow explicit modelling and analysis of between- and within individual variation.
 
 \subsection{Lineaarisen sekamallin määritelmä}
 
@@ -1108,13 +1134,134 @@ jonka tuottama testisuure noudattaa asymptoottisesti $\chi^2$-jakaumaa vapausast
  
  Vaihtoehtoisia ratkaisuja ongelmaan ovat skaalatut residuaalit, mm. standardisoidut, Studentin ja Pearsonin residuaalit. Standardisoidut residuaalit saadaan skaalaamalla estimoidut residuaalit todellisella keskihajonnallaan, mutta käytännössä todellinen keskihajonta on harvoin tunnettu. Siten, estimoidut residuaalit voidaan skaalata myös estimoidulla keskihajonnalla, jolloin saadaan Studentin residuaalit. Pearsonin residuaalit saadaan skaalamalla estimoidut residuaalit vastemuuttujan estimoidulla keskihajonnalla. \cite{west14} mukaan Pearsonin residuaaleja voidaan harkita vain, parametrien $\hat{\bm{\beta}}$ vaihtelu halutaan sivuuttaa.\\
  
-\section{bmi ja lineaarinen sekamalli}
+ [KESKEN]
+ 
+\section{Tutkielman rajatun FinLapset-aineiston analyysi lineaarisilla sekamalleilla}
 
-\subsection{Finlapset aineisto: mikä on oikea malli?}
+Tavoitteena on, edelliset luvut yhdistäen, löytää sopiva malli FinLapset-aineiston analysointiin. Pyrimme ensin sovittamaan aiemmin FinLapset-aineistosta tunnistetut pitkittäisaineiston piirteet lineaaristen sekamallien kehikkoon.\\
 
-\subsection{Painoindeksin mallintaminen lineaarisella sekamallilla}
+Seuraavassa vaiheessa sovellamme \cite{west14, verbeke00} mukaillen ylhäältä alas -strategiaa sopivan mallin etsimiseksi. Tätä seuraa mallin kriitinen arviointi ja dialogi mallia puoltavien ja sitä vastustavien argumenttien kesken.\\
 
-\section{Tulosten esittäminen ja viestintä?}
+Tästä johdamme, ja lopuksi kiteytämme, keskeiset löydökset ja peilaamme näitä mallin tunnistettuihin puutteisiin sekä avoimeksi jääneisiin kysymyksiin.\\
+
+\subsection{xx}
+
+Tässä vaiheessa suuntaamme kiinnostuksemme siihen, minkälainen yhteys painoindeksin ajallisella muutoksella on yksilön ikään ja sukupuoleen.\\
+
+Kuten jo alustavassa ainesiton tarkastelussa huomioimme, aikadimensio vaatii erityistä huomiota. \cite{fitzmaurice11} varoittaa, että iän käyttäminen ajan \textit{metamittarina} tuo malliin kaksi informaation lähdettä.\\
+
+Ensimmäinen informaation lähde on yksilöiden välinen poikkileikkausvaikutus, joka seuraa siitä, että yksilöt voidaan mitata eri ikäisinä.\\
+
+Aineiston tarkastelu tästä näkökulmasta paljastaa myös mahdollisen huolen painoindeksin ja iän suhteen lineaarisuudesta (Kuva ~\ref{fig:bmi_age}).\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/bmi_age.png}
+  \caption{Yksilökohtaiset painoindeksiprofiilit iän mukaan (harmaa). 100 satunnaisen yksilön painoindeksiprofiilit korostettuna mustalla}
+  \label{fig:bmi_age}
+\end{figure}
+
+
+Toinen lähde on yksilökohtainen pitkittäisvaikutus, jonka taustalla on yksilöiden vanheneminen seurannan aikana. Tästä näkökulmasta voimme vakioida ajan alkamaan ensimmäisestä mittauksesta (Kuva ~\ref{fig:bmi_follow}).\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/bmi_follow.png}
+  \caption{Yksilökohtaiset painoindeksiprofiilit seuranta-ajan mukaan (harmaa). 100 satunnaisen yksilön painoindeksiprofiilit korostettuna mustalla}
+  \label{fig:bmi_follow}
+\end{figure}
+
+Vaikka, koko lapsen kehityskaari huomioiden, painoindeksin kehitys voi hyvin olla epälineaarista, huomioiden vain havaitut seuranta-ajanjaksot, yksittäisen yksilön tapauksessa voimme pitää likimain kiinni lineaarisuusoletuksesta.\\
+
+Iän mukana malliin sisällytettyjen, mahdollisesti ristiriitaisten informaation lähteiden erottamiseksi \cite{fitzmaurice11} suosittelee ajan operationalisoimista kahdeksi eri muuttujaksi, joista yksilön ikä ensimmäisellä mittauksella $\text{IKÄ}_{1i}$ (\textit{baseline age}) tuo malliin iän poikkileikkausvaikutuksen ja ikä mittaushetkellä $\text{IKÄ}_{ij}$ pitkittäisvaikutuksen. Palaamme ajan operationalisointiin mallinvalintaosiossa.\\
+
+\subsubsection{Ylhäältä alas -strategia}
+
+\cite{west14} ja \cite{verbeke00} lineaarisille sekamalleille esittämässä mallinvalintastrategiassa tavoitteena on ensin muodostaa, kiinteitä vaikutuksia lisäämäällä \textit{yliparametrisoitu} malli jolla voidaan selittää mahdollisimman hyvin aineistossa vallitsevia trendejä.\\
+
+Tarkastellaan painoindeksin ja iän yhteyttä, sekä lisäksi mahdollista biologisen sukupuolen vaikutusta ja iän sukupuolen yhdysvaikutusta painoindeksiin ensin naiivissa asetelmassa lineaarisen regressiomallin avulla, sivuuttaen hetkeksi pitkittäisaineiston hierarkkisen luonteen.\\
+
+Alustavien havaintojen (Taulukko ~\ref{table:deskrtaulu}) mukaan keskimääräinen painoindeksi kasvaa huomattavasti iän mukana, mutta sukupuolen vaikutus ilmenee monisyisempänä.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llrrrrr}
+\toprule
+Sukupuoli & Ikäluokka & Keskiarvo & n & Keskihajonta & Minimi & Maksimi\\
+\midrule
+Poika & $[0,2)$ & 16,37 & 3113 & 1,320 & 12,92 & 23,47\\
+ & $[2,7)$ & 15,98 & 80952 & 1,449 & 12,27 & 29,14\\
+ & $[7,13)$ & 17,81 & 85244 & 3,186 & 12,12 & 48,81\\
+ & $[13,17)$ & 20,73 & 43291 & 4,012 & 12,74 & 55,58\\
+\addlinespace
+Tyttö & $[0,2)$ & 16,11 & 2980 & 1,401 & 12,71 & 23,23\\
+ & $[2,7)$ & 15,90 & 79334 & 1,549 & 11,93 & 30,61\\
+ & $[7,13)$ & 17,73 & 84368 & 3,131 & 11,77 & 40,70\\
+ & $[13,17)$ & 21,09 & 42378 & 3,729 & 12,77 & 45,55\\
+\bottomrule
+\end{tabular}
+\caption{Painoindeksijakauman tunnuslukuja luokiteltuna biologisen sukupuolen ja ikäluokan perusteella}
+\label{table:deskrtaulu}
+\end{table}
+
+Poikien keskimääräinen painoindeksi on kolmessa ensimmäisessä ikäluokassa suurempi, mutta tyttöjen painoindeksi nousee viimeisessä ikäluokassa poikien ohi. Tytöillä painoindeksin keskihajonta on poikia suurempaa kahdessa ensimmäisessä ikäluokassa, kun taas pojilla vaikuttaa olevan huomattavasti suurempi keskihajonta viimeisessä ikäluokassa. Tosin, tutkielman alussa tehdyssä jakaumatarkakastelussa havaitsimme jakaumassa vinoutta ja jakauman oikeassa hännässä merkittävästi poikkeavilla, mahdollisesti virheellisillä havainnoilla voi olla suuri vaikutus.\\
+
+Mallin kannalta niin sukupuolen, kuin iän ja sukupuolen yhdysvaikutuksen tarkastelulle voi olla perusteita.\\
+
+Muodostetaan ensin yksinkertainen lineaarinen regressiomalli havainnolle $i = 1,\dots, n$, jossa $n = \sum\limits_{i = 1}^{N} n_{i}$ on aineiston havaintojen kokonaismäärä
+
+$$
+\text{BMI}_i = \beta_0 + \beta_1 \times \text{IKÄ}_i + \epsilon_i\\
+$$
+
+Regressiokertoimen $\beta_0$ estimaatiksi (Taulukko ~\ref{table:lm1}) saamme 13,94. Tämä niin kutsuttu vakiotermi voidaan tulkita keskimääräiseksi painoindeksiksi, kun muuttuja $\text{IKÄ}_i$ saa arvon 0. Itse estimaatin arvo ei siis itsessään ole kovin mielekäs, sillä aineston havainnot alkavan noin kahdesta ikävuodesta. Tarvittaessa tilanne voitaisi korjata skaalaamalla ikämuuttujaa siirtäen vakiotermin estimaatin vastaamaan haluttua ikää.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrrr}
+\toprule
+  & Estimaatti & Keskivirhe ($\widehat{\text{se}}$)\\
+\midrule
+$\hat{\beta}_0$ & 13,94 & 0,0098\\
+$\hat{\beta}_1$ & 0,43 & 0,0010\\
+\bottomrule
+\end{tabular}
+\caption{Yksinkertaisen lineaarisen regressiomallin parametrien estimaatit ja keskivirheet}
+\label{table:lm1}
+\end{table}
+
+Regressiokertoimen $\beta_1$ estimaatti 0,43 voidaan tulkita puolestaan PNS-menetelmällä sovitetun regressiosuoran kulmakertoimeksi. Toisin sanoen jokaista ikävuoden yksikkömuutosta kohden keskimääräinen painoindeksi kasvaa 0,43 yksikköä.\\
+
+Huomioitavaa on, että keskivirheen määritelmästä
+
+$$
+\widehat{\text{se}} = \sqrt{\frac{\hat{\sigma}^2}{\sum_i (\text{IKÄ}_i - \frac{1}{n}\sum\limits_{i = 1}^{n}\text{IKÄ}_i)^2}}
+$$
+
+, jossa $\hat{\sigma}^2 = \frac{1}{n-2} \sum_i \hat{\epsilon}_i^2$,\\
+
+seuraten, havaintomäärän ollessa suuri keskivirheet jäävät hyvin pieniksi, eivätkä ne siten tarjoa merkittävää informaatiota mallin hyvyydestä.\\
+
+Tutkitaan seuraavaksi sukupuolen vaikutusta lisäämällä malliin muuttuja $\text{SUKUPUOLI}_i$
+
+$$
+\text{BMI}_i = \beta_0 + \beta_1 \times \text{IKÄ}_i + \text{SUKUPUOLI}_i + \epsilon_i\\
+$$
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\toprule
+  & Estimaatti & Keskivirhe ($\widehat{\text{se}}$)\\
+\midrule
+$\hat{\beta}_0$ & 13.94016 & 0.01069\\
+$\hat{\beta}_1$ & 0.43104 & 0.00101\\
+$\hat{\beta}_2$ & -0.00246 & 0.00864\\
+\bottomrule
+\end{tabular}
+\caption{Lineaarisen regressiomallin parametrien estimaatit ja keskivirheet}
+\label{table:lm2}
+\end{table}
 
 \section{Johtopäätökset}
 
