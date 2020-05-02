@@ -634,6 +634,8 @@ $$
 
 Jos emme aseta muita vaatimuksia, kuin että $q \times q$ matriisi $\bm{G}$ on symmetrinen ja positiivisesti definiitti käytetään nimitystä \textit{rakenteeton} kovarianssirakenne. Tässä tapauksessa $\bm{G}$ symmetrisyyden johdosta $\bm{\theta}_G$ sisältää $(q(q + 1))/2$ parametria \cite{burzykowski13, west14}.\\
 
+%TODO: INDEKSÖINTI ALKAEN 0, VRT INTERCEPT
+
 Tarkastellaan tarkemmin matriisin $\bm{G}$ mahdollisia kovarianssirakenteita. Esimerkiksi jos rakenteettoman kovarianssirakenteen tapauksessa oletetamme malliin kaksi satunnaisvaikutusta, satunnaisen vakiotermin ja satunnaisen kulmakertoimen. Tällöin kovarianssiparametrien määrä olisi $q=2(2+1)/2=3$, jolloin $\bm{\theta}_G$ voitaisiin kirjoittaa muodossa\\
 
 $$
@@ -790,29 +792,29 @@ $$
 f(\bm{Y}_i;\bm{\beta}, \bm{\theta}) = (2\pi)^{-\frac{n_i}{2}} \det (\bm{V}_i)^{-\frac{1}{2}} \exp \big( -\frac{1}{2} [\bm{Y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{Y}_i - \bm{X}_i \bm{\beta}]\big),
 $$
 
-jolloin havaitun aineiston $\bm{Y}_i = \bm{y}_i$ uskottavuusfunktioksi saamme $m$ riippumattoman kontribuution tulona \\
+jolloin havaitun aineiston $\bm{Y}_i = \bm{y}_i$ uskottavuusfunktioksi saamme $N$ riippumattoman kontribuution tulona \\
 
 $$
 \begin{aligned}
-L(\bm{\beta}, \bm{\theta};\bm{y}) &= \prod_{i=1}^{m} f(\bm{y}_i;\bm{\beta}, \bm{\theta}) \\
-&= \prod_{i=1}^{m} (2\pi)^{-\frac{n_i}{2}} \det (\bm{V}_i)^{-\frac{1}{2}} \exp \big( -\frac{1}{2} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}]\big), \\
+L(\bm{\beta}, \bm{\theta};\bm{y}) &= \prod_{i=1}^{N} f(\bm{y}_i;\bm{\beta}, \bm{\theta}) \\
+&= \prod_{i=1}^{N} (2\pi)^{-\frac{n_i}{2}} \det (\bm{V}_i)^{-\frac{1}{2}} \exp \big( -\frac{1}{2} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}]\big), \\
 \end{aligned}
 $$
 
-jossa $i = (1,\dots, m)$. Vastaava log-uskottavuusfunktio saadaan luonnollisella logaritmilla
+jossa $i = (1,\dots, N)$. Vastaava log-uskottavuusfunktio saadaan luonnollisella logaritmilla
 
 $$
 \begin{aligned}
-l(\bm{\beta}, \bm{\theta};\bm{y}) &= \log (\prod_{i=1}^{m} f(\bm{y}_i \, ; \, \bm{\beta}, \bm{\theta})) \\
-&= \log \bigg(\prod_{i=1}^{m} (2\pi)^{-\frac{n_i}{2}} \det (\bm{V}_i)^{-\frac{1}{2}} \exp \big( -\frac{1}{2} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}]\big) \bigg), \\
-&= \log \bigg(\prod_{i=1}^{m} (2\pi)^{-\frac{n_i}{2}} \bigg) + \log \bigg(\prod_{i=1}^{m} \det (\bm{V}_i)^{-\frac{1}{2}} \bigg) \\
-&\quad + \log \bigg(\prod_{i=1}^{m} \exp \big( -\frac{1}{2} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}]\big) \bigg) \\
-&= -\frac{1}{2} \sum\limits_{i=1}^{m} n_i \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{m} \log (\det (\bm{V}_i)) -\frac{1}{2} \sum\limits_{i=1}^{m} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}] \\
-&= -\frac{1}{2} n \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{m} \log (\det (\bm{V}_i)) -\frac{1}{2} \sum\limits_{i=1}^{m} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}], \\
+l(\bm{\beta}, \bm{\theta};\bm{y}) &= \log (\prod_{i=1}^{N} f(\bm{y}_i \, ; \, \bm{\beta}, \bm{\theta})) \\
+&= \log \bigg(\prod_{i=1}^{N} (2\pi)^{-\frac{n_i}{2}} \det (\bm{V}_i)^{-\frac{1}{2}} \exp \big( -\frac{1}{2} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}]\big) \bigg), \\
+&= \log \bigg(\prod_{i=1}^{N} (2\pi)^{-\frac{n_i}{2}} \bigg) + \log \bigg(\prod_{i=1}^{N} \det (\bm{V}_i)^{-\frac{1}{2}} \bigg) \\
+&\quad + \log \bigg(\prod_{i=1}^{N} \exp \big( -\frac{1}{2} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}]\big) \bigg) \\
+&= -\frac{1}{2} \sum\limits_{i=1}^{N} n_i \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{N} \log (\det (\bm{V}_i)) -\frac{1}{2} \sum\limits_{i=1}^{N} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}] \\
+&= -\frac{1}{2} n \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{N} \log (\det (\bm{V}_i)) -\frac{1}{2} \sum\limits_{i=1}^{N} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}], \\
 \end{aligned}
 $$
 
-jossa $n = \sum\limits_{i=1}^{m} n_i$.\\
+jossa $n = \sum\limits_{i=1}^{N} n_i$.\\
 
 \cite{west14} mukaan olisi mahdollista estimoida $\bm{\beta}_i$ ja $\bm{\theta}$ samanaikaisesti, mutta käytännössa algoritminen optimointi suoritetaan usein \textit{profiloimalla} $\bm{\beta}$ ulos log-uskottavuusfunktioista. \\
 
@@ -821,7 +823,7 @@ Vaikka yleisessä tapauksessa $\bm{\theta}$ on tuntematon, sellaisen erityistapa
 Parametrivektorin $\bm{\theta}$ ollessa tunnettu, estimoitavaksi jäävät ainoastaan kiinteät vaikutukset $\bm{\beta}_i$. Log-uskottavuusfunktio on tällöin vain parametrin $\bm{\beta}_i$ funktio ja sen optimointion yhteensopivaa tappiofunktion (\textit{loss function}) $q(\bm{\beta})$ minimoinnin kanssa, joka määritellään
 
 $$
-q(\bm{\beta}) = \frac{1}{2} \sum\limits_{i=1}^{m} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}].
+q(\bm{\beta}) = \frac{1}{2} \sum\limits_{i=1}^{N} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}].
 $$
 
 Funktion $q(\bm{\beta})$ optimointi voidaan suorittaa yleistetyllä pienimmän neliösumman menetelmällä.
@@ -1080,11 +1082,11 @@ Mallin valinnassa ja arvioinnissa keskeistä on valita sopiva malli, joka vastaa
 
 Keskeisiä työkaluja sopivan mallin etsintään ovat mallin residuaalijakauman ja estimoitujen parametrien tarkastelu sekä mallien keskinäisen vertailun mahdollistavat kriteerit.\\
 
-Uskottavuusosamäärätesti on hyvin tunnettu menetelmä kahden mallin vertailuun. Menelmässä vertaillaan kahden sisäkkäisen (\textit{nested}) mallin, rajoittamattoman vertailumallin ja rajoitetun nollahypoteesimallin uskottavuusfunktioita.\\
+Uskottavuusosamäärän testi on hyvin tunnettu menetelmä kahden mallin vertailuun. Menelmässä vertaillaan kahden sisäkkäisen (\textit{nested}) mallin, rajoittamattoman vertailumallin ja rajoitetun nollahypoteesimallin uskottavuusfunktioita.\\
 
 Tarkemmin muotoiltuna, rajoitetun mallin parametriavaruuden tulee olla rajoittamattoman mallin parametriavaruuden osajoukko \cite{west14}.\\
 
-Uskottavuusosamäärätesti (\textit{Likelihood ratio test, LRT}) määritellään
+Uskottavuusosamäärän testi (\textit{Likelihood ratio test, LRT}) määritellään
 
 $$
 -2 \log(\frac{L_0}{L}),
@@ -1092,7 +1094,7 @@ $$
 
 jonka tuottama testisuure noudattaa asymptoottisesti $\chi^2$-jakaumaa vapausastein $p-p_0$, $p$ ja $p_0$ ollessa rajoittamattoman ja rajoitetun mallin parametrien lukumäärät.\\
 
- Uskottavuusosamäärätesti soveltuu lineaaristen sekamallien vertailuun sekä ML- että REML-menetelmillä, mutta jälkimmäisessä tapauksessa molempien mallien tulee olla estimoitu REML-menetelmällä ja kiinteiden vaikutusten parametrien identtisiä \cite{pinheiro00}.\\
+ Uskottavuusosamäärän testi soveltuu lineaaristen sekamallien vertailuun sekä ML- että REML-menetelmillä, mutta jälkimmäisessä tapauksessa molempien mallien tulee olla estimoitu REML-menetelmällä ja kiinteiden vaikutusten parametrien identtisiä \cite{pinheiro00}.\\
  
  Kiinteiden vaikutusten parametrien mukaan rajoitetun ja rajoittamattoman mallin vertailuun tulee siis perustua ainoastaan ML-menetelmään. Vertaillessa malleja kiinteiden vaikutusten parametrien perusteella, tulee vuorostaan kovarianssiparametrien olla samoja rajoitetussa ja rajoittamattomassa mallissa \cite{west14}.\\
  
@@ -1127,7 +1129,7 @@ jonka tuottama testisuure noudattaa asymptoottisesti $\chi^2$-jakaumaa vapausast
  Mallin residuaalien tarkastelu tarjoaa tärkeän näkökulman mallin sopivuuden arviointiin. Yksilön $i$ ehdollinen residuaalivektori määritellään
  
  $$
-\hat{\bm{\epsilon}}_i = \bm{y}_i - \bm{X}_i \hat{\bm{\beta}} - \bm{Z}_i \hat{\bm{u}}_i. \\
+\hat{\bm{\epsilon}}_i = \bm{y}_i - \bm{X}_i \hat{\bm{\beta}} - \bm{Z}_i \hat{\bm{b}}_i. \\
  $$
  
  Niin kutsutut \textit{raa'at} residuaalit eivät sovellu hyvin mallin arviointiin, sillä ne ovat, huolimatta todellisista residuaalesta, usein keskenään korreloituneita ja heteroskedastisia \cite{west14}.\\
@@ -1144,7 +1146,7 @@ Seuraavassa vaiheessa sovellamme \cite{west14, verbeke00} mukaillen ylhäältä 
 
 Tästä johdamme, ja lopuksi kiteytämme, keskeiset löydökset ja peilaamme näitä mallin tunnistettuihin puutteisiin sekä avoimeksi jääneisiin kysymyksiin.\\
 
-\subsection{xx}
+\subsection{Operationalisointi}
 
 Tässä vaiheessa suuntaamme kiinnostuksemme siihen, minkälainen yhteys painoindeksin ajallisella muutoksella on yksilön ikään ja sukupuoleen.\\
 
@@ -1173,7 +1175,7 @@ Toinen lähde on yksilökohtainen pitkittäisvaikutus, jonka taustalla on yksil�
 
 Vaikka, koko lapsen kehityskaari huomioiden, painoindeksin kehitys voi hyvin olla epälineaarista, huomioiden vain havaitut seuranta-ajanjaksot, yksittäisen yksilön tapauksessa voimme pitää likimain kiinni lineaarisuusoletuksesta.\\
 
-Iän mukana malliin sisällytettyjen, mahdollisesti ristiriitaisten informaation lähteiden erottamiseksi \cite{fitzmaurice11} suosittelee ajan operationalisoimista kahdeksi eri muuttujaksi, joista yksilön ikä ensimmäisellä mittauksella $\text{IKÄ}_{1i}$ (\textit{baseline age}) tuo malliin iän poikkileikkausvaikutuksen ja ikä mittaushetkellä $\text{IKÄ}_{ij}$ pitkittäisvaikutuksen. Palaamme ajan operationalisointiin mallinvalintaosiossa.\\
+Iän mukana malliin sisällytettyjen, mahdollisesti ristiriitaisten informaation lähteiden erottamiseksi \cite{fitzmaurice11} suosittelee ajan operationalisoimista kahdeksi eri muuttujaksi, joista yksilön ikä ensimmäisellä mittauksella $\text{IKÄ}_{i0}$ (\textit{baseline age}) tuo malliin iän poikkileikkausvaikutuksen ja ikä mittaushetkellä $\text{IKÄ}_{ij}$ pitkittäisvaikutuksen. Palaamme ajan operationalisointiin mallinvalintaosiossa.\\
 
 \subsubsection{Ylhäältä alas -strategia}
 
@@ -1210,58 +1212,307 @@ Mallin kannalta niin sukupuolen, kuin iän ja sukupuolen yhdysvaikutuksen tarkas
 
 Muodostetaan ensin yksinkertainen lineaarinen regressiomalli havainnolle $i = 1,\dots, n$, jossa $n = \sum\limits_{i = 1}^{N} n_{i}$ on aineiston havaintojen kokonaismäärä
 
-$$
-\text{BMI}_i = \beta_0 + \beta_1 \times \text{IKÄ}_i + \epsilon_i\\
-$$
 
-Regressiokertoimen $\beta_0$ estimaatiksi (Taulukko ~\ref{table:lm1}) saamme 13,94. Tämä niin kutsuttu vakiotermi voidaan tulkita keskimääräiseksi painoindeksiksi, kun muuttuja $\text{IKÄ}_i$ saa arvon 0. Itse estimaatin arvo ei siis itsessään ole kovin mielekäs, sillä aineston havainnot alkavan noin kahdesta ikävuodesta. Tarvittaessa tilanne voitaisi korjata skaalaamalla ikämuuttujaa siirtäen vakiotermin estimaatin vastaamaan haluttua ikää.\\
+\begin{equation}
+\text{BMI}_i = \beta_0 + \beta_1 \times \text{IKÄ}_i + \epsilon_i \label{eq:lm1}\\
+\end{equation}
+
+
+Regressiokertoimen $\beta_0$ estimaatiksi (Taulukko ~\ref{table:lm1}) saamme likimain 13,94. Tämä niin kutsuttu vakiotermi voidaan tulkita keskimääräiseksi painoindeksiksi, kun muuttuja $\text{IKÄ}_i$ saa arvon 0. Itse estimaatin arvo ei siis itsessään ole kovin mielekäs, sillä aineston havainnot alkavan noin kahdesta ikävuodesta. Tarvittaessa tilanne voitaisi korjata skaalaamalla ikämuuttujaa siirtäen vakiotermin estimaatin vastaamaan haluttua ikää.\\
 
 \begin{table}[H]
 \centering
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{llllll}
 \toprule
-  & Estimaatti & Keskivirhe ($\widehat{\text{se}}$)\\
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
 \midrule
-$\hat{\beta}_0$ & 13,94 & 0,0098\\
-$\hat{\beta}_1$ & 0,43 & 0,0010\\
+$\hat{\beta}_0$ & 13,939 & 0,0098 & 0,0000 & 13,920 & 13,958\\
+$\hat{\beta}_1$ & 0,4310 & 0,0010 & 0,0000 & 0,4291 & 0,4330\\
 \bottomrule
 \end{tabular}
-\caption{Yksinkertaisen lineaarisen regressiomallin parametrien estimaatit ja keskivirheet}
+\caption{Yksinkertaisen lineaarisen regressiomallin ~\ref{eq:lm1} parametrien estimaatit ja keskivirheet}
 \label{table:lm1}
 \end{table}
 
-Regressiokertoimen $\beta_1$ estimaatti 0,43 voidaan tulkita puolestaan PNS-menetelmällä sovitetun regressiosuoran kulmakertoimeksi. Toisin sanoen jokaista ikävuoden yksikkömuutosta kohden keskimääräinen painoindeksi kasvaa 0,43 yksikköä.\\
+Regressiokertoimen $\beta_1$ estimaatti 0,4310, voidaan tulkita puolestaan PNS-menetelmällä sovitetun regressiosuoran kulmakertoimeksi. Toisin sanoen jokaista ikävuoden yksikkömuutosta kohden keskimääräinen painoindeksi kasvaa likimain 0,43 yksikköä.\\
 
-Huomioitavaa on, että keskivirheen määritelmästä
+Huomioitavaa on, että yksinkertaisen regressiomallin parametrien keskivirheen määritelmästä
 
 $$
-\widehat{\text{se}} = \sqrt{\frac{\hat{\sigma}^2}{\sum_i (\text{IKÄ}_i - \frac{1}{n}\sum\limits_{i = 1}^{n}\text{IKÄ}_i)^2}}
+se(\hat{\beta}_0)= \sqrt{\hat{\sigma}^2 \Bigg( \frac{1}{n}+\frac{( \frac{1}{n}\sum\limits_{i = 1}^{n}\text{IKÄ}_i)^2}{\sum_{i=1}^n (\text{IKÄ}_i- \frac{1}{n}\sum\limits_{i = 1}^{n}\text{IKÄ}_i)^2} \Bigg)}\,\!
+$$
+
+$$
+\text{se}(\hat{\beta}_1) = \sqrt{\frac{\hat{\sigma}^2}{\sum_i (\text{IKÄ}_i - \frac{1}{n}\sum\limits_{i = 1}^{n}\text{IKÄ}_i)^2}}
 $$
 
 , jossa $\hat{\sigma}^2 = \frac{1}{n-2} \sum_i \hat{\epsilon}_i^2$,\\
 
-seuraten, havaintomäärän ollessa suuri keskivirheet jäävät hyvin pieniksi, eivätkä ne siten tarjoa merkittävää informaatiota mallin hyvyydestä.\\
+seuraa, että havaintomäärän $n$ ollessa hyvin suuri keskivirheet jäävät aina pieniksi. Teknisessä mielessä, voimme siis luottaa, että estimaattorimme tuottamat estimaatit ovat täsmällisiä, mutta ne voivat silti olla hyvinkin harhaisia.\\
 
-Tutkitaan seuraavaksi sukupuolen vaikutusta lisäämällä malliin muuttuja $\text{SUKUPUOLI}_i$
+Tutkitaan seuraavaksi sukupuolen vaikutusta lisäämällä malliin muuttuja $\text{SUKUPUOLI}_i$\\
 
-$$
-\text{BMI}_i = \beta_0 + \beta_1 \times \text{IKÄ}_i + \text{SUKUPUOLI}_i + \epsilon_i\\
-$$
+\begin{equation}
+\text{BMI}_i = \beta_0 + \beta_1 \times \text{IKÄ}_i + \beta_2 \times \text{SUKUPUOLI}_i + \epsilon_i \label{eq:lm2}\\
+\end{equation}
+
+Vaikuttaisi siltä, että sukupuolella ei vaikuttaisi olevan merkitsevää vaikutusta keskimääräiseen painoindeksiin (Taulukko ~\ref{table:lm2}). Tässä tapauksessa tilastollinen merkitsevyys $\text{P}$ päätellään vertaamaalla T-testisuureen arvoa $t_0$ $t$-jakauman arvoon $T$.\\
 
 \begin{table}[H]
 \centering
-\begin{tabular}{lrr}
+\begin{tabular}{llllll}
 \toprule
-  & Estimaatti & Keskivirhe ($\widehat{\text{se}}$)\\
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
 \midrule
-$\hat{\beta}_0$ & 13.94016 & 0.01069\\
-$\hat{\beta}_1$ & 0.43104 & 0.00101\\
-$\hat{\beta}_2$ & -0.00246 & 0.00864\\
+$\hat{\beta}_0$ & 13,940 & 0,0107 & 0,0000 & 13,919 & 13,961\\
+$\hat{\beta}_1$ & 0,4310 & 0,0010 & 0,0000 & 0,4291 & 0,4330\\
+$\hat{\beta}_2$ & -0,0025 & 0,0086 & 0,7761 & -0,0194 & 0,0145\\
 \bottomrule
 \end{tabular}
-\caption{Lineaarisen regressiomallin parametrien estimaatit ja keskivirheet}
+\caption{Lineaarisen regressiomallin ~\ref{eq:lm2} parametrien estimaatit ja keskivirheet kun malliin on lisätty biologisen sukupuolen vaikutus}
 \label{table:lm2}
 \end{table}
+
+Testisuure
+
+$$
+t_0 = \frac{\hat{\beta}_2 - 0}{\text{se}(\hat{\beta}_2)},
+$$
+
+noudattaa $t$-jakaumaa vapausastein $n-2$, jolloin P-arvoksi saadaan
+
+$$
+\text{P} = 2(1-P(T \leq t_0)).
+$$
+
+P-arvo tiivistää informaatiota siitä, kuinka kaukana estimaatti $\hat{\beta}_2$ on nollasta suhteessa estimaattorin täsmällisyyteen.\\
+
+Tarkastellaan kolmatta mallia, jossa lisäämme iän ja sukupuolen yhdysvaikutuksen.\\
+
+\begin{equation}
+\text{BMI}_i = \beta_0 + \beta_1 \times \text{IKÄ}_i + \beta_2 \times \text{SUKUPUOLI}_i + \beta_3 \times \text{IKÄ}_i \times \text{SUKUPUOLI}_i + \epsilon_i \label{eq:lm3}\\
+\end{equation}
+
+Nyt sekä sukupuoli, että iän ja sukupuolen yhdysvaikutukset ovat merkitseviä. Mallin tuloksista (~\ref{table:lm3}) voimme nähdä, että iän estimaatti on hieman edellistä pienempi. Nyt iän estimaatti viittaa päävaikutukseen, kun sukupuolena on poika, kun taas iän ja sukupuolen yhdysvaikutus viittaa muutokseen iän päävaikutuksesta, kun sukupuolena tyttö.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llllll}
+\toprule
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
+\midrule
+$\hat{\beta}_0$ & 14,0790 & 0,0138 & 0,0000 & 14,0520 & 14,1060\\
+$\hat{\beta}_1$ & 0,4151 & 0,0014 & 0,0000 & 0,4123 & 0,4179\\
+$\hat{\beta}_2$ & -0,2831 & 0,0196 & 0,0000 & -0,3215 & -0,2447\\
+$\hat{\beta}_3$ & 0,0322 & 0,0020 & 0,0000 & 0,0283 & 0,0362\\
+\bottomrule
+\end{tabular}
+\caption{Lineaarisen regressiomallin ~\ref{eq:lm3} parametrien estimaatit ja keskivirheet kun malliin on lisätty biologisen sukupuolen ja iän yhdysvaikutus}
+\label{table:lm3}
+\end{table}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lm_baseline.png}
+  \caption{Riippumattomiin mittauksiin sovitettu lineaarinen malli iän ja sukupuolen yhdysvaikutus huomioituna ennusteväleineen. Tytöt yhtenäisillä viivoilla, pojat katkoviivalla.}
+  \label{fig:lm_baseline}
+\end{figure}
+
+Iän ja sukupuolen yhdysvaikutus vaikuttaa kuitenkin melko pieneltä ja sovitteen sekä aineiston visuaalinen tarkastelu (Kuva ~\ref{fig:lm_baseline}) viittaa samaan. Lisäksi on selvää, että kyseinen malli on hyvin puuttellinen tämän kaltaiseen aineistoon. Jo visuaalinen tarkastelu paljastaa, että naiivissa asetelmassa mallin oletukset lineaarisuudesta, residuaalien normaalisuudesta ja varianssin homoskedastisuudesta eivät täyty.\\
+
+On kuitenkin muistettava, että tavoitteenamme on muodostaa yliparametrisoitu kiinteiden vaikutusten malli ja teemme varsinaisen kriittisen mallinvalinnan myöhemmässä vaiheessa.\\
+
+Edellä sovitettujen mallien vertailu (Taulukko ~\ref{table:lm_summary}) osoittaa, että pelkän sukupuolen lisäämisellä malliin ei ole suotuisaa vaikutusta, mutta iän ja sukupuolen yhdysvaikutus parantaa mallin yhteensopivuutta maltillisesti. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+Malli & $df$ & $l(\bm{\beta})$ & AIC & BIC\\
+\midrule
+LM ~\ref{eq:lm1} & 3 & -1033025 & 2066056 & 2066089\\
+LM ~\ref{eq:lm2} & 4 & -1033025 & 2066058 & 2066102\\
+LM ~\ref{eq:lm3} & 5 & -1032898 & 2065806 & 2065861\\
+\bottomrule
+\end{tabular}
+\caption{Lineaaristen mallien vapausasteiden, log-uskottavuuksien ja informaatiokriteerien vertailu}
+\label{table:lm_summary}
+\end{table}
+
+Bayesin informaatiokriteeri, erityisesti mallien LM ~\ref{eq:lm1} ja LM ~\ref{eq:lm3} välillä, näyttää, että parametrien ja havaintojen määrä huomioiden malli on vain hieman paremmin sopusoinnussa aineiston kanssa.\\
+
+Yliparametrisoidun kiinteiden vaikutusten mallin tarpeet täyttääksemme, voimme silti ottaa lineaarisen mallin LM ~\ref{eq:lm3}.\\
+
+\subsubsection{Yliparametrisoitu kiinteiden vaikutusten malli}
+
+Siirrämme lähestymistavan nyt pitkittäisaineiston kehikkoon. Muotoilemme kiinteiden vaikutusten mallin, noudattaen \cite{fitzmaurice11} suositusta ajan operationalisoinnista, seuraavalla tavalla
+
+\begin{equation}
+\begin{split}
+ \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{i0} + \beta_2 \times \text{IKÄ}_{ij} + \beta_3 \times \text{SUKUPUOLI}_{ij}  \\
+ + \beta_4 \times \text{IKÄ}_{ij} \times \text{SUKUPUOLI}_{ij} + \text{b}_{0i} + \epsilon_{ij}
+\label{eq:lme1}
+\end{split}
+\end{equation}
+
+\cite{west14} kuvaa kiinteiden vaikutusten mallia keskiarvorakenteeksi (\textit{mean structure}), sillä se pyrkii kuvaamaan lineaarisen regression tavoin keskimääräistä yhteyttä vastemuuttujan ja taustamuuttujien välillä.
+
+Kiinteiden vaikutusten ML-estimaateilla (Taulukko ~\ref{table:lme0}) onkin vastaava tulkinta kuin lineaarisen regressiomallin (Taulukko ~\ref{eq:lm3}) estimaateilla. Huomaamme, että estimaatit vastaavat likimain toisiaan, joskin aikadimension uudelleenoperationalisointi on lisännyt malliin uuden parametrin.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llllll}
+\toprule
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
+\midrule
+$\hat{\beta}_0$ & 14,1241 & 0,0189 & 0,0000 & 14,0870 & 14,1611\\
+$\hat{\beta}_1$ & 0,0194 & 0,0022 & 0,0000 & 0,0152 & 0,0236\\
+$\hat{\beta}_2$ & 0,4044 & 0,0015 & 0,0000 & 0,4016 & 0,4073\\
+$\hat{\beta}_3$ & -0,3285 & 0,0231 & 0,0000 & -0,3737 & -0,2833\\
+$\hat{\beta}_4$ & 0,0404 & 0,0019 & 0,0000 & 0,0367 & 0,0442\\
+\bottomrule
+\end{tabular}
+\caption{Keskiarvorakenteen kiinteiden vaikustusten ML-estimaatit}
+\label{table:lme0}
+\end{table}
+
+Keskeinen ero on kuitenkin yksilöiden välinen satunnaisvaikutus $b_{i0}$, joka kiinteiden vaikutusten mallissa kuvaa yksilöiden vakiotermin vaihtelua. \\
+
+Koska $\bm{b}_i \sim N(0,\bm{G})$, ainoastaan vakiotermin vaihtelun sisältävän mallimme satunnaisvaikutusten kovarianssimatriisi on siten
+
+$$
+\bm{G} = 
+\begin{bmatrix}
+\text{Var}({\text{b}_{0i}})\\
+\end{bmatrix} =
+\begin{bmatrix}
+\sigma^2_{\text{b}_{0i}}\\
+\end{bmatrix}.
+$$
+
+Oletamme vielä toistaiseksi residuaalit $\bm{\epsilon}_i \sim N(0, \bm{R}_i)$ korreloimattomiksi, jolloin matriisilla $\bm{R}_i$ on diagonaalirakenne
+
+$$
+\bm{R}_i =
+\begin{bmatrix}
+\sigma^2 & \dots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \dots & \sigma^2 \\
+\end{bmatrix}.
+$$
+
+Estimaateista $\hat{\bm{G}}$ ja $\hat{\bm{R}}_i$ (Taulukko ~\ref{table:lme1}) saamme alustavia, joskaan ei yllättäviä viitteitä, että yksilöiden keskimääräisten painoindeksien varianssi on suurempaa, kuin yksilökohtaisten residuaalien varianssi.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llllll}
+\toprule
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
+\midrule
+$\hat{\sigma^2}_{\text{b}_{0i}}$ & 6,224 & 2,495 & 0 & 6,167* & 6,280*\\
+$\hat{\sigma^2}$ & 1,382 & 1,176 & 0 & 1,376* & 1,387*\\
+\bottomrule
+\end{tabular}
+\caption{Keskiarvorakenteen satunnaisvaikustusten estimaatit. *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00})}
+\label{table:lme1}
+\end{table}
+
+Kiinteiden vaikutusten mallin lähtöaineistolle ennustetuista arvoista (Kuva ~\ref{fig:lme1_bmi_pred}) vahvistamme vakiotermin satunnaisvaikutusten intuitiivisen tulkinnan. Yksilöillä on sama \textit{keskiarvorakenne}, mutta vakiotermit vaihtelevat.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme_bmi_ennuste.png}
+  \caption{Kiinteiden vaikutusten mallin lähtöaineistolle ennustetut painoindeksin arvot. Sadan satunnaisen yksilön profiilit korostettuna mustalla.}
+  \label{fig:lme1_bmi_pred}
+\end{figure}
+
+Vakiotermin satunnaisvaikutusten $\text{b}_{0i}$ (Kuva ~\ref{fig:lme1_ranef}) ja yksilökohtaisten residuaalien $\bm{\epsilon}_i$ (Kuva ~\ref{fig:lme1_resid}) jakaumien tarkastelu paljastavat ongelmia molempien jakaumaoletuksissa. $\text{b}_{0i}$ jakaumassa on havaittavissa vinoutta ja $\bm{\epsilon}_i$ jakaumassa ilmenee alaspäin suuntautuvaa harhaa.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme_satunnaisvaikutukset.png}
+  \caption{Kiinteiden vaikutusten mallin vakiotermin satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
+  \label{fig:lme1_ranef}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme_residuaalit.png}
+  \caption{Kiinteiden vaikutusten mallin yksilökohtaisten mittausten Pearson-residuaalit ja tiheysfunktion Gaussin ydinestimaatti}
+  \label{fig:lme1_resid}
+\end{figure}
+
+Kiinteiden vaikutusten malli ei sellaisenaan vaikuta riittävältä tutkielman aineiston analyysivälineeksi. Tarkastellaan, kuinka satunnaisvaikutusten rakennetta tarkentamalla voisimme parantaa mallin yhteensopivuutta.\\
+
+\subsubsection{Satunnaisvaikutusten rakenteen valinta}
+
+Aineiston tarkastelun perustella (Kuva \ref{fig:bmi_age}) on uskottavaa ajatella, että painoindeksin ja iän suhteessa, keskimääräisten erojen lisäksi myös kehityksessä iän suhteen olisi yksilöiden välillä eroa. \\
+
+Tutkimme seuraavaksi millainen seuraus iän satunnaisvaikutuksen lisäämisellä on malliin. Kirjoitetaan malli yksilön $i$ painoindeksihavainnolle $j$
+
+\begin{equation}
+\begin{split}
+ \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{i0} + \beta_2 \times \text{IKÄ}_{ij} + \beta_3 \times \text{SUKUPUOLI}_{ij} \\
++ \beta_4 \times \text{IKÄ}_{ij} \times \text{SUKUPUOLI}_{ij} + \text{b}_{0i} + \text{b}_{1i} \times \text{IKÄ}_{ij} + \epsilon_{ij},
+\label{eq:lme2}
+\end{split}
+\end{equation}
+
+jossa $\text{b}_{i0}$ vakiotermin satunnaisvaikutus ja $\text{b}_{i1}$ iän satunnaisvaikutus.\\ 
+
+Merkitään satunnaisvaikutusten parametrivektoria
+
+$$
+\bm{b}_i =
+\begin{bmatrix}
+\text{b}_{i0} \\
+\text{b}_{i1} \\
+\end{bmatrix},
+$$
+
+jolloin kovarianssimatriisi $\bm{G}$ on
+
+$$
+\bm{G} =
+\begin{bmatrix}
+\text{Var}(\text{b}_{0i}) & \text{Cov}(\text{b}_{0i}, \text{b}_{1i}) \\
+\text{Cov}(\text{b}_{0i}, \text{b}_{1i}) & \text{Var}(\text{b}_{1i}) \\
+\end{bmatrix} =
+\begin{bmatrix}
+\sigma^2_{\text{b}_{0i}} & \sigma_{\text{b}_{0i}, \text{b}_{1i}} \\
+\sigma_{\text{b}_{0i}, \text{b}_{1i}} & \sigma^2_{\text{b}_{1i}} \\
+\end{bmatrix}.
+$$
+
+Matriisi $\bm{R}_i$ oletamme edelleen korreloimattoman diagonaalirakenteen.\\
+
+REML estimointi
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llllll}
+\toprule
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
+\midrule
+$\hat{\beta}_0$ & 14,6161 & 0,0175 & 0,0000 & 14,5818 & 14,6505\\
+$\hat{\beta}_1$ & -0,1722 & 0,0020 & 0,0000 & -0,1762 & -0,1682\\
+$\hat{\beta}_2$ & 0,3832 & 0,0024 & 0,0000 & 0,3784 & 0,3879\\
+$\hat{\beta}_3$ & -0,3614 & 0,0225 & 0,0000 & -0,4055 & -0,3173\\
+$\hat{\beta}_4$ & 0,0432 & 0,0034 & 0,0000 & 0,0366 & 0,0497\\
+\bottomrule
+\caption{Satunnaisvaikutusten mallin kiinteiden vaikustusten REML-estimaatit}
+\label{table:lme2}
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Residuaalinen kovarianssirakenteen valinta}
+
+\subsubsection{Mallin parametrien karsinta}
+
+\subsubsection{Lopullinen malli}
+
+PUUTTEET JA KEHITYSKOHTEET
 
 \section{Johtopäätökset}
 
