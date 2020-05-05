@@ -41,9 +41,10 @@ TIIVISTELMÄ
 \mytableofcontents
 
 \section{Johdanto}
-
+\label{sec:johdanto}
 
 \section{Pitkittäistutkimus tutkimusasetelmana}
+\label{sec:pitkittaistutkimus}
 
 Pitkittäistutkimuksen määrittelevänä ominaispiirteenä pidetään yleisesti yhden tai useamman yksilön seurantaan perustuvaa asetelmaa, jossa samasta yksilöstä saadaan havaintoja eri aikoina \citep{diggle02, fitzmaurice11, twisk13, laird82}. Toistuvat havainnot samasta yksilöstä mahdollistavat ajassa tapahtuvien muutosten, muutokseen vaikuttaneiden tekijöiden, kuin myös yksilön yksilöllisistä ominaisuuksista koostuvien tekijöiden tunnistamisen ja analysoinnin.
 
@@ -76,6 +77,7 @@ Tämän tutkielman asetelma ei toistaiseksi ole ristiriidassa edellämainittujen
 \end{figure}
 
 \subsection{Pitkittäisaineiston analyysi}
+\label{sub:pitkittaisanal}
 
 Kuten sanottu, pitkittäisaineistoille on ominaista yhden tai useamman yksilön seuranta usean havaintokerran ajan. Käytännössä useinkaan kaikilta yksilöiltä ei kyetä saamaan samaa määrää havaintoja ja havaintoajankohdat voivat vaihdella. Tällöin puhutaan epätasapainoisesta (\textit{unbalanced}) pitkittäisaineistosta \cite{laird82}.
 
@@ -90,6 +92,7 @@ Lineaaristen sekamallien kirjallisuudessa kaksitasoisen lähestymistavan peruste
 Palaamme kaksitasoisen mallin ja yleisen lineaarisen sekamallin määritelmään myöhemmin. [ks LSM]. \\
 
 \subsection{Finlapset aineisto}
+\label{sub:finlapsetdata}
 
 Tutkielmassa hyödynnetty aineisto perustuu Terveyden ja hyvinvoinninlaitoksen (THL) Finlapset-rekisterihankkeen (FINLAPSET) ohessa kerättyihin tietoihin lasten ja nuorten  perustuvat lastenneuvoloiden kouluterveydenhuollon ja opiskelijaterveydenhuollon terveydenhoitokäynneillä suoritetuista paino- ja pituusmittauksista. Tiedot on kerätty osana perusterveydenhuollon avohoidon hoitoilmoitusrekisterin (Avohilmo) tietokeräystä.\\
 
@@ -98,6 +101,7 @@ Terveystarkastuksissa kerättävistä tiedoista pituus- ja painotiedot ovat olle
 Finlapset-rekisterihankkeen keskeisiä tutkimuskysymyksiä olivat lasten ja nuorten ylipaino ja lihavuus sekä pituus- ja painotietojen valtakunnallinen kattavuus. Tarkastelemme seuraavaksi aineiston keskeisiä rajauksia ja teknisiä määrityksiä. \\
 
 \subsubsection{Finlapset-aineiston muodostus}
+\label{ssb:finlapsetdatamuod}
 
 Avohilmosta suoritetun poiminnan yhteydessä aineistoon on tehty seuraavat rajaukset:
 
@@ -155,6 +159,7 @@ Tulokset julkaistiin vuosilta 2014\textendash2018 sellaisilta lapsilta ja nuoril
 Tässä tutkielmassa noudatetaan Finlapset-aineiston rajauksia muilta osin, lukuunottamatta rajausta yhteen mittaukseen kalenterivuotta kohden tai julkaisun yhdeydessä suoritettua kalenterivuoden ja iän perusteella tehtyä rajausta. Tutustumme aineistoon seuraavaksi yksinomaan tämän tutkielman piirissä.\\
 
 \subsubsection{Rekisteripohjainen lasten ja nuorten neuvola-ja kouluterveysaineisto pitkittäisaineistona}
+\label{ssb:rekpitkittais}
 
 Esittäessämme FinLapset aineiston formaalisti pitkittäisaineiston muodossa, voimme, \cite{fitzmaurice11} esitystapaa mukaillen, aloittaa määrittelemällä painoindeksin satunnaismuuttujana $Y_{ij}$ ja aineistosta havaitun arvon $y_{ij}$, jossa $i = 1, \dots, N$ on yksilöön viittaava indeksi ja $j = 1, \dots n_i$ yksilön $i$ mittaukseen viittava indeksi. On tärkeää huomioida, että Finlapset aineistossa lasten mittausmäärät vaihtelevat yksilöittäin, eli on mahdollista, että $n_i \neq n_k$, kun $i,k = 1,\dots, N$ ja $i \neq k$. Finlapset aineisto on siten epätasapainoinen pitkittäisaineisto.\\
 
@@ -212,6 +217,7 @@ $$\\
 Tarkastelemme seuraavaksi FinLapset-aineistoa tämän tutkielman kehikossa.\\
 
 \subsubsection{FinLapset-aineiston kuvaileva tarkastelu}
+\label{ssb:kuvailu}
 
 Tutkielman keskeinen kohde on lineaaristen sekamallien soveltuvuuden tarkastelu analyysin kohteen ollessa rekisteriaineistosta muodostettu pitkittäisaineisto. Siten kysymykset liittyvät aineistossa esiintyviin ilmiöihin tilastollisten mallien sovellettavuuden ja toiminnan näkökulmasta.\\
 
@@ -343,6 +349,7 @@ Toisin sanoen, kunkin yksilön havaintoihin sovitetun lineaarisen mallin (Kuva ~
 \end{figure}
 
 \section{Lineaarinen sekamalli}
+\label{sec:lsm}
 
 Lineaariset sekamallit (LSM) ovat tilastollisten mallien joukko lähtökohtaisesti jatkuville vastemuuttujille, joiden jäännösvirheet (residuaalit) ovat normaalisti jakautuneita, mutta eivät välttämättä riippumattomia tai niiden varianssi ei ole vakio \cite{west14}. Kyseisten mallien joukkoa kuvaava, yleisesti käytössä oleva englanninkielinen nimi \textit{linear mixed (effect) model}, juontuu mallien ominaisuuksista siten, että mallit ovat parametreiltään lineaarisia ja niihin voi liittyä taustamuuttujien muodossa sekä \textit{kiinteitä} (\textit{fixed}) ja \textit{satunnaisia} (\textit{random}) vaikutuksia (\textit{effects}) \cite{west14}.
 
@@ -351,10 +358,12 @@ Lineaariset sekamallit (LSM) ovat tilastollisten mallien joukko lähtökohtaises
 Siirtääksemme \cite{laird82} esittämän esimerkin FinLapset-aineiston kehikoon oletamme siis, että yksittäisen lapsen painoindeksin ja valittujen taustamuuttujien (esimerkiksi ikä, sukupuoli jne.) välinen yhteys on lineaarinen, mutta kutakin lasta kohden sovitetun lineaarisen regression parametrit voivat vaihdella. Siten, ehdollisesti yksittäisen lapsen parametrejä kohtaan ja, että populaation regressioparametrit noudattavat 2-ulotteista normaalijakaumaa, toistettujen mittausten reunajakauma noudattaa moniulotteista normaalijakaumaa asetelmaa vastaavalla kovarianssirakenteella. 
 
 \subsection{Lineaarisen sekamallin määritelmä}
+\label{sub:lsmmaar}
 
 Jotta voimme perusteellisesti ymmärtää lineaarisen sekamallin luonteen, aloitamme tarkastelun hyvin yleisestä tilastollisen mallin esitysmuodosta, yksinkertaisesta lineaarisesta regressiomallista mallista.
 
 \subsubsection{Lineaarinen regressio}
+\label{ssb:linreg}
 
 Olkoon $y_i$ satunnaismuuttujan $Y_i$ havaittu arvo, $x_i$ satunnaismuuttujan $X_i$ havaittu arvo, $\beta_0$ (vakiotermi) ja $\beta_1$ (taustamuuttujan $x_i$ regressiokerroin) kiinteät, mutta tuntemattomat regressiokertoimet ja satunnaismuuttuja $\epsilon_i$ mallin selittämätön osa (jäännöstermi) havainnoille $i = 1,\dots,n$.
 
@@ -412,6 +421,7 @@ havainnoille $i = 1,\dots,n$. \\
 Seuraavaksi hyödynnämme lineaarisen mallin määritelmää esitellessämme lineaariselle sekamallille ensin kaksitasoisen mallin, jonka jälkeen etenemme luontevasti tasot yhdistävään \cite{laird82} yleiseen lineaariseen sekamalliin.
 
 \subsubsection{Kaksitasomalli}
+\label{ssb:kaksitaso}
 
 Monitasomalleille keskeistä on aineiston hierarkkisen rakenteen huomioiminen mallissa \textit{satunnaisvaikutusten} avulla \cite{talbott06}. Pitkittäisaineistoa kuvaavassa kaksitasomallissa hierarkian ensimmäinen taso käsittää yksilön mittauskertojen välisen vaihtelun ja toinen taso yksilöiden välisen vaihtelun. Monitasomallit voidaan yleistää myös useammalle tasolle \cite{goldstein11, burzykowski13}.
 
@@ -476,6 +486,7 @@ $$
 Lopuksi voimme yhdistää ensimmäisen ja toisen tason komponentit esittääksemme $\bm{Y}_i$:lle lineerisen sekamallin yleisen muodon \cite{fitzmaurice11, verbeke00}.
 
 \subsubsection{Yleinen lineaarinen sekamalli}
+\label{ssb:ylsm}
 
 Yhdistääksemme ensimmäisen ja toisen tason, hyödyntäen toisen vaiheen oletuksia, voimme kirjoittaa $\bm{\beta}_i$ uudelleen muodossa
 
@@ -548,6 +559,7 @@ Siten vahvistamme tulkinnan, että parametrit $\bm{\beta}$ kuvaavat koko tarkast
 \cite{fitzmaurice11} mukaan lineaarisen sekamallin kaksitasoesitys asettaa erityisvaatimuksia myös mallin kovarianssille. Koska kovarianssirakenteella on monin tavoin keskeinen asema, sekä yleisen lineaarisen sekamallin teoriassa, että pitkittäisaineiston erityistapauksessa, erotamme sen käsittelyn omaksi osiokseen.\\ 
 
 \subsection{Kovarianssirakenteet}
+\label{sub:kovarianssirakenteet}
 
 Tarkastellaan seuraavaksi lineaarisen sekamallin kovarianssirakenteita \cite{fitzmaurice11} esittämässä yleisessä muodossa. Lähtökohtana on erottaa yksilökohtaisen ja yksilöiden välisen vaihtelun lähteet ja mahdollistaa näiden yksikäsitteinen analyysi.\\
 
@@ -751,6 +763,7 @@ $$
 Käytännön tapauksissa, koskien vaikkapa epätasapainoista pitkittäisaineistoa, on usein tarve joustavammalle matriisin $\bm{R}_i$ kovarianssirakenteelle. Sopivan rakenteen valinta vaatii kuitenkin havaitun aineiston ja tutkittavan ilmiön ominaisuuksien tarkastelua. Tähän prosessiin palaamme myöhemmin tutkielmassa.\\
 
 \subsection{Estimointi}
+\label{sub:estimointi}
 
 Estimoinnin näkökulmasta kiinnostuksen kohteena ovat kiinteiden vaikutusten parametrit $\bm{\beta}$ ja kovarianssiparametrit $\bm{\theta}_G$ ja $\bm{\theta}_R$. Yleisimmät menetelmät edellä mainittujen parametrien estimointiin ovat suurimman uskottavuuden (\textit{maximum likelihood, ML}) ja rajoitettu suurimman uskottavuuden (\textit{restricted maximum likelihood, REML}) menetelmät \cite{west14}. \\
 
@@ -938,6 +951,7 @@ $$
 $$
 
 \subsection{Satunnaisvaikutusten ennustaminen}
+\label{sub:satunnaisvaik}
 
 Koska satunnaisvaikutukset $\bm{b}_i$ eivät frekventistisen uskottavuuspäättelyn diskurssissa ole mallin parametreja vaan satunnaismuuttujia, mm. \cite{west14, pinheiro00} suosittelevat estimoinnin sijaan puhuttavan satunnaisvaikutusten ennustamisesta. \\
 
@@ -1077,6 +1091,7 @@ Sekamalliyhtälöjen ratkaisut ovat $\hat{\bm{\beta}}$ ja $\hat{\bm{b}}$, jotka 
 \cite{verbeke00} mukaan nykyään on ylestä käyttää kaikkien mallin parametrian estimointiin Newton-Raphson-menetelmää. Tarkan kuvauksen algoritmien implementointiin antavat \cite{lindstrom88} ja \cite{lindstrom90}, joista jälkimmäiseen mm. R-ohjelmiston \textbf{nlme}-paketin dokumentaatiossa viitataan \cite{nlme13}.\\
 
 \subsection{Mallidiagnostiikka}
+\label{sub:mallidiag}
 
 Mallin valinnassa ja arvioinnissa keskeistä on valita sopiva malli, joka vastaa parhaiten esitettyyn tutkimuskysymykseen. Haasteena on useiden kilpailevien mallien määrä, josta tutkijan tulisi pystyä valitsemaan malli, joka samaan aikaan parhaiten selittää vastemuuttujan vaihtelua, mutta mahdollistaa haluttujen tutkimushypoteesien testaamisen \cite{west14}.\\
 
@@ -1132,13 +1147,20 @@ jonka tuottama testisuure noudattaa asymptoottisesti $\chi^2$-jakaumaa vapausast
 \hat{\bm{\epsilon}}_i = \bm{y}_i - \bm{X}_i \hat{\bm{\beta}} - \bm{Z}_i \hat{\bm{b}}_i. \\
  $$
  
+ TARKENNA BURZYKOWSKI 266 marginal vs conditional
+ 
  Niin kutsutut \textit{raa'at} residuaalit eivät sovellu hyvin mallin arviointiin, sillä ne ovat, huolimatta todellisista residuaalesta, usein keskenään korreloituneita ja heteroskedastisia \cite{west14}.\\
  
- Vaihtoehtoisia ratkaisuja ongelmaan ovat skaalatut residuaalit, mm. standardisoidut, Studentin ja Pearsonin residuaalit. Standardisoidut residuaalit saadaan skaalaamalla estimoidut residuaalit todellisella keskihajonnallaan, mutta käytännössä todellinen keskihajonta on harvoin tunnettu. Siten, estimoidut residuaalit voidaan skaalata myös estimoidulla keskihajonnalla, jolloin saadaan Studentin residuaalit. Pearsonin residuaalit saadaan skaalamalla estimoidut residuaalit vastemuuttujan estimoidulla keskihajonnalla. \cite{west14} mukaan Pearsonin residuaaleja voidaan harkita vain, parametrien $\hat{\bm{\beta}}$ vaihtelu halutaan sivuuttaa.\\
+ Vaihtoehtoisia ratkaisuja ongelmaan ovat skaalatut residuaalit, mm. standardisoidut, Studentin sisäiset residuaalit. \cite{burzykowski13} mukaan standardisoidut residuaalit saadaan skaalaamalla estimoidut residuaalit vastemuuttujan todellisella keskihajonnalla, mutta käytännössä todellinen keskihajonta on harvoin tunnettu. Siten, estimoidut residuaalit voidaan skaalata myös estimoidulla keskihajonnalla, jolloin saadaan Studentin sisäiset residuaalit (\textit{internally studentized residuals})\\
  
- [KESKEN]
+ $$
+ \frac{\hat{\bm{\epsilon}}_i}{\sqrt{\widehat{Var}(\bm{y})_i}}.
+ $$
+ 
+ \cite{burzykowski13} mukaan Studentin sisäiset residuaalit ovat suositeltavia, sillä ne vähentävät heteroskedastisuutta poistamatta sitä kokonaan. Myös residuaalien välinen korrelaatio säilytetään. \cite{burzykowski13} huomauttaa, että R-ohjelmistossa Studentin residuaaleja kutsutaan yleisesti Pearsonin residuaaleksi, joten otamme myös käyttöön kyseisen nimeämiskäytännön.\\
  
 \section{Tutkielman rajatun FinLapset-aineiston analyysi lineaarisilla sekamalleilla}
+\label{sec:lsmanalyysi}
 
 Tavoitteena on, edelliset luvut yhdistäen, löytää sopiva malli FinLapset-aineiston analysointiin. Pyrimme ensin sovittamaan aiemmin FinLapset-aineistosta tunnistetut pitkittäisaineiston piirteet lineaaristen sekamallien kehikkoon.\\
 
@@ -1147,6 +1169,7 @@ Seuraavassa vaiheessa sovellamme \cite{west14, verbeke00} mukaillen ylhäältä 
 Tästä johdamme, ja lopuksi kiteytämme, keskeiset löydökset ja peilaamme näitä mallin tunnistettuihin puutteisiin sekä avoimeksi jääneisiin kysymyksiin.\\
 
 \subsection{Operationalisointi}
+\label{sub:operationalisointi}
 
 Tässä vaiheessa suuntaamme kiinnostuksemme siihen, minkälainen yhteys painoindeksin ajallisella muutoksella on yksilön ikään ja sukupuoleen.\\
 
@@ -1178,10 +1201,16 @@ Vaikka, koko lapsen kehityskaari huomioiden, painoindeksin kehitys voi hyvin oll
 Iän mukana malliin sisällytettyjen, mahdollisesti ristiriitaisten informaation lähteiden erottamiseksi \cite{fitzmaurice11} suosittelee ajan operationalisoimista kahdeksi eri muuttujaksi, joista yksilön ikä ensimmäisellä mittauksella $\text{IKÄ}_{i0}$ (\textit{baseline age}) tuo malliin iän poikkileikkausvaikutuksen ja ikä mittaushetkellä $\text{IKÄ}_{ij}$ pitkittäisvaikutuksen. Palaamme ajan operationalisointiin mallinvalintaosiossa.\\
 
 \subsubsection{Ylhäältä alas -strategia}
+\label{ssb:ylhalas}
 
 \cite{west14} ja \cite{verbeke00} lineaarisille sekamalleille esittämässä mallinvalintastrategiassa tavoitteena on ensin muodostaa, kiinteitä vaikutuksia lisäämäällä \textit{yliparametrisoitu} malli jolla voidaan selittää mahdollisimman hyvin aineistossa vallitsevia trendejä.\\
 
-Tarkastellaan painoindeksin ja iän yhteyttä, sekä lisäksi mahdollista biologisen sukupuolen vaikutusta ja iän sukupuolen yhdysvaikutusta painoindeksiin ensin naiivissa asetelmassa lineaarisen regressiomallin avulla, sivuuttaen hetkeksi pitkittäisaineiston hierarkkisen luonteen.\\
+Toisena askeleena on löytää mallille sopiva satunnaisvaikutusten rakenne, jolla pyritään huomioimaan aineiston hierarkkinen rakenne. Tutkielman aineiston tapauksessa hierarkia syntyy ensisijaisesti satunnaisvaihtelun sallimisessa yksilökohtaisten vakiotermien ja kulmakertoimien välillä.\\
+
+Kolmannessa vaiheessa tutkitaan satunnaisvaikutusten lisäämisen jälkeen selittämättä jäänyttä vaihtelua. Huomio kohdistuu erityisesti varianssin homoskedastisuuteen sekä yksilön mittausten väliseen autokorrelaatioon.\\ 
+Viimeinen vaihe käsittää mallin parametrien kriittisen tarkastelun, varsinkin kiinteiden vaikutusten osalta ja lopullisen mallin arvioinnin.\\
+
+Aloitamme kuitenkin tarkastelemalla painoindeksin ja iän yhteyttä, sekä lisäksi mahdollista biologisen sukupuolen vaikutusta ja iän sukupuolen yhdysvaikutusta painoindeksiin naiivissa asetelmassa lineaarisen regressiomallin avulla, sivuuttaen hetkeksi pitkittäisaineiston hierarkkisen luonteen.\\
 
 Alustavien havaintojen (Taulukko ~\ref{table:deskrtaulu}) mukaan keskimääräinen painoindeksi kasvaa huomattavasti iän mukana, mutta sukupuolen vaikutus ilmenee monisyisempänä.\\
 
@@ -1301,7 +1330,7 @@ Nyt sekä sukupuoli, että iän ja sukupuolen yhdysvaikutukset ovat merkitseviä
 \toprule
   & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
 \midrule
-$\hat{\beta}_0$ & 14,0790 & 0,0138 & 0,0000 & 14,0520 & 14,1060\\
+$\hat{\beta}_0$ & 14,079 & 0,0138 & 0,0000 & 14,052 & 14,1060\\
 $\hat{\beta}_1$ & 0,4151 & 0,0014 & 0,0000 & 0,4123 & 0,4179\\
 $\hat{\beta}_2$ & -0,2831 & 0,0196 & 0,0000 & -0,3215 & -0,2447\\
 $\hat{\beta}_3$ & 0,0322 & 0,0020 & 0,0000 & 0,0283 & 0,0362\\
@@ -1344,6 +1373,7 @@ Bayesin informaatiokriteeri, erityisesti mallien LM ~\ref{eq:lm1} ja LM ~\ref{eq
 Yliparametrisoidun kiinteiden vaikutusten mallin tarpeet täyttääksemme, voimme silti ottaa lineaarisen mallin LM ~\ref{eq:lm3}.\\
 
 \subsubsection{Yliparametrisoitu kiinteiden vaikutusten malli}
+\label{ssb:yliparammalli}
 
 Siirrämme lähestymistavan nyt pitkittäisaineiston kehikkoon. Muotoilemme kiinteiden vaikutusten mallin, noudattaen \cite{fitzmaurice11} suositusta ajan operationalisoinnista, seuraavalla tavalla
 
@@ -1365,7 +1395,7 @@ Kiinteiden vaikutusten ML-estimaateilla (Taulukko ~\ref{table:lme0}) onkin vasta
 \toprule
   & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
 \midrule
-$\hat{\beta}_0$ & 14,1241 & 0,0189 & 0,0000 & 14,0870 & 14,1611\\
+$\hat{\beta}_0$ & 14,124 & 0,0189 & 0,0000 & 14,087 & 14,161\\
 $\hat{\beta}_1$ & 0,0194 & 0,0022 & 0,0000 & 0,0152 & 0,0236\\
 $\hat{\beta}_2$ & 0,4044 & 0,0015 & 0,0000 & 0,4016 & 0,4073\\
 $\hat{\beta}_3$ & -0,3285 & 0,0231 & 0,0000 & -0,3737 & -0,2833\\
@@ -1410,10 +1440,11 @@ Estimaateista $\hat{\bm{G}}$ ja $\hat{\bm{R}}_i$ (Taulukko ~\ref{table:lme1}) sa
   & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
 \midrule
 $\hat{\sigma^2}_{\text{b}_{0i}}$ & 6,224 & 2,495 & 0 & 6,167* & 6,280*\\
+\addlinespace
 $\hat{\sigma^2}$ & 1,382 & 1,176 & 0 & 1,376* & 1,387*\\
 \bottomrule
 \end{tabular}
-\caption{Keskiarvorakenteen satunnaisvaikustusten estimaatit. *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00})}
+\caption{Keskiarvorakenteen satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00})}
 \label{table:lme1}
 \end{table}
 
@@ -1431,7 +1462,7 @@ Vakiotermin satunnaisvaikutusten $\text{b}_{0i}$ (Kuva ~\ref{fig:lme1_ranef}) ja
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme_satunnaisvaikutukset.png}
-  \caption{Kiinteiden vaikutusten mallin vakiotermin satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Kiinteiden vaikutusten mallin vakiotermin ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
   \label{fig:lme1_ranef}
 \end{figure}
 
@@ -1445,6 +1476,7 @@ Vakiotermin satunnaisvaikutusten $\text{b}_{0i}$ (Kuva ~\ref{fig:lme1_ranef}) ja
 Kiinteiden vaikutusten malli ei sellaisenaan vaikuta riittävältä tutkielman aineiston analyysivälineeksi. Tarkastellaan, kuinka satunnaisvaikutusten rakennetta tarkentamalla voisimme parantaa mallin yhteensopivuutta.\\
 
 \subsubsection{Satunnaisvaikutusten rakenteen valinta}
+\label{ssb:satunnaisrakenneval}
 
 Aineiston tarkastelun perustella (Kuva \ref{fig:bmi_age}) on uskottavaa ajatella, että painoindeksin ja iän suhteessa, keskimääräisten erojen lisäksi myös kehityksessä iän suhteen olisi yksilöiden välillä eroa. \\
 
@@ -1484,9 +1516,9 @@ $$
 \end{bmatrix}.
 $$
 
-Matriisi $\bm{R}_i$ oletamme edelleen korreloimattoman diagonaalirakenteen.\\
+Matriisille $\bm{R}_i$ oletamme edelleen korreloimattoman diagonaalirakenteen.\\
 
-REML estimointi
+Satunnaisvaikutuksia vertallaksemme sovitamme mallin REML-menetelmällä. Koska kiinteiden vaikutusten ja satunnaisvaikutusten mallien kiinteät vaikutukset ovat samoin määritelty, voidaan aiemmin ML-menetelmällä estimoituja kiinteitä vaikutuksia (Taulukko ~\ref{table:lme0}) kuitenkin verrata satunnaisvaikutusten REML-estimaatteihin (Taulukko ~\ref{table:lme2}).
 
 \begin{table}[H]
 \centering
@@ -1494,23 +1526,279 @@ REML estimointi
 \toprule
   & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
 \midrule
-$\hat{\beta}_0$ & 14,6161 & 0,0175 & 0,0000 & 14,5818 & 14,6505\\
+$\hat{\beta}_0$ & 14,616 & 0,0175 & 0,0000 & 14,582 & 14,651\\
 $\hat{\beta}_1$ & -0,1722 & 0,0020 & 0,0000 & -0,1762 & -0,1682\\
 $\hat{\beta}_2$ & 0,3832 & 0,0024 & 0,0000 & 0,3784 & 0,3879\\
 $\hat{\beta}_3$ & -0,3614 & 0,0225 & 0,0000 & -0,4055 & -0,3173\\
 $\hat{\beta}_4$ & 0,0432 & 0,0034 & 0,0000 & 0,0366 & 0,0497\\
 \bottomrule
-\caption{Satunnaisvaikutusten mallin kiinteiden vaikustusten REML-estimaatit}
-\label{table:lme2}
 \end{tabular}
+\caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lm2} kiinteiden vaikustusten REML-estimaatit}
+\label{table:lme2}
 \end{table}
 
+Taulukosta ~\ref{table:lme3} huomaamme vakiotermin varianssin kasvaneen hieman, mutta toisaalta residuaalivarianssi on pienentynyt huomattavasti. Malli vaikuttaa siis selittävän yksilökohtaisten mittausten vaihtelua paremmin.\\
 
-\subsubsection{Residuaalinen kovarianssirakenteen valinta}
+\begin{table}[H]
+\centering
+\begin{tabular}{llllll}
+\toprule
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
+\midrule
+$\hat{\sigma^2}_{\text{b}_{0i}}$ & 8,4467 & 2,9063 & 0 & 8,2955* & 8,6007*\\
+$\hat{\sigma^2}_{\text{b}_{1i}}$ & 0,2116 & 0,4600 & 0 & 0,2091* & 0,21413*\\
+$\hat{\sigma}_{\text{b}_{0i}, \text{b}_{1i}}$ & -1,0566 & - & - & - & -\\
+\addlinespace
+$\hat{\sigma^2}$ & 0,5926 & 1,176 & 0 & 0,5889* & 0,5964*\\
+\bottomrule
+\end{tabular}
+\caption{Satunnaisvaikutusmallin LSM~\ref{eq:lm2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00})}
+\label{table:lme3}
+\end{table}
+
+Aineistolle ennustettujen painoindeksiarvojen tarkastelu (Kuva ~\ref{fig:lme2_bmi_pred}) viittaa samankaltaiseen johtopäätökseen. Yksilöiden mittausjaksot vaiktutavat eroavan toisistaan iästä riippuen. Nuoremmilla lapsilla kehityksen vaihtelu on maltillisempaa, mutta vanhemmilla lapsilla ja nuorilla painoindeksin kehitys vaihtelee iän satunnaisvaikutuksien perusteellaa huomattavasti enemmän.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_bmi_ennuste.png}
+  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lm2} lähtöaineistolle ennustetut painoindeksin arvot. Sadan satunnaisen yksilön profiilit korostettuna mustalla.}
+  \label{fig:lme2_bmi_pred}
+\end{figure}
+
+Vakiotermin ennustettujen satunnaisvaikutusten jakauma (Taulukko ~\ref{fig:lme2_vakio_ranef}) on silmämääräisesti symmetrisempi kuin kiinteiden vaikutusten mallissa, mutta iän ennustetuissa satunnaisvaikutukset (Taulukko ~\ref{fig:lme2_ika_ranef}) ovat mahdollisesti harhaisia. Paneudumme tähän lopullisen mallin kriittisessä arvioinnissa.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_vakio_satunnaisvaikutukset.png}
+  \caption{Satunnaisvaikutusten mallin vakiotermin ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
+  \label{fig:lme2_vakio_ranef}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_ika_satunnaisvaikutukset.png}
+  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lm2} iän ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
+  \label{fig:lme2_ika_ranef}
+\end{figure}
+
+Pienemmän varianssin lisäksi residuaalien jakauma (Taulukko~\ref{fig:lme2_resid}) näyttää vastaavan jakaumaoletuksia huomattavasti edeltävää mallia paremmin, joskin lopullinen arvio vaatii tarkempaa tarkastelua. Tähän palamme lopullisen mallin arvioinnissa.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_residuaalit.png}
+  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lm2} yksilökohtaisten mittausten Pearson-residuaalit ja tiheysfunktion Gaussin ydinestimaatti}
+  \label{fig:lme2_resid}
+\end{figure}
+
+Satunnaisvaikutusten malli on osoittanut positiivista parannusta kiinteiden vaikutusten malliin verrattuna, joskin joitakin perustavia kysymuksiä mallin oletusten toteutumisesta ovat vielä jääneet vastaamatta.\\
+
+Taulukon~\ref{table:lme_summary} Bayesin informaatiokriteerin (BIC) perusteella satunnaisvaikutusten malli (LSM~\ref{eq:lme2}), parametrien määrä huomioiden, osoittaa huomattavasti parempaa sopusointua aineistoon suhteen verrattuna kiinteiden vaikutusten malliin (LSM~\ref{eq:lme1}). Vertailuna taulukossa myös alustavan lineaarisen mallin (LM~\ref{eq:lm3}) tuloksia, joihin nähden molemmat lineaaristen sekamallien ryhmään kuuluvat mallit osoittavat merkittävää parannusta. \\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+Malli & $df$ & $l(\bm{\beta})$ & AIC & BIC\\
+\midrule
+LM~\ref{eq:lm3} & 5 & -1032898 & 2065806 & 2065861\\
+LSM~\ref{eq:lme1} & 7 & -813634 & 1627282 & 1627359\\
+LSM~\ref{eq:lme2} & 9 & -729237 & 1458492 & 1458591\\
+\bottomrule
+\end{tabular}
+\caption{Lineaarisen mallin ja lineaaristen sekamallien vapausasteiden, log-uskottavuuksien ja informaatiokriteerien vertailu}
+\label{table:lme_summary}
+\end{table}
+
+Valitsemme mallin LSM~\ref{eq:lme2} seuraavan vaiheen tarkasteluun, jossa tutkimme tarkemmin residuaalien kovarianssirakennetta.
+
+\subsubsection{Residuaalien kovarianssirakenteen valinta}
+\label{ssb:reskovar}
+
+\cite{pinheiro00} tuovat esiin, että \cite{laird82} mukainen lineaarisen sekamallin määrittely tuo huomattavaa joustavuutta satunnaisvaikutusten rakenteen määrittelyyn tilanteissa, joissa yksilökohtaiset residuaalit ovat korreloimattomia ja niiden varianssi on vakio, mutta voi sellaisenaan johtaa ristiriitaisiin tuloksiin tapauksissa, joissa yksilön residuaalit ovat korreloituneita, niiden varianssissa esiintyy heteroskedastisuutta tai molempia samanaikaisesti.\\
+
+Osiossa~\ref{sub:kovarianssirakenteet} totesimme, että matriisiin $\bm{R}_i$ voidaan korreloimattoman diagonaalirakenteen sijaan sisällyttää myös muita rakenteita. \cite{pinheiro00} mukaan tämä käytännössä vaatii kuitenkin lineaarisen sekamallin laajentamista.\\
+
+\cite{pinheiro00} näyttävät, että residuaalien kovarianssimatriisille $\bm{R}_i$ löytyy hajotelma
+
+$$
+\bm{R}_i = \bm{W}_i \bm{C}_i \bm{W}_i,
+$$
+
+jossa $\bm{W}_i$ on diagonaalimatriisi, joka diagonaalialkiot ovat positiivisia ja $\bm{C}_i$ positiividefiniitti korrelaatiomatriisi, jonka kaikki diagonaalialkiot ovat ykkösiä. \cite{pinheiro00} mukaan hajotelma on residuaalien kovarianssimatriisin tarkastelun kannalta hyödyllinen, sillä sen avulla voimme määritellä yksilön $i$ residuaalelle sekä varianssirakenteen 
+
+$$
+\text{Var}(\epsilon_{ij}) = \sigma^2(\bm{W}_i)^2_{jj}
+$$
+
+ja korrelaatiorakenteen
+
+$$
+\text{cor}(\epsilon_{ij}, \epsilon_{ik}) = (\bm{C}_i)_{jk}.
+$$
+
+\cite{pinheiro00} mukaan laajennettuun lineaariseen malliin liittyy kaksi keskeistä huomiota. Ensinnäkin laajennetun mallin estimointi eroaa mm. tämän tutkielman määrittelystä. Toiseksi, laajennetun lineaarisen sekamallin vasteen kovarianssimatriisissa
+
+$$
+\text{Cov}(\bm{y}_i) = \bm{Z}_i \bm{G} \bm{Z}_i^\top +  \bm{W}_i \bm{C}_i \bm{W}_i,
+$$
+
+satunnaisvaikutusten komponentti $\bm{Z}_i \bm{G} \bm{Z}_i^\top$ ja yksilökohtaisten residuaalien komponentti $\bm{W}_i \bm{C}_i \bm{W}_i$ kilpailevat osin keskenään, tulee komponenttien määrittely suunnitella huolella ja kiinnittää huomiota mm. monimutkaisten satunnaisvaikutusten ja varianssi- ja korrelaatiorakenteiden samanaikaiseen mallintamiseen.\\
+
+Näitä huomioita noudattaen, varianssin heteroskedastisuuden ja residuaalien korreloituneisuuden tarkastelu on tärkeä vaihe, mutta suhtaudumme suuntaa-antavasti mahdollisiin ehdotuksiin niiden ratkaisemiseksi ja rajaamme \cite{pinheiro00} tarjoaman laajennetun lineaarisen sekamallin määrittelmän tämän tarkastelun ulkopuolelle.\\
+
+Vaikka satunnaisvaikutusmallin residuaalien jakauma vaikutti lupaavalta, mikäli tarkastelemme residuaaleja iän suhteen (Kuva~\ref{fig:lme2_ika_resid}) paljastaa, ettei oletus varianssin homoskedastisuudesta ole pitävä. Silmämääräisesti varianssi vaikuttaa olevan pienempi nuorempana ja kasvavan iän myötä, tosin aivan pienten lasten kohdalla on havaittavissa myös merkittävää harhaa.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_ika_residuaalit.png}
+  \caption{Satunnaisvaikutusten mallin yksilökohtaisten mittausten Pearson-residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti}
+  \label{fig:lme2_ika_resid}
+\end{figure}
+
+Yksilön mittausten välistä autokorrelaatiota voimme \cite{pinheiro00} mukaan tarkastella autokorrelaatiofunktion avulla. Oletamme, että virhetermit $\epsilon_{ij}, \epsilon_{ik}$ ovat riippuvat sijainneista $p_{ij}, p_{ik}$, jonkin etäisyyden $d(p_{ij}, p_{ik})$ mukaan. Voimme siten määritellä autokorrelaatiofunktion $h$
+
+$$
+\text{cor}(\epsilon_{ij}, \epsilon_{ik}) = h(d(p_{ij}, p_{ik}), \bm{\rho})),
+$$
+
+jossa $d$ on jokin etäisyysfunktio ja $\bm{\rho}$ korrelaatioparametrien vektori.\\
+
+Tarkastellaksemme autokorrelaatiota esimerkiksi iän perusteella, voimme määritellä sijainneiksi $p_{ij}, p_{ik}$ yksilön $i$ iän mittauksilla $j$ ja $k$, sekä etäisyydeksi $d$ euklidisen etäisyyden, eli yksiulotteisessa tapauksessa erotuksen itseisarvon $|\text{IKÄ}_{ij} - \text{IKÄ}_{ik}|$ mittausten $j$ ja $k$ välillä.\\ 
+
+\cite{pinheiro00} osoittavat, että mittausten samankaltaisuutta perustuen määriteltyyn etäisyyteen $s$ korrelaatioparametreillä $\bm{\rho}$ voidaan tarkastella semivariogrammilla (Kuva ~\ref{fig:lme2_vario})
+
+$$
+\gamma(s, \rho) = 1 - h(s, \bm{\rho})\\
+$$
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_vario.png}
+  \caption{Satunnaisvaikutusten mallin empiirinen semivariogrammi ($\hat{\gamma}$)}
+  \label{fig:lme2_vario}
+\end{figure}
+
+Semivariogrammin pisteet kuvaavat kukin noin 20 000 Pearsonin residuaaliparin perustuvaa samankaltaisten havaitoparien klusteria ja käyrä kuvaa LOESS-tasoitettua trendiä suhteessa residuaaliparin sijaintien etäisyyteen. Matalammat semivariogrammin arvot viittaavat samankaltaisuuteen ja korkeammat arvot erilaisuuteen.\\
+
+Tarkastelun perusteella aineistossa ilmenee kohtalaisen voimakasta autokorrelaatiota yksilön mittausten välillä suhteessa mittausten väliseen ajalliseen etäisyyteen. Noin kolmeen vuoteen saakka tarkastelu tukee intuitiota, että lähellä olevat arvot ovat samankaltaisempia.\\
+
+Kolmen vuoden jälkeen samankaltaisuus vaikuttaisi vastoin odotuksia lisääntyvän, mikä \cite{pinheiro00} mukaan voi usein johtua estimaattien epäluotettavuudesta pitkillä etäisyyksillä, mutta se voi kertoa myös ongelmista mallin oletusten suhteen.\\
+
+On selviä viitteitä, että varianssin heteroskedastisuuteen ja residuaalien autokorrelaatioon olisi syytä kiinnittää huomiota. Tarkastelemme molempia ongelmia esimerkkien kautta ja vertaamme lopullisen mallin suhteen mahdollisia ratkaisuja, mutta syvällinen analyysi on rajattu tutkielman ulkopuolelle.\\
+
+Kuten aiempi tarkastelu antoi viiteitä (Kuva~\ref{fig:lme2_ika_resid}), varianssia voi olla perusteltua tarkastella iän funktiona. Mikäli oletamme varianssin iän lineaariseksi funktioksi, voimme \cite{pinheiro00} mukaillen määritellä varianssiksi
+
+$$
+\text{Var}(\epsilon_{ij}) = \sigma^2\text{IKÄ}_{ij}
+$$
+
+ja siten varianssifunktioksi
+
+$$
+g(\text{IKÄ}_{ij}) = \sqrt{\text{IKÄ}_{ij}}.
+$$
+
+Tällöin saamme varianssipainoiksi $1/\sqrt{\text{IKÄ}_{ij}}$, joiden avulla voimme sovittaa uudelleen satunnaisvaikusten mallin pyrkien painottamaan varianssia heteroskedastisuuden vähentämiseksi. Kuvassa~\ref{fig:lme2_varfunc} varianssipainokertoimien muutos kuvattu iän suhteen. \\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_varfunc.png}
+  \caption{Varianssipainokertoimien $1/g(\text{IKÄ}_{ij})$ muutos iän suhteen}
+  \label{fig:lme2_varfunc}
+\end{figure}
+
+Satunnaisvaikutusten varianssipainotetun mallin residuaalien vaihtelu (Kuva ~\ref{fig:lme2_ika_v_resid}) on hieman parantunut suuremmilla iän arvoilla, erityisesti kuvaajan alkupäässä residuaalivaihtelu on vääristynyttä. Heteroskedastisuuden tasoittuminen on havaittavissa myös semivariogrammin estimaateissa (Kuva ~\ref{fig:lme2_v_vario}), mutta autokorrelaatio vaikuttaa pysyneen muuttumattomana.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_ika_v_residuaalit.png}
+  \caption{Satunnaisvaikutusten varianssipainotetun mallin yksilökohtaisten mittausten Pearson-residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti}
+  \label{fig:lme2_ika_v_resid}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_v_vario.png}
+  \caption{Satunnaisvaikutusten varianssipainotetun mallin empiirinen semivariogrammi ($\hat{\gamma}$)}
+  \label{fig:lme2_v_vario}
+\end{figure}
+
+Kovarianssirakenteita käsittelevässä osiossa (~\ref{sub:kovarianssirakenteet}) esittelimme ensimmäisen asteen autoregressiivisen mallin AR(1) kovarianssirakenteen olevan riittämätön epätasapainoiseen aineistoon. \cite{pinheiro00} määrittelevät ensimmäisen asteen autoregressiiviseksi autokorrelaatiofunktioksi $h(k,\phi)=\phi^k$, jossa korrelaatioparametri $\phi$ on \textit{lag-1}-korrelaatiokerroin ja $k=0,1,\dots n_i$ Tämä voidaan heidän mukaansa yleistää jatkuvan autoregressiivisen mallin CAR(1) autokorrelaatiofunktioksi $h(s,\phi)=\phi^s$, jossa $s>0$ ja $\phi>0$.
+
+Korrelaatioparametrin estimaatiksi saamme $\hat{\phi} = 0,591$, mikä viittaa kohtalaisen korkeaan autokorrelaatioon. Kuvan~\ref{fig:lme2_corfunc} mukaan korrelaatio laskee jyrkemmin noin kahden vuoden etäisyyteen saakka, jonka jälkeen se suppenee kohti nollaa. Tämä on ensimmäisten kolmen vuoden osalta likimain yhtäpitävää empiirisen semivariogrammin tulosten suhteen, mutta ei vastaa tilannetta yli kolmen vuoden etäisyyksillä.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_corfunc.png}
+  \caption{CAR(1)-mallin autokorrelaatiofunktion $\hat{\phi}^s$ muutos $s$ suhteen, jossa $s>0$ on mittausten etäisyys vuosina ja $\hat{\phi} = 0,591$}
+  \label{fig:lme2_corfunc}
+\end{figure}
+
+Tarkastellaan satunnaisvaikutusten varianssipainotettua mallia, kun mallissa huomioidaan residuaalien autokorrelaatio, olettaen residuaaliparien etäisyydelle CAR(1)-mallin mukainen autokorrelaatiofunktio estimoidulla korrelaatioparametrilla $\hat{\phi} = 0,591$.\\
+
+Residuaaleissa on havaittavissa merkittävää parannusta, vaikka varianssissa ilmeneekin iän suhteen aaltoilua (Kuva~\ref{fig:lme2_ika_vc_resid}). Semivariogrammin perusteella autokorrelaatiota ole saatu täysin eliminoitua, mutta sen arvot ovat tasoittuneet huomattavasti (Kuva~\ref{fig:lme2_vc_vario}). Myös kaukana toisistaan sijaitsevien mittausten epäilyttävä korreloituneisuus on lieventynyt.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_ika_vc_residuaalit.png}
+  \caption{Satunnaisvaikutusten varianssipainotetun mallin yksilökohtaisten mittausten Pearson-residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti, huomioiden residuaalien autokorrelaatio.}
+  \label{fig:lme2_ika_vc_resid}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/lme2_vc_vario.png}
+  \caption{Satunnaisvaikutusten varianssipainotetun mallin empiirinen semivariogrammi ($\hat{\gamma}$), huomioiden residuaalien autokorrelaatio.}
+  \label{fig:lme2_vc_vario}
+\end{figure}
+
+Tulokset antavat vahvoja viitteitä varianssi- ja autokorrelaatiofunktioiden määrittelylle, mutta vakavastiotettavien johtopäätösten tuottamiseksi malli tulisi tarkistaa \cite{pinheiro00} esittämän laajennetun lineaarisen sekamallin määritelmän mukaiseksi.\\
+
+Lopullista mallia etsiessämme tulemme kuitenkin hyödyntämään varianssipainotettun autokorrelaation huomioivan mallin tuloksia viitteellisinä kontrafaktuaaleina, joihin peilaamme lopullisesta mallista saatuja tuloksia.\\
 
 \subsubsection{Mallin parametrien karsinta}
+\label{ssb:malliparamkars}
+
+Palaamme tarkastelemaan satunnaisvaikuten mallia LSM~\ref{eq:lme2} ja arvioimme kriittisesti kiinteiden vaikutusten perusteita vertaamalla täyttä mallia kiinteille vaikutusille kriittisiin malleihin.\\
+
+Kriittisiksi malleksi muodostamme satunnaisvaikutusten mallin ilman kiinteää sukupuolen ja iän yhdysvaikutusta (LSM~\ref{eq:lme2.1})
+
+\begin{equation}
+\begin{split}
+ \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{i0} + \beta_2 \times \text{IKÄ}_{ij} + \beta_3 \times \text{SUKUPUOLI}_{ij}\\
+ + \text{b}_{0i} + \text{b}_{1i} \times \text{IKÄ}_{ij} + \epsilon_{ij},
+\label{eq:lme2.1}
+\end{split}
+\end{equation}
+
+sekä täysin ilman kiinteää sukupuolen vaikutusta (LSM~\ref{eq:lme2.2})
+
+\begin{equation}
+\begin{split}
+ \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{i0} + \beta_2 \times \text{IKÄ}_{ij} + \text{b}_{0i} + \text{b}_{1i} \times \text{IKÄ}_{ij} + \epsilon_{ij}.
+\label{eq:lme2.2}
+\end{split}
+\end{equation}
+
+\cite{west14} mukaan yliparametrisoidun mallin on tarkoitus tarjota perusteet satunnaisvaikutusten määrittämiseen, mutta lopuksi tavoitteena on löytää kompromissi mahdollisimman yksinkertaisen, mutta riittävän selitysvoimaisen mallin välillä. Vaikka täysi malli (LSM~\ref{eq:lme2}) tarjoaa viitteellisesti parhaan yhteensopivuuden aineiston suhteen, informaatiokriteerien (Taulukko~\ref{table:kriit1}) perusteella ylimääräisten kiinteiden vaikutusten säilyttämiseen ei näytä olevan perusteita.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+Malli & $df$ & $l(\bm{\beta})$ & AIC & BIC\\
+\midrule
+LSM~\ref{eq:lme2.2} & 8 & -692709.6 & 1385435 & 1385523\\
+LSM~\ref{eq:lme2.1} & 9 & -692638.0 & 1385294 & 1385393\\
+LSM~\ref{eq:lme2} & 10 & -692534.8 & 1385090 & 1385199\\
+\bottomrule
+\end{tabular}
+\label{table:kriit1}
+\end{table}
 
 \subsubsection{Lopullinen malli}
+
+QQPLOT
 
 PUUTTEET JA KEHITYSKOHTEET
 
@@ -1533,9 +1821,46 @@ PUUTTEET JA KEHITYSKOHTEET
 
 \pagestyle{empty}
 
-\internalappendix{1}{Appendix 1 HEADER}
+\internalappendix{1}{Tulokset ja taulukot}
 
-Appendix 1 TEXT
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: ti, touko 05, 2020 - 20.10.08
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-3} 
+\\[-1.8ex] & \multicolumn{2}{c}{bmi} \\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ ika\_alku\_i & $-$0.173$^{***}$ & $-$0.174$^{***}$ \\ 
+  & (0.002) & (0.002) \\ 
+  & & \\ 
+ ika & 0.404$^{***}$ & 0.383$^{***}$ \\ 
+  & (0.002) & (0.002) \\ 
+  & & \\ 
+ sukupfF &  & $-$0.361$^{***}$ \\ 
+  &  & (0.022) \\ 
+  & & \\ 
+ ika:sukupfF &  & 0.043$^{***}$ \\ 
+  &  & (0.003) \\ 
+  & & \\ 
+ Constant & 14.440$^{***}$ & 14.625$^{***}$ \\ 
+  & (0.014) & (0.018) \\ 
+  & & \\ 
+\hline \\[-1.8ex] 
+Observations & 421,660 & 421,660 \\ 
+Log Likelihood & $-$729,345.800 & $-$729,214.800 \\ 
+Akaike Inf. Crit. & 1,458,706.000 & 1,458,448.000 \\ 
+Bayesian Inf. Crit. & 1,458,782.000 & 1,458,546.000 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
 
 \end{document}
 
