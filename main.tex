@@ -1934,9 +1934,41 @@ Kuvan~\ref{fig:lme_ranef_qq} perusteella vakiotermin ennustetut satunnaisvaikutu
    \label{fig:lme_ranef_qq}
 \end{figure}
 
-Viimeiseksi tarkastelemme 
+Viimeiseksi tarkastelemme Pearsonin residuaaleja suhteessa vastemuuttujan sovitteeseen. \cite{west14, pinheiro00} mukaan Pearsonin residuaalit vähentävät residuaalien heteroskedastisuutta ja residuaalien tulisi olla symmetrisesti jakautuneita suhteessa vastemuuttujan sovitteeseen. \cite{burzykowski13} suosittelevat kuitenkin varovaisempaan suhtautumiseen, sillä kuvaaja näyttää kaikkien aikapisteiden havainnot päällekäin ja tiedämme, että yksilökohtaiset mittaukset ovat ajan suhteen korreloituneita.\\
 
-KIINTEILLE VAIKUTUKSILLE KRIITTINEN VK MALLI RESIDUAALIONGELMAT -- POIS
+Kuvan~\ref{fig:lme_fitresid_qq} mukaan kriittisen ja täyden mallin  $\text{LSM}$~\ref{eq:lme2.2} ja  $\text{LSM}$~\ref{eq:lme2} Pearsonin residuaaleissa on havaittavissa lievää kasvavaa trendiä suurilla vastemuuttujan arvoilla. Tämä voi olla selitettävissä \cite{burzykowski13} huomiolla mittausten korreloituneisuudesta, sillä painoindeksi saa suurempia arvoja vanhemmilla lapsilla. Mallien $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2} ja $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} osalta paljastuu, että vaikka laajennetun mallin yksilökohtainen residuaalivarianssi on huomattavasti pienempää, ovat residuaaliestimaatit hyvin vääristyneitä suhteessa vastemuuttujan sovitteeseen ja siten laajennetun mallin määrittelyssä voi olla vakavia puutteita.\\
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_fitresid.png}
+  \caption{Kriittinen malli $\text{LSM}$~\ref{eq:lme2.2}}
+  \label{fig:lme_krit_fitresid}
+\end{subfigure}%
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_fitresid.png}
+  \caption{Täysi malli $\text{LSM}$~\ref{eq:lme2}}
+  \label{fig:lme_taysi_fitresid}
+\end{subfigure}
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_vc_fitresid.png}
+  \caption{Kriittinen malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2}}
+  \label{fig:lme_vk_krit_fitresid}
+\end{subfigure}%
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_vc_fitresid.png}
+  \caption{Täysi malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2}}
+  \label{fig:lme_vk_taysi_fitresid}
+\end{subfigure}
+ \caption{Kriittisen (a) ja täyden mallin (b) sekä vastaavien laajennettujen mallien (c) ja (d) skaalaamattomat residuaalit suhteessa vastemuuttujan sovitteeseen.}
+   \label{fig:lme_fitresid_qq}
+\end{figure}
+
+Tavoitteenamme on ollut valita mahdollisimman yksinkertainen, mutta riittävä malli. Huomioiden kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} ja täyden mallin $\text{LSM}$~\ref{eq:lme2} tulosten häviävän pienet eroavaisuudet, sekä laajennetun mallin heikko määrittely ja vakavat puutteet, valitsemme lopulliseksi malliksi kiinteille vaikutuksille kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2}.\\
 
 \subsubsection{Lopullinen malli}
 
