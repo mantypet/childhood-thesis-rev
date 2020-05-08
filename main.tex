@@ -2,7 +2,7 @@
 %after changing the language you may be forced to use recompile from scratch to get rid of errors
 \documentclass[finnish]{docopts}
 \usepackage{epsfig}
-\usepackage{subfigure}
+\usepackage{subcaption}
 \usepackage{url}
 \usepackage{natbib}
 \usepackage{tikz}
@@ -1533,7 +1533,7 @@ $\hat{\beta}_3$ & -0,3614 & 0,0225 & 0,0000 & -0,4055 & -0,3173\\
 $\hat{\beta}_4$ & 0,0432 & 0,0034 & 0,0000 & 0,0366 & 0,0497\\
 \bottomrule
 \end{tabular}
-\caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lm2} kiinteiden vaikustusten REML-estimaatit}
+\caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} kiinteiden vaikustusten REML-estimaatit}
 \label{table:lme2}
 \end{table}
 
@@ -1552,7 +1552,7 @@ $\hat{\sigma}_{\text{b}_{0i}, \text{b}_{1i}}$ & -1,0566 & - & - & - & -\\
 $\hat{\sigma^2}$ & 0,5926 & 1,176 & 0 & 0,5889* & 0,5964*\\
 \bottomrule
 \end{tabular}
-\caption{Satunnaisvaikutusmallin LSM~\ref{eq:lm2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00})}
+\caption{Satunnaisvaikutusmallin LSM~\ref{eq:lme2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00})}
 \label{table:lme3}
 \end{table}
 
@@ -1561,7 +1561,7 @@ Aineistolle ennustettujen painoindeksiarvojen tarkastelu (Kuva ~\ref{fig:lme2_bm
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_bmi_ennuste.png}
-  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lm2} lähtöaineistolle ennustetut painoindeksin arvot. Sadan satunnaisen yksilön profiilit korostettuna mustalla.}
+  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} lähtöaineistolle ennustetut painoindeksin arvot. Sadan satunnaisen yksilön profiilit korostettuna mustalla.}
   \label{fig:lme2_bmi_pred}
 \end{figure}
 
@@ -1577,7 +1577,7 @@ Vakiotermin ennustettujen satunnaisvaikutusten jakauma (Taulukko ~\ref{fig:lme2_
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_ika_satunnaisvaikutukset.png}
-  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lm2} iän ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} iän ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
   \label{fig:lme2_ika_ranef}
 \end{figure}
 
@@ -1586,7 +1586,7 @@ Pienemmän varianssin lisäksi residuaalien jakauma (Taulukko~\ref{fig:lme2_resi
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_residuaalit.png}
-  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lm2} yksilökohtaisten mittausten Pearson-residuaalit ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} yksilökohtaisten mittausten Pearson-residuaalit ja tiheysfunktion Gaussin ydinestimaatti}
   \label{fig:lme2_resid}
 \end{figure}
 
@@ -1734,32 +1734,68 @@ Korrelaatioparametrin estimaatiksi saamme $\hat{\phi} = 0,591$, mikä viittaa ko
   \label{fig:lme2_corfunc}
 \end{figure}
 
-Tarkastellaan satunnaisvaikutusten varianssipainotettua mallia, kun mallissa huomioidaan residuaalien autokorrelaatio, olettaen residuaaliparien etäisyydelle CAR(1)-mallin mukainen autokorrelaatiofunktio estimoidulla korrelaatioparametrilla $\hat{\phi} = 0,591$.\\
+Tarkastellaan satunnaisvaikutusten varianssipainotettua mallia, kun mallissa huomioidaan residuaalien autokorrelaatio, olettaen residuaaliparien etäisyydelle CAR(1)-mallin mukainen autokorrelaatiofunktio estimoidulla korrelaatioparametrilla $\hat{\phi} = 0,591$. Kutsumme varianssipainotettua residuaalien autokorrelaation huomioivaa mallia jatkossa laajennetuksi malliksi.\\
 
 Residuaaleissa on havaittavissa merkittävää parannusta, vaikka varianssissa ilmeneekin iän suhteen aaltoilua (Kuva~\ref{fig:lme2_ika_vc_resid}). Semivariogrammin perusteella autokorrelaatiota ole saatu täysin eliminoitua, mutta sen arvot ovat tasoittuneet huomattavasti (Kuva~\ref{fig:lme2_vc_vario}). Myös kaukana toisistaan sijaitsevien mittausten epäilyttävä korreloituneisuus on lieventynyt.\\
 
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_ika_vc_residuaalit.png}
-  \caption{Satunnaisvaikutusten varianssipainotetun mallin yksilökohtaisten mittausten Pearson-residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti, huomioiden residuaalien autokorrelaatio.}
+  \caption{Satunnaisvaikutusten laajennetun mallin yksilökohtaisten mittausten Pearson-residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti.}
   \label{fig:lme2_ika_vc_resid}
 \end{figure}
 
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_vc_vario.png}
-  \caption{Satunnaisvaikutusten varianssipainotetun mallin empiirinen semivariogrammi ($\hat{\gamma}$), huomioiden residuaalien autokorrelaatio.}
+  \caption{Satunnaisvaikutusten laajennetun mallin empiirinen semivariogrammi ($\hat{\gamma}$).}
   \label{fig:lme2_vc_vario}
 \end{figure}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
+\midrule
+$\hat{\beta}_0$ & 15,428 & 0,0132 & 0,0000 & 15,402 & 15,454\\
+$\hat{\beta}_1$ & -0,1564 & 0,0023 & 0,0000 & -0,1609 & -0,1519\\
+$\hat{\beta}_2$ & 0,2841 & 0,0025 & 0,0000 & 0,2792 & 0,2889\\
+$\hat{\beta}_3$ & -0,3179 & 0,0175 & 0,0000 & -0,3522 & -0,2835\\
+$\hat{\beta}_4$ & 0,0447 & 0,0032 & 0,0000 & 0,0383 & 0,0510\\
+\bottomrule
+\end{tabular}
+\caption{Laajennetun satunnaisvaikutusmallin $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} kiinteiden vaikustusten REML-estimaatit}
+\label{table:lme2vk}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
+\midrule
+$\hat{\sigma^2}_{\text{b}_{0i}}$ & 3,7878 & 1,9462 & 0 & 3,7047 & 3,8729 \\
+$\hat{\sigma^2}_{\text{b}_{1i}}$ & 0,1915 & 0,4376 & 0 & 0,1884 & 0,1946 \\
+$\hat{\sigma}_{\text{b}_{0i}, \text{b}_{1i}}$ & -0,6898 & - & - & - & - \\
+\addlinespace
+$\hat{\sigma^2}$ & 0,1611 & 0,4014 & 0 & 0,1566 & 0,1659 \\
+\bottomrule
+\end{tabular}
+\caption{Laajennetun satunnaisvaikutusmallin $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla}
+\label{table:lme3vk}
+\end{table}
+
+Kiinteiden vaikutusten parametrien estimaateissa (Taulukko ~\ref{table:lme2vk}) on havaittavissa pieniä muutoksia satunnaisvaikutusten korreloimattoman ja vakiovarianssisen mallin estimaatteihin, mutta merkittävin ero luonnollisesti löytyy satunnaisvaikutusten ja residuaalien varianssi- ja kovarianssiestimaateista (Taulukko~\ref{table:lme3vk}). Vakiotermin satunnaisvaikutuksen ja residuaalivarianssin estimaatit ovat huomattavasti pienempiä.\\
+
 Tulokset antavat vahvoja viitteitä varianssi- ja autokorrelaatiofunktioiden määrittelylle, mutta vakavastiotettavien johtopäätösten tuottamiseksi malli tulisi tarkistaa \cite{pinheiro00} esittämän laajennetun lineaarisen sekamallin määritelmän mukaiseksi.\\
 
-Lopullista mallia etsiessämme tulemme kuitenkin hyödyntämään varianssipainotettun autokorrelaation huomioivan mallin tuloksia viitteellisinä kontrafaktuaaleina, joihin peilaamme lopullisesta mallista saatuja tuloksia.\\
+Lopullista mallia etsiessämme tulemme kuitenkin hyödyntämään laajennetun mallin tuloksia viitteellisinä kontrafaktuaaleina, joihin peilaamme lopullisesta mallista saatuja tuloksia.\\
 
 \subsubsection{Mallin parametrien karsinta}
 \label{ssb:malliparamkars}
 
-Palaamme tarkastelemaan satunnaisvaikuten mallia LSM~\ref{eq:lme2} ja arvioimme kriittisesti kiinteiden vaikutusten perusteita vertaamalla täyttä mallia kiinteille vaikutusille kriittisiin malleihin.\\
+Palaamme tarkastelemaan satunnaisvaikuten mallia LSM~\ref{eq:lme2} ja arvioimme kriittisesti kiinteiden vaikutusten perusteita vertaamalla täyttä mallia kiinteille vaikutusille kriittisiin malleihin. Koska vertaamme malleja, joissa kiinteät vaikutukset eivät ole samoja, sovitamme mallit ML-menetelmällä.\\
 
 Kriittisiksi malleksi muodostamme satunnaisvaikutusten mallin ilman kiinteää sukupuolen ja iän yhdysvaikutusta (LSM~\ref{eq:lme2.1})
 
@@ -1780,7 +1816,9 @@ sekä täysin ilman kiinteää sukupuolen vaikutusta (LSM~\ref{eq:lme2.2})
 \end{split}
 \end{equation}
 
-\cite{west14} mukaan yliparametrisoidun mallin on tarkoitus tarjota perusteet satunnaisvaikutusten määrittämiseen, mutta lopuksi tavoitteena on löytää kompromissi mahdollisimman yksinkertaisen, mutta riittävän selitysvoimaisen mallin välillä. Vaikka täysi malli (LSM~\ref{eq:lme2}) tarjoaa viitteellisesti parhaan yhteensopivuuden aineiston suhteen, informaatiokriteerien (Taulukko~\ref{table:kriit1}) perusteella ylimääräisten kiinteiden vaikutusten säilyttämiseen ei näytä olevan perusteita.\\
+\cite{west14} mukaan yliparametrisoidun mallin on tarkoitus tarjota perusteet satunnaisvaikutusten määrittämiseen, mutta lopuksi tavoitteena on löytää kompromissi mahdollisimman yksinkertaisen, mutta riittävän selitysvoimaisen mallin välillä.
+
+Vaikka täysi malli (LSM~\ref{eq:lme2}) tarjoaa viitteellisesti parhaan yhteensopivuuden aineiston suhteen, informaatiokriteerien (Taulukko~\ref{table:kriit1}) perusteella ylimääräisten kiinteiden vaikutusten säilyttämiseen ei näytä olevan perusteita.\\
 
 \begin{table}[H]
 \centering
@@ -1788,19 +1826,125 @@ sekä täysin ilman kiinteää sukupuolen vaikutusta (LSM~\ref{eq:lme2.2})
 \toprule
 Malli & $df$ & $l(\bm{\beta})$ & AIC & BIC\\
 \midrule
-LSM~\ref{eq:lme2.2} & 8 & -692709.6 & 1385435 & 1385523\\
-LSM~\ref{eq:lme2.1} & 9 & -692638.0 & 1385294 & 1385393\\
-LSM~\ref{eq:lme2} & 10 & -692534.8 & 1385090 & 1385199\\
+LSM~\ref{eq:lme2.2} & 7 & -729345.8 & 1458706 & 1458782\\
+LSM~\ref{eq:lme2.1} & 8 & -729297.8 & 1458612 & 1458699\\
+LSM~\ref{eq:lme2} & 9 & -729214.8 & 1458448 & 1458546\\
 \bottomrule
 \end{tabular}
 \label{table:kriit1}
 \end{table}
 
+Suuresta havaintomäärän $n$ suhteesta parametrien määrään $p$ seuraten perinteiset mm. F- ja $\chi^2$ -testisuureisiin perustuvat tilastolliset testit tulkitsevat hyvinkin pienet erot merkitseviksi. \cite{burzykowski13} mukaan tilanteissa, joissa hypoteesien testausta ei katsota mielekkääksi, voidaan mallinvalinnassa hyödyntää informaatiokriteerien arviota mallin ja aineiston yleisestä yhteensopivuudesta.\\ 
+
+Erääksi vaihtoehdoksi \cite{burzykowski13} ehdottavat myös kiinteiden vaikutusten parametrien empiiristen jakaumien simulointia esimerkiksi LOO-menetelmällä (\textit{Leave-One-Out}), jossa jakaumaa estimoidaan poistamalla yksittäisiä havaintoja, tai siirtymällä kokonaan bayesiläisiin menetelmiin.\\
+
+Simulaatiomenetelmille ei kuitenkaan kyetyy tämän tutkielman piirissä löytämään laskennallisesti riittävän tehokasta toteutusta ja yleisesti Bayes-kehikon yhteensovittamista tutkielmassa rajattuun näkökulmaan lineaarisista sekamallesta ei katsottu tutkielman kokonaisuuden mielekkääksi.\\ 
+
+Vahvistaaksemme päätöksen valita kiinteille vaikutuksille kriittinen malli LSM~\ref{eq:lme2.2}, pyrimme varmistumaan mallin satunnaisvaikutusten ja residuaalien jakaumaoletuksista, verraten niitä täyteen malliin LSM~\ref{eq:lme2}. Peilaamme näitä malleja myös laajennettuihin vertailumallehin $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} ja $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2}, joissa on huomioitu varianssipainot ja autokorreloituneet residuaalit.\\
+
+Yksilökohtaisten residuaalien normaalisuusoletuksen tarkistamiseen \cite{burzykowski13} suosittelevat kvantiili-kvantiilikuvaajaa (\textit{Q-Q plot}), jossa Pearsonin residuaaleja, järjestettynä pienimmästä arvosta suurimpaan, verrataan oletusjakauman teoreettisiin kvantiileihin. Kuvaajassa havaittujen arvojen tulisi asettua likimain suoralle apuviivalle, joka kulkee ensimmäisen ja kolmannen kvantiilin läpi, jotta havaitun jakauman katsotaan noudattavan oletettua jakaumaa.\\
+
+Kuvan~\ref{fig:lme_resid_qq} mallien symmetrinen, mutta hännistä kaareutuva kuvaaja viittaa jakauman paksuhäntäisyyteen. Tämä tarkoittaa sitä, että empiirinen jakauma sisältää normaalijakaumaan nähden äärimmäisempiä arvoja \cite{pinheiro00}. Silmämääräisesti ei ole havaittavissa, että mallit $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} ja $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2} tarjoaisivat huomattavaa lisäarvoa.\\
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_qq.png}
+  \caption{Kriittinen malli $\text{LSM}$~\ref{eq:lme2.2}}
+  \label{fig:lme_krit_qq}
+\end{subfigure}%
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_qq.png}
+  \caption{Täysi malli $\text{LSM}$~\ref{eq:lme2}}
+  \label{fig:lme_taysi_qq}
+\end{subfigure}
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_vc_qq.png}
+  \caption{Kriittinen malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2}}
+  \label{fig:lme_vk_krit_qq}
+\end{subfigure}%
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_vc_qq.png}
+  \caption{Täysi malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2}}
+  \label{fig:lme_vk_taysi_qq}
+\end{subfigure}
+ \caption{Kriittisen (a) ja täyden mallin (b) sekä vastaavien laajennettujen mallien (c) ja (d) kvantiili-kvantiilikuvaajat.}
+   \label{fig:lme_resid_qq}
+\end{figure}
+
+Kvantiili-kvantiilikuvaajia voi varovaisin johtopäätöksin hyödyntää myös ennustettujen satunnaisvaikutusten normaalisuusoletusten tarkistamiseen, mutta \cite{burzykowski13} huomauttavat, että määritelmäänsä nojaten $\hat{\bm{b}}_i$ ei välttämättä vastaa $\bm{b}_i$ todellista jakaumaa.\\
+
+Kuvan~\ref{fig:lme_ranef_qq} perusteella vakiotermin ennustetut satunnaisvaikutuksen vaikuttavat residuaalien tapaan likimain symmetriseltä kaikkien mallien kohdalla, mutta iän osalta jakauma on merkittävän vino. Laajennetun mallin \\
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_qq_ranef_int.png}
+  \caption{$\text{LSM}$~\ref{eq:lme2.2} (Vakiotermi)}
+  \label{fig:lme_krit_int_qq}
+\end{subfigure}%
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_qq_ranef_ika.png}
+  \caption{$\text{LSM}$~\ref{eq:lme2.2} (Ikä)}
+  \label{fig:lme_krit_ika_qq}
+\end{subfigure}
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_qq_ranef_int.png}
+  \caption{$\text{LSM}$~\ref{eq:lme2} (Vakiotermi)}
+  \label{fig:lme_taysi_int_qq}
+\end{subfigure}%
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_qq_ranef_ika.png}
+  \caption{$\text{LSM}$~\ref{eq:lme2} (Ikä)}
+  \label{fig:lme_taysi_ika_qq}
+\end{subfigure}
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_vc_qq_ranef_int.png}
+  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2} (vakiotermi)}
+  \label{fig:lme_vk_krit_int_qq}
+\end{subfigure}%
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_vc_qq_ranef_ika.png}
+  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2} (Ikä)}
+  \label{fig:lme_vk_krit_ika_qq}
+\end{subfigure}
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_vc_qq_ranef_int.png}
+  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2} (Vakiotermi)}
+  \label{fig:lme_vk_taysi_int_qq}
+\end{subfigure}%
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+  \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_vc_qq_ranef_ika.png}
+  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2} (Ikä)}
+  \label{fig:lme_vk_taysi_ika_qq}
+\end{subfigure}
+ \caption{Kriittisen (a), (b) ja täyden mallin (c), (d) sekä vastaavien laajennettujen mallien (e),(f) ja (g),(h) vakiotermin ja iän ennustettujen satunnaisvaikutusten kvantiili-kvantiilikuvaajat.}
+   \label{fig:lme_ranef_qq}
+\end{figure}
+
+Viimeiseksi tarkastelemme 
+
+KIINTEILLE VAIKUTUKSILLE KRIITTINEN VK MALLI RESIDUAALIONGELMAT -- POIS
+
 \subsubsection{Lopullinen malli}
 
-QQPLOT
+LAIRWARE MALLIN MUODOSTAMINEN ESTIMOIDUISTA MATRIISEISTA
 
 PUUTTEET JA KEHITYSKOHTEET
+
+YKSILÖKOHTAISET USKOTTAVUUSKONTRIBUUTIOT - LOO-MENELMÄ VOISI ANTAA VIITTEITÄ DATAA GENEROIVASTA PROSESSISTA
 
 \section{Johtopäätökset}
 
@@ -1866,6 +2010,8 @@ Bayesian Inf. Crit. & 1,458,782.000 & 1,458,546.000 \\
 
 % NOTES & EXTRA
 
+% MARIAN KORJAUKSET
+
 % CITE STYLES
 %\cite{Rao03}
 %\cite{Bivand08}
@@ -1877,27 +2023,3 @@ Bayesian Inf. Crit. & 1,458,782.000 & 1,458,546.000 \\
 %\citep[e.g.][p.~99]{Casella02}
 %\citeauthor{Bivand08}
 %\citeyear{Bivand08}
-    
-% FIGURES
-%\begin{figure}
-%\centering
-%\includegraphics[width=\textwidth]{frog}
-%\caption{Caption for the image.}
-%\end{figure}
-
-% TABLE EXAMPLE
-%\begin{table}[!t]
-%\begin{center}
-%\caption{An Example of a Table}
-%\label{table_example}
-%\begin{tabular}{| c | c | c |}
-% \hline
-% cell1 & cell2 & cell3 \\ 
-% \hline
-% cell4 & cell5 & cell6 \\  
-% \hline
-% cell7 & cell8 & cell9 \\
-% \hline
-%\end{tabular}
-%\end{center}
-%\end{table}
