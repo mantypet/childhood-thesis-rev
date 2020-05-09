@@ -43,6 +43,8 @@ TIIVISTELMÄ
 \section{Johdanto}
 \label{sec:johdanto}
 
+JA TÄÄLLÄ
+
 \section{Pitkittäistutkimus tutkimusasetelmana}
 \label{sec:pitkittaistutkimus}
 
@@ -773,9 +775,10 @@ Lineaarisen sekamallin tapauksessa uskottavuuspäättely perustuu parametrivekto
 
 Reunajakauman uskottavuusfunktion muodostamiseksi mm. \cite{west14} ehdottavat lineaarisen sekamallin yleiseen muotoon läheisesti liittyvää marginaalimallia. \cite{west14} mukaan lineaarisen sekamallin yleisestä muodosta voidaan päätellä (\textit{imply}) seuraava marginaalimalli \\
 
-$$
+\begin{equation}
 \bm{Y}_i = \bm{X}_i \bm{\beta} + \bm{\epsilon}_i, \\
-$$
+\label{eq:marginaalimalli}
+\end{equation}
 
 jossa
 
@@ -1775,11 +1778,11 @@ $\hat{\beta}_4$ & 0,0447 & 0,0032 & 0,0000 & 0,0383 & 0,0510\\
 \toprule
   & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
 \midrule
-$\hat{\sigma^2}_{\text{b}_{0i}}$ & 3,7878 & 1,9462 & 0 & 3,7047 & 3,8729 \\
-$\hat{\sigma^2}_{\text{b}_{1i}}$ & 0,1915 & 0,4376 & 0 & 0,1884 & 0,1946 \\
+$\hat{\sigma^2}_{\text{b}_{0i}}$ & 3,7878 & 1,9462 & 0 & 3,7047* & 3,8729* \\
+$\hat{\sigma^2}_{\text{b}_{1i}}$ & 0,1915 & 0,4376 & 0 & 0,1884* & 0,1946* \\
 $\hat{\sigma}_{\text{b}_{0i}, \text{b}_{1i}}$ & -0,6898 & - & - & - & - \\
 \addlinespace
-$\hat{\sigma^2}$ & 0,1611 & 0,4014 & 0 & 0,1566 & 0,1659 \\
+$\hat{\sigma^2}$ & 0,1611 & 0,4014 & 0 & 0,1566* & 0,1659* \\
 \bottomrule
 \end{tabular}
 \caption{Laajennetun satunnaisvaikutusmallin $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla}
@@ -1818,7 +1821,7 @@ sekä täysin ilman kiinteää sukupuolen vaikutusta (LSM~\ref{eq:lme2.2})
 
 \cite{west14} mukaan yliparametrisoidun mallin on tarkoitus tarjota perusteet satunnaisvaikutusten määrittämiseen, mutta lopuksi tavoitteena on löytää kompromissi mahdollisimman yksinkertaisen, mutta riittävän selitysvoimaisen mallin välillä.
 
-Vaikka täysi malli (LSM~\ref{eq:lme2}) tarjoaa viitteellisesti parhaan yhteensopivuuden aineiston suhteen, informaatiokriteerien (Taulukko~\ref{table:kriit1}) perusteella ylimääräisten kiinteiden vaikutusten säilyttämiseen ei näytä olevan perusteita.\\
+Vaikka täysi malli (LSM~\ref{eq:lme2}) tarjoaa viitteellisesti parhaan yhteensopivuuden aineiston suhteen, informaatiokriteerien (Taulukko~\ref{table:kriittinen}) perusteella ylimääräisten kiinteiden vaikutusten säilyttämiseen ei näytä olevan perusteita.\\
 
 \begin{table}[H]
 \centering
@@ -1831,10 +1834,44 @@ LSM~\ref{eq:lme2.1} & 8 & -729297.8 & 1458612 & 1458699\\
 LSM~\ref{eq:lme2} & 9 & -729214.8 & 1458448 & 1458546\\
 \bottomrule
 \end{tabular}
-\label{table:kriit1}
+\label{table:kriittinen}
 \end{table}
 
-Suuresta havaintomäärän $n$ suhteesta parametrien määrään $p$ seuraten perinteiset mm. F- ja $\chi^2$ -testisuureisiin perustuvat tilastolliset testit tulkitsevat hyvinkin pienet erot merkitseviksi. \cite{burzykowski13} mukaan tilanteissa, joissa hypoteesien testausta ei katsota mielekkääksi, voidaan mallinvalinnassa hyödyntää informaatiokriteerien arviota mallin ja aineiston yleisestä yhteensopivuudesta.\\ 
+Suuresta havaintomäärän $n$ suhteesta parametrien määrään $p$ seuraten perinteiset mm. F- ja $\chi^2$ -testisuureisiin perustuvat tilastolliset testit tulkitsevat hyvinkin pienet erot mallien uskottavuusosamäärissä merkitseviksi, ottamatta kantaa siihen onko malleilla ilmiön kannalta merkittävää eroa.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
+\midrule
+$\hat{\beta}_0$ & 14,440 & 0,0135 & 0,0000 & 14,413 & 14,466\\
+$\hat{\beta}_1$ & -0,1730 & 0,0020 & 0,0000 & -0,1769 & -0,1690\\
+$\hat{\beta}_2$ & 0,4045 & 0,0018 & 0,0000 & 0,4010 & 0,4080\\
+\bottomrule
+\end{tabular}
+\caption{Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} kiinteiden vaikustusten ML-estimaatit}
+\label{table:lme2.2}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+  & Estimaatti & Keskivirhe ($\text{se}$) & P & $\text{LV}_{2,5}$ & $\text{LV}_{97,5}$\\
+\midrule
+$\hat{\sigma^2}_{\text{b}_{0i}}$ & 8,4515 & 2,9071 & 0 & 8,2993* & 8,6065* \\
+$\hat{\sigma^2}_{\text{b}_{1i}}$ & 0,2134 & 0,4620 & 0 & 0,2109* & 0,2159* \\
+$\hat{\sigma}_{\text{b}_{0i}, \text{b}_{1i}}$ & -1,0658 & - & - & - & - \\
+\addlinespace
+$\hat{\sigma^2}$ & 0,5938 & 0,7706 & 0 & 0,5900* & 0.5977* \\
+\bottomrule
+\end{tabular}
+\caption{Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla}
+\label{table:lme2.2rand}
+\end{table}
+
+\cite{burzykowski13} mukaan tilanteissa, joissa hypoteesien testausta ei katsota mielekkääksi, voidaan mallinvalinnassa hyödyntää informaatiokriteerien arviota mallin ja aineiston yleisestä yhteensopivuudesta.\\ 
 
 Erääksi vaihtoehdoksi \cite{burzykowski13} ehdottavat myös kiinteiden vaikutusten parametrien empiiristen jakaumien simulointia esimerkiksi LOO-menetelmällä (\textit{Leave-One-Out}), jossa jakaumaa estimoidaan poistamalla yksittäisiä havaintoja, tai siirtymällä kokonaan bayesiläisiin menetelmiin.\\
 
@@ -1972,13 +2009,76 @@ Tavoitteenamme on ollut valita mahdollisimman yksinkertainen, mutta riittävä m
 
 \subsubsection{Lopullinen malli}
 
-LAIRWARE MALLIN MUODOSTAMINEN ESTIMOIDUISTA MATRIISEISTA
+Tarkastelemme seuraavaksi tarkemmin lopulliseksi malliksi valittua kriittistä mallia $\text{LSM}$~\ref{eq:lme2.2}. Tiivistämme mallin tuloksia ja pyrimme arvioimaan millaisia johtopäätöksiä voimme tehdä mallin perusteella tutkielman aineistosta.\\
 
-PUUTTEET JA KEHITYSKOHTEET
+Kuten alustavasti olemme huomioineet, suuresta havaintomäärästä seuraten parametrien estimaattien tilastollisesti merkitsevä eroaminen nollasta ei välttämättä tarjoa mielekästä lisätietoa, sillä hyvin pienetkin poikkeamat voivat olla merkitseviä. Ilman aineiston edustavuuden validointia, voimme jopa kyseenalaistaa liittyykö seurannan alun iän $\text{IKÄ}_{0i}$ estimoidun kiinteän vaikutuksen $\hat{\bm{\beta}}_1 = -0,1730$ tuoma tieto siitä, että alun iän muutos vuodella vähentäisi keskimääräistä painoindeksiä alle viidenneksellä, todella tutkittavaan ilmiöön vai aineiston edustavuuden puutteisiin.\\
 
-YKSILÖKOHTAISET USKOTTAVUUSKONTRIBUUTIOT - LOO-MENELMÄ VOISI ANTAA VIITTEITÄ DATAA GENEROIVASTA PROSESSISTA
+Toisin sanoen, uskomme mallin $\text{LSM}$~\ref{eq:lme2.2} estimaattorien tuottavan täsmällisiä estimaatteja, mutta ilman tietoa aineiston edustavuudesta, emme voi olla varmoja niiden mielekkyydestä tai harhattomuudesta.\\
+
+Esimerkiksi \cite{sullivan12} korostavat artikkelissaan, että lääketieteellisen tutkimuksen näkökulmasta, tilastollisen mallin pohjalta tehty mielekäs tulkinta tulisi perustaa itse vaikutusten voimakkuuteen (\textit{effect size}), ei siihen poikkeavatko vaikutukset merkitsevästi annetun hypoteesin mukaisesta vertailuarvosta.\\
+
+%Eräs tällainen näkökulma \cite{sullivan12} mukaan on regressiokertoimien välinen korrelaatio
+
+%\begin{table}[H]
+%\centering
+%\begin{tabular}{lrr}
+%\toprule
+%  & $\hat{\beta}_0$ & $\hat{\beta}_1$\\
+%\midrule
+%$\hat{\beta}_1$ & -0,56 & \\
+%$\hat{\beta}_2$ & -0,45 & -0,33\\
+%\bottomrule
+%\end{tabular}
+%\caption{Mallin $\text{LSM}$~\ref{eq:lme2.2} kiinteiden vaikutusten välinen %korrelaatio}
+%\label{table:pearsonkorr}
+%\end{table}
+
+\cite{nakagawa13} ja laajentaen \cite{johnson14} esittävät artikkeleissaan lineaarisiin sekamalleihin soveltuvan marginaalisen pseudo-selitysasteen ($R^2_{\text{LSM}(m)}$), huomioiden ainoastaan residuaalivarianssin 
+
+$$
+R^2_{\text{LSM}(m)} = \frac{\sigma^2_{f}}{\sigma^2_{f} + \bar{\sigma^2_{l}} + \sigma^2_{\epsilon}},
+$$
+
+sekä ehdollisen selitysasteen ($R^2_{\text{LSM}(e)}$), huomoiden residuaalien sekä satunnaisvaikutusten varianssin
+
+$$
+R^2_{\text{LSM}(e)} = \frac{\sigma^2_{f} + \bar{\sigma^2_{l}}}{\sigma^2_{f} +  \bar{\sigma^2_{l}} + \sigma^2_{\epsilon}},
+$$
+
+jossa $\sigma^2_{f}$ kiinteisiin vaikutuksiin liitetty varianssi, $\bar{\sigma^2_{l}}$ satunnaisvaikutusten varianssin yhdiste ja  $\sigma^2_{\epsilon}$ residuaalivarianssi.\\
+
+Selitysasteiden (Taulukko~\ref{table:r2}) mukaan kiinteät vaikutukset yksinään selittävät ainoastaan noin 11 \% varianssikomponenttien yhteisvaihtelusta, kun kiinteät ja satunnaisvaikutukset yhdessä selittävät noin 95 \% mallin vaihtelusta.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lr}
+\toprule
+$R^2_{\text{LSM}(m)}$ & 0,11\\
+$R^2_{\text{LSM}(e)}$ & 0,95\\
+\bottomrule
+\end{tabular}
+\caption{\cite{johnson14} laajennettu marginaali- ja ehdollinen  pseudo-$R^2_{LSM}$}
+\label{table:r2}
+\end{table}
+
+Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} tarkastelu osoittaa empiiristä tukea sille, että \cite{laird82} kaksitasoisen lineaarisen sekamallin kehikko tarjoaa potentiaalisen työkalun FinLapset-rekisteriaineiston kaltaisesta lähteestä muodostetun pitkittäisaineiston analyysiin.\\
+
+Mallin satunnaisvaikutusten määrittely vaikuttaa parantavan huomattavasti mallin kykyä selittää yksilöiden välistä vaihtelua, mutta on pidettävä todennäköisenä, että olisi löydettävissä sellaisia painoindeksiin vaikuttavia taustatekijöitä, joiden avulla voisimme parantaa myös kiinteiden vaikutusten selitysvoimaa. Lisäksi mallissa on osoitettavissa selviä puutteita varianssin heteroskedastisuuden ja residuaalien välisen autokorrelaation huomioimisessa.\\
+
+Viimeiseksi haasteet mallin piste-estimaattien epävarmuustekijöiden havainnollistamisessa muodostavat suuren puutteen kokonaisuuteen nähden. Esimerkiksi yksilökohtaisissa log-uskottavuuskontribuutioissa on huomattavaa vaihtelua (Kuva~\ref{fig:logkontrib}), johon parametrien jakaumien simulointi uudelleenotannalla, esimerkiksi \cite{burzykowski13} esittämä LOO-menetelmä, voisi tuoda lisävaloa. On myös huomioitava, että tällaisen näkökulman tuominen frekventistisen uskottavuuspäättelyn piiriin vaikuttaa väkinäiseltä, sillä jo lähtökohtaisesti Bayes-menetelmät tarjoaisivat luontevamman lähestymistavan parametrien posteriorijakaumien tarkasteluun.\\
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.8]{kuvaajat/log.png}
+  \caption{Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} yksilökohtaiset log-uskottavuuskontribuutiot.}
+  \label{fig:logkontrib}
+\end{figure}
 
 \section{Johtopäätökset}
+
+TÄÄLLÄ JO
+
+FinLapset aineisto - induktivismi
 
 % --- References ---
 
