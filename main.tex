@@ -48,15 +48,15 @@ JA TÄÄLLÄ
 \section{Pitkittäistutkimus tutkimusasetelmana}
 \label{sec:pitkittaistutkimus}
 
-Pitkittäistutkimuksen määrittelevänä ominaispiirteenä pidetään yleisesti yhden tai useamman yksilön seurantaan perustuvaa asetelmaa, jossa samasta yksilöstä saadaan havaintoja eri aikoina \citep{diggle02, fitzmaurice11, twisk13, laird82}. Toistuvat havainnot samasta yksilöstä mahdollistavat ajassa tapahtuvien muutosten, muutokseen vaikuttaneiden tekijöiden, kuin myös yksilön yksilöllisistä ominaisuuksista koostuvien tekijöiden tunnistamisen ja analysoinnin.
+Pitkittäistutkimuksen määrittelevänä ominaispiirteenä pidetään yleisesti yhden tai useamman yksilön seurantaan perustuvaa asetelmaa, jossa samasta yksilöstä saadaan havaintoja eri aikoina \citep{diggle13, fitzmaurice11, twisk13, laird82}. Toistuvat havainnot samasta yksilöstä mahdollistavat ajassa tapahtuvien muutosten, muutokseen vaikuttaneiden tekijöiden, kuin myös yksilön yksilöllisistä ominaisuuksista koostuvien tekijöiden tunnistamisen ja analysoinnin.
 
-\cite{diggle02} mukaan taloustieteessä ja yhteiskuntatieteissä voidaan pitkittäistutkimuksesta käyttää myös termiä paneelitutkimus, mutta sovellettujen tilastollisten menetelmien kannalta, erityisesti terveystieteellisissä ja epidemiologisissa tutkimuskysymyksissä, käsitteet \textit{pitkittäistutkimus} ja sen yhteydessä havaittu \textit{pitkittäisaineisto} muodostavat luontevamman viitekehyksen.
+\cite{diggle13} mukaan taloustieteessä ja yhteiskuntatieteissä voidaan pitkittäistutkimuksesta käyttää myös termiä paneelitutkimus, mutta sovellettujen tilastollisten menetelmien kannalta, erityisesti terveystieteellisissä ja epidemiologisissa tutkimuskysymyksissä, käsitteet \textit{pitkittäistutkimus} ja sen yhteydessä havaittu \textit{pitkittäisaineisto} muodostavat luontevamman viitekehyksen.
 
-\cite{twisk13} jakaa epidemiologiset tutkimusasetelmat karkeasti kahteen tyyppiin, \textit{havainnoiviin} ja \textit{kokeellisiin} tutkimusasetelmiin (Kuva \ref{fig:epikaavio}). Havainnoivat tutkimusasetelmat puolestaan jakautuvat \textit{tapaus-verrokkitutkimukseen} ja \textit{kohorttitutkimukseen}. Lisäksi havainnoivat kohorttitutkimukset voivat olla alatyypiltään eteneviä (\textit{prospektiivinen tutkimus}), takautuvia (\textit{retrospektiivinen tutkimus}) tai poikkileikkaustutkimuksia \cite{diggle02, twisk13}.
+\cite{twisk13} jakaa epidemiologiset tutkimusasetelmat karkeasti kahteen tyyppiin, \textit{havainnoiviin} ja \textit{kokeellisiin} tutkimusasetelmiin (Kuva \ref{fig:epikaavio}). Havainnoivat tutkimusasetelmat puolestaan jakautuvat \textit{tapaus-verrokkitutkimukseen} ja \textit{kohorttitutkimukseen}. Lisäksi havainnoivat kohorttitutkimukset voivat olla alatyypiltään eteneviä (\textit{prospektiivinen tutkimus}), takautuvia (\textit{retrospektiivinen tutkimus}) tai poikkileikkaustutkimuksia \cite{diggle13, twisk13}.
 
-\citeauthor{twisk13} ottaa voimakkaamman kannan salliessaan pitkittäistutkimuksen käsitteen käytön edellämainituista vain prospektiivisten kohorttitutkimusten tapauksessa, kun \citeauthor{diggle02} tyytyy suosittelemaan prospektiivista aineistonkeruutapaa, lähinnä retrospektiivisen aineiston laatuun kohdistuvan kritiikin kannalta. Mainittakoon, että poikkileikkaustutkimukset eivät kuulu lainkaan pitkittäistutkimusten piiriin, sillä samaa yksilköä tarkastellaan siinä vain yhdessä aikapisteessä.\\
+\cite{twisk13} ottaa voimakkaamman kannan salliessaan pitkittäistutkimuksen käsitteen käytön edellämainituista vain prospektiivisten kohorttitutkimusten tapauksessa, kun \citeauthor{diggle13} tyytyy suosittelemaan prospektiivista aineistonkeruutapaa, lähinnä retrospektiivisen aineiston laatuun kohdistuvan kritiikin kannalta. Mainittakoon, että poikkileikkaustutkimukset eivät kuulu lainkaan pitkittäistutkimusten piiriin, sillä samaa yksilköä tarkastellaan siinä vain yhdessä aikapisteessä.\\
 
-Tämän tutkielman asetelma ei toistaiseksi ole ristiriidassa edellämainittujen näkökulmien kanssa, joten tutkielman piirissä omaksumme pitkittäistutkimuksen ja pitkittäisaineistojen käsitteiden käytön. 
+Tämän tutkielman asetelma ei ole ristiriidassa edellämainittujen näkökulmien kanssa, joten tutkielman piirissä omaksumme pitkittäistutkimuksen ja pitkittäisaineistojen käsitteiden käytön. 
 
 \begin{figure}
 \centering
@@ -74,7 +74,7 @@ Tämän tutkielman asetelma ei toistaiseksi ole ristiriidassa edellämainittujen
         child{node{kohortti-\\tutkimus}
             child{node[draw=none,fill=none]{prospektiivinen\\tutkimus}}}};
 \end{tikzpicture}
-\caption{Epidemiologiset tutkimusasetelmat, \cite{twisk13}}
+\caption{Epidemiologiset tutkimusasetelmat, \cite{twisk13}.}
 \label{fig:epikaavio}
 \end{figure}
 
@@ -91,18 +91,18 @@ Samoilta yksilöiltä kerättyjen toistettujen mittausten muodostamassa pitkitt�
 
 Lineaaristen sekamallien kirjallisuudessa kaksitasoisen lähestymistavan perusteoksena viitataan \cite{laird82} artikkeliin \textit{Random-Effects Models for Longitudinal Data}. Tosin \cite{laird82} esittävät tasot yhtenä lineaarikombinaationa ja vasta myöhemmässä kirjallisuudessa mm. \cite{verbeke00, talbott06} on katsottu luontevaksi esitellä ensin kaksitasoinen malli ja johtaa siitä \cite{laird82} yleinen lineaarisen sekamallin muoto.
 
-Palaamme kaksitasoisen mallin ja yleisen lineaarisen sekamallin määritelmään myöhemmin. [ks LSM]. \\
+Palaamme kaksitasoisen mallin ja yleisen lineaarisen sekamallin määritelmään myöhemmin (Luku~\ref{sec:lsm}).\\
 
-\subsection{Finlapset aineisto}
+\subsection{FinLapset aineisto}
 \label{sub:finlapsetdata}
 
-Tutkielmassa hyödynnetty aineisto perustuu Terveyden ja hyvinvoinninlaitoksen (THL) Finlapset-rekisterihankkeen (FINLAPSET) ohessa kerättyihin tietoihin lasten ja nuorten  perustuvat lastenneuvoloiden kouluterveydenhuollon ja opiskelijaterveydenhuollon terveydenhoitokäynneillä suoritetuista paino- ja pituusmittauksista. Tiedot on kerätty osana perusterveydenhuollon avohoidon hoitoilmoitusrekisterin (Avohilmo) tietokeräystä.\\
+Tutkielmassa hyödynnetty aineisto perustuu Terveyden ja hyvinvoinninlaitoksen FinLapset-rekisterihankkeen (\cite{finlapsetrekisteri}) ohessa kerättyihin tietoihin lasten ja nuorten  perustuvat lastenneuvoloiden kouluterveydenhuollon ja opiskelijaterveydenhuollon terveydenhoitokäynneillä suoritetuista paino- ja pituusmittauksista. Tiedot on kerätty osana perusterveydenhuollon avohoidon hoitoilmoitusrekisterin (Avohilmo) tietojen keräystä.\\
 
-Terveystarkastuksissa kerättävistä tiedoista pituus- ja painotiedot ovat olleet osa Avohilmon tietosisältöä vuodesta 2010 lähtien, mutta tietopuutteiden vuoksi tässä tutkielmassa on mukana tietoja vuodesta 2013 alkaen. \\
+Terveystarkastuksissa kerättävistä tiedoista pituus- ja painotiedot ovat olleet osa Avohilmon tietosisältöä vuodesta 2010 lähtien, mutta tietopuutteiden vuoksi tutkielman aineisto on rajattu vuosiin 2013\textendash2020.\\
 
-Finlapset-rekisterihankkeen keskeisiä tutkimuskysymyksiä olivat lasten ja nuorten ylipaino ja lihavuus sekä pituus- ja painotietojen valtakunnallinen kattavuus. Tarkastelemme seuraavaksi aineiston keskeisiä rajauksia ja teknisiä määrityksiä. \\
+FinLapset-rekisterihankkeen keskeisiä tutkimuskysymyksiä olivat lasten ja nuorten ylipaino ja lihavuus sekä pituus- ja painotietojen valtakunnallinen kattavuus (\cite{finlapsetrekisteri}). Tutkielman aineistoa hyödynnetään Terveyden ja hyvinvoinnin laitoksen luvalla. Tarkastelemme seuraavaksi aineiston keskeisiä rajauksia ja teknisiä määrityksiä. \\
 
-\subsubsection{Finlapset-aineiston muodostus}
+\subsubsection{FinLapset-aineiston muodostus}
 \label{ssb:finlapsetdatamuod}
 
 Avohilmosta suoritetun poiminnan yhteydessä aineistoon on tehty seuraavat rajaukset:
@@ -111,19 +111,19 @@ Avohilmosta suoritetun poiminnan yhteydessä aineistoon on tehty seuraavat rajau
     \item Käynti on tehty vastaanotolla
     \item Käynti on luonteeltaan terveydenhoitokäynti
     \item Käynti on luokiteltu lastenneuvola-, kouluterveydenhuolto-, opiskelijaterveydenhuoltokäynniksi
-    \item Lapsen tai nuoren ikä mittaushetkellä on välillä $[1,75;20)$
+    \item Lapsen tai nuoren ikä mittaushetkellä on välillä [1,75;20)
 \end{itemize}
 
-Rajauksillä on pyritty poistamaan mahdollisia harhan lähteitä. Esimerkiksi rajaamalla tarkastelu vain terveydenhoitokäynteihin voidaan sulkea pois sellaisia käyntejä, jotka liittyvät jonkin sairauden hoitoon tai seurantaan. Näillä lapsilla käyntejä voi olla huomattavasti enemmän kuin vertaisillaan ja joihinkin sairauksiin voi myös liittyä epätavallisia painon muutoksia. \\
+Rajauksilla on pyritty poistamaan mahdollisia harhan lähteitä. Esimerkiksi rajaamalla tarkastelu vain terveydenhoitokäynteihin voidaan sulkea pois sellaisia käyntejä, jotka liittyvät jonkin sairauden hoitoon tai seurantaan. Näillä lapsilla käyntejä voi olla huomattavasti enemmän kuin vertaisillaan ja joihinkin sairauksiin voi myös liittyä epätavallisia painon muutoksia. \\
 
 Paino- ja pituustietojen kirjaaminen tapahtuu sähköisesti potilastietojärjestelmiin, joista ne siirretään osaksi Avohilmoa. Kirjaamiskäytännöt vaihtelevat potilastietojärjestelmittäin ja pituus- ja painomittaukset voivat olla kirjattu eri yksiköissä sekä niissä voi olla inhimillisestä kirjausvirheitä.\\
 
 Edellämainittuja on pyritty karsimaan seuraavilla yksinkertaisilla skaalaussäännöillä:
 
 \begin{itemize}
-    \item Paino yli 1000 $\longrightarrow$ yksikkönä g?  $\longrightarrow$ jaetaan 1000:lla kunnes alle 1000
-    \item Pituus on yli 300 $\longrightarrow$ yksikkönä mm? $\longrightarrow$ jaetaan 10:llä kunnes alle 300
-    \item Pituus pienempää kuin 2,3 $\longrightarrow$ yksikkönä m? $\longrightarrow$ kerrotaan 100
+    \item Jos paino yli 1000 $\longrightarrow$ yksikkönä g?  $\longrightarrow$ jaetaan 1000:lla kunnes alle 1000
+    \item Jos pituus on yli 300 $\longrightarrow$ yksikkönä mm? $\longrightarrow$ jaetaan 10:llä kunnes alle 300
+    \item Jos pituus pienempää kuin 2,3 $\longrightarrow$ yksikkönä m? $\longrightarrow$ kerrotaan 100
 \end{itemize}
 
 Aineistosta rajattiin pois myös biologisesti mahdottomiksi tulkitut mittaukset. Tämä suoritettiin laskemalla painosta ($w$) ja pituudesta ($h$) ensin niiden keskinäistä suhdetta kuvaava painoindeksi (\textit{Body Mass Index, BMI}) tavanomaisella kansainvälisesti vakiintuneella menetelmällä
@@ -132,15 +132,15 @@ $$
 \textbf{BMI} = \frac{w_{kg}}{h_{m}^2}.
 $$
 
-Lapsen ruumiinrakenne, ja siten painon ja pituuden suhde, vaihtelee huomattavasti iän mukaan, joten lapsen iän mukaisen painoindeksin jakauman ääriarvoja voidaan arvioida Colen LMS-menetelmällä \cite{cole90}. LMS-menetelmä, joskus myös \textit{BMI z-score function}, tarjoaa potenssimuunnoksella normalisoidun ja standardisoidun keskihajontapistemäärän, perustuen lapsen kuukausi-iän ja sukupuolen perusteella muodostettuihin parametreihin. Pistemäärä määritellään
+Lapsen ruumiinrakenne, ja siten painon ja pituuden suhde, vaihtelee huomattavasti iän mukaan, joten lapsen iän mukaisen painoindeksin jakauman ääriarvoja voidaan arvioida Colen LMS-menetelmällä (\cite{cole90}). LMS-menetelmä, joskus myös \textit{BMI z-score function}, tarjoaa potenssimuunnoksella normalisoidun ja standardisoidun keskihajontapistemäärän, perustuen lapsen kuukausi-iän ja sukupuolen perusteella muodostettuihin parametreihin. Pistemäärä määritellään
 
 $$
-\text{BMI}_z = \frac{\bigg( \big( \frac{\text{BMI}}{\mu}\big)^\lambda - 1 \bigg)}{\lambda \ \sigma},
+\text{BMI}_z = \frac{\bigg( \big( \frac{\text{BMI}}{\mu}\big)^\lambda - 1 \bigg)}{\lambda \ \sigma_{\text{CV}}},
 $$
 
-jossa $\lambda$ on jakaumaa normalisoivan potenssimuunnoksen (\textit{Box Cox}) parametri, $\mu$ BMI jakauman odotusarvo ja $\sigma$ jakauman variaatiokerroin. Taulukoidut parametrit ovat saatavilla esimerkiksi Maailman terveysjärjestö WHO:lta ja Yhdysvaltain tautikeskus CDC:ltä.\\
+jossa $\lambda$ on jakaumaa normalisoivan potenssimuunnoksen (\textit{Box Cox}) parametri, $\mu$ BMI jakauman odotusarvo ja $\sigma_{\text{CV}}$ jakauman variaatiokerroin. Taulukoidut parametrit ovat saatavilla esimerkiksi Maailman terveysjärjestö WHO:lta ja Yhdysvaltain tautikeskus CDC:ltä.\\
 
-Esimerkiksi 11-vuotiaan pojan taulukoiduilla parametreilla, $\lambda = -1,7862$, $\mu = 16,9392$ ja $\sigma = 0,11070$, painoindeksiä 34 $\frac{kg}{m^2}$ vastaava $\text{BMI}_z$ olisi
+Esimerkiksi 11-vuotiaan pojan taulukoiduilla parametreilla, $\lambda = -1,7862$, $\mu = 16,9392$ ja $\sigma_{\text{CV}} = 0,11070$, painoindeksiä 34 $\frac{kg}{m^2}$ vastaava $\text{BMI}_z$ olisi
 
 $$
 \frac{\bigg( \big( \frac{34}{16,9392}\big)^{-1,7862} - 1 \bigg)}{16,9392 \cdot 0,11070} \approx 3,6,
@@ -148,22 +148,22 @@ $$
 
 mutta vaikkapa kirjauksessa tapahtuneen näppäilyvirheen takia kirjattu painoindeksi 43 tuottaisi pistemääräksi noin 4,1.\\
 
-Finlapset -hankkeessa kriittiseksi rajaksi valittiin $|\text{BMI}_z| = 4$ ja sitä poikkeavammat mittaukset rajattiin poiminnan ulkopuolelle.\\
+FinLapset -hankkeessa kriittiseksi rajaksi valittiin $|\text{BMI}_z| = 4$ ja sitä poikkeavammat mittaukset rajattiin poiminnan ulkopuolelle.\\
 
 LMS-menetelmää on kritisoitu, kuten yllä havaittiin, mm. siitä, että se kuvaa leveän painoindeksiarvojoukon hyvin kapealle välille. Lisäksi vanhemmilla lapsilla äärimmäisenkin korkeat painoindeksiarvot kuvautuvat hyvin lähelle hyväksyttäviksi katsottuja painoindeksin arvoja \cite{flegal13, cdc13}. \\
 
-\cite{flegal13} suosittelevat käyttämään modifioitua pistemäärää, jossa etäisyys jakauman odotusarvosta kuvataan takaisin painoindeksiavaruuteen. Tätä on syytä punnita kehitystarpeena myös Finlapset-hankkeen tulevissa lasten ja nuorten pituus- ja painotietoja käsittelevissä julkaisuissa. \\
+\cite{flegal13} suosittelevat käyttämään modifioitua pistemäärää, jossa etäisyys jakauman odotusarvosta kuvataan takaisin painoindeksiavaruuteen. Tätä on syytä punnita kehitystarpeena myös FinLapset-hankkeen tulevissa lasten ja nuorten pituus- ja painotietoja käsittelevissä julkaisuissa. \\
 
-Finlapset-hankkeessa havaintoja rajattiin lisäksi siten, että lapsilta ja nuorilta valittiin kunkin tutkimuksessa mukana olleen kalenterivuoden syntymäpäivää lähinnä ollut mittaus. Mikäli yhtäkään mittausta ei ollut 180 vuorokauden absoluuttisella etäisyydellä kalenterivuoden syntymäpäivästä, ei kyseiselle lapselle otettu mittausta mukaan kyseiseltä kalenterivuodelta. \\
+FinLapset-hankkeessa havaintoja rajattiin lisäksi siten, että lapsilta ja nuorilta valittiin kunkin tutkimuksessa mukana olleen kalenterivuoden syntymäpäivää lähinnä ollut mittaus. Mikäli yhtäkään mittausta ei ollut 180 vuorokauden absoluuttisella etäisyydellä kalenterivuoden syntymäpäivästä, ei kyseiselle lapselle otettu mittausta mukaan kyseiseltä kalenterivuodelta. \\
 
-Tulokset julkaistiin vuosilta 2014\textendash2018 sellaisilta lapsilta ja nuorilta, jotka olivat mittaushetkellä 2\textendash16-vuotiaita. \\
+Tulokset julkaistiin vuosilta 2014\textendash2018 sellaisilta lapsilta ja nuorilta, jotka olivat mittaushetkellä 2\textendash16-vuotiaita \cite{finlapsetrekisteri}. \\
 
-Tässä tutkielmassa noudatetaan Finlapset-aineiston rajauksia muilta osin, lukuunottamatta rajausta yhteen mittaukseen kalenterivuotta kohden tai julkaisun yhdeydessä suoritettua kalenterivuoden ja iän perusteella tehtyä rajausta. Tutustumme aineistoon seuraavaksi yksinomaan tämän tutkielman piirissä.\\
+Tässä tutkielmassa noudatetaan FinLapset-aineiston rajauksia muilta osin, lukuunottamatta rajausta yhteen mittaukseen kalenterivuotta kohden tai julkaisun yhdeydessä suoritettua kalenterivuoden ja iän perusteella tehtyä rajausta. Tutustumme seuraavaksi aineistoon yksinomaan tämän tutkielman piirissä.\\
 
-\subsubsection{Rekisteripohjainen lasten ja nuorten neuvola-ja kouluterveysaineisto pitkittäisaineistona}
+\subsubsection{Rekisteripohjainen lasten ja nuorten neuvola- ja kouluterveysaineisto pitkittäisaineistona}
 \label{ssb:rekpitkittais}
 
-Esittäessämme FinLapset aineiston formaalisti pitkittäisaineiston muodossa, voimme, \cite{fitzmaurice11} esitystapaa mukaillen, aloittaa määrittelemällä painoindeksin satunnaismuuttujana $Y_{ij}$ ja aineistosta havaitun arvon $y_{ij}$, jossa $i = 1, \dots, N$ on yksilöön viittaava indeksi ja $j = 1, \dots n_i$ yksilön $i$ mittaukseen viittava indeksi. On tärkeää huomioida, että Finlapset aineistossa lasten mittausmäärät vaihtelevat yksilöittäin, eli on mahdollista, että $n_i \neq n_k$, kun $i,k = 1,\dots, N$ ja $i \neq k$. Finlapset aineisto on siten epätasapainoinen pitkittäisaineisto.\\
+Esittäessämme FinLapset aineiston formaalisti pitkittäisaineiston muodossa, voimme, \cite{fitzmaurice11} esitystapaa mukaillen, aloittaa määrittelemällä painoindeksin satunnaismuuttujana $Y_{ij}$ ja aineistosta havaitun arvon $y_{ij}$, jossa $i = 1, \dots, N$ on yksilöön viittaava indeksi ja $j = 1, \dots n_i$ yksilön $i$ mittaukseen viittava indeksi. On tärkeää huomioida, että FinLapset aineistossa lasten mittausmäärät vaihtelevat yksilöittäin, eli on mahdollista, että $n_i \neq n_k$, kun $i,k = 1,\dots, N$ ja $i \neq k$. FinLapset aineisto on siten epätasapainoinen pitkittäisaineisto.\\
 
 Yksilön $i$ painoindeksejä vastaavan satunnaismuuttujan vektori voidaan kirjoittaa $n_i \times 1$ matriisina
 
@@ -177,7 +177,7 @@ Y_{in_i} \\
 \end{bmatrix}
 $$
 
-Mittausajankohta Finlapset aineistossa on käynnin päivämäärä, jolla pituus- ja painomittaus on tehty. Tästä seuraa, että yksilöitä ei ole välttämättä mitattu samoin ajankohtina. Siten eräs ehdokas mittausajankohdaksi on yksilön $i$ $j$:nnen mittauksen päivämäärä $t_{\text{PVM}_{ij}}$.\\
+Mittausajankohta FinLapset aineistossa on käynnin päivämäärä, jolla pituus- ja painomittaus on tehty. Tästä seuraa, että yksilöitä ei ole välttämättä mitattu samoina ajankohtina. Siten eräs mittausajankohdan luonteva määritelmä on yksilön $i$ $j$:nnen mittauksen päivämäärä $t_{\text{PVM}_{ij}}$.\\
 
 Pitkittäisaineiston aikaskaala voidaan määritellä muillakin tavoin, esimerkiksi lapsen mittausajankohdan desimaali-iän mukaan, jolloin $t_{\text{IKÄ}_{ij}} = \frac{t_{\text{PVM}_{ij}} - t_{\text{SPVM}_{i}}}{365,25}$, jossa $t_{\text{SPVM}_{i}}$ on yksilön $i$ syntymäpäivä. Jakajana käytetään lukua 365,25, jolla pyritään huomioimaan karkausvuoden vaikutus.\\ 
 
@@ -209,16 +209,16 @@ X_{i_{n_i}}^\top  \\
 \end{bmatrix}
 =
 \begin{bmatrix}
-X_{i_{11}} & X_{i_{11}} & \dots & X_{i_{1p}} \\
+X_{i_{11}} & X_{i_{12}} & \dots & X_{i_{1p}} \\
 X_{i_{21}} & X_{i_{22}} & \dots & X_{i_{1p}} \\
 \vdots & \vdots & \ddots & \vdots \\
 X_{i_{n_i1}} & X_{i_{n_i2}} & \dots & X_{i_{n_ip}} \\
 \end{bmatrix}
 $$\\
 
-Tarkastelemme seuraavaksi FinLapset-aineistoa tämän tutkielman kehikossa.\\
+Muodostamme seuraavaksi FinLapset-aineistosta tämän tutkielman näkökulmasta rajatun aineiston.\\
 
-\subsubsection{FinLapset-aineiston kuvaileva tarkastelu}
+\subsubsection{FinLapset-aineiston rajaus}
 \label{ssb:kuvailu}
 
 Tutkielman keskeinen kohde on lineaaristen sekamallien soveltuvuuden tarkastelu analyysin kohteen ollessa rekisteriaineistosta muodostettu pitkittäisaineisto. Siten kysymykset liittyvät aineistossa esiintyviin ilmiöihin tilastollisten mallien sovellettavuuden ja toiminnan näkökulmasta.\\
@@ -227,7 +227,7 @@ Rekisteriaineistona FinLapset-aineisto sisältää useita tunnettuja ja tuntemat
 
 \textbf{Tutkielman aineisto}
 
-Alkuperäinen FinLapset-aineisto käsittää painoindeksihavaintoja aikaväliltä 2.1.2013\textendash9.4.2020. Alkuperäisen aineiston tunnuslukuja on selvyyden vuoksi merkitty tähdellä (*). \\
+Alkuperäinen FinLapset-aineisto käsittää painoindeksihavaintoja aikaväliltä 2.1.2013\textendash9.4.2020. Alkuperäisen aineiston tunnuslukuja on tulevissa tarkasteluissa merkitty selvyyden vuoksi tähdellä (*). \\
 
 Havaintoja on kaikkiaan $N* = 718080$ yksilöltä ja mittausten kokonaismäärä $n* = \sum\limits_{i = 1}^{N*} n_{i} = 2768012$. \\
 
@@ -254,19 +254,15 @@ $n_i$ & N*\\
 30- & 101\\
 \bottomrule
 \end{tabular}
-\caption{FinLapset-aineiston yksilökohtaisten mittauslukumäärien jakauma}
+\caption{FinLapset-aineiston yksilökohtaisten mittauslukumäärien jakauma.}
 \label{table:mittausmaarat}
 \end{table}
 
-Mittausten määrien jakaumista (Taulukko ~\ref{table:mittausmaarat}) huomaamme, että suurimman yksittäisen ryhmän muodostavat yksilöt, joilla on vain yksi mittaus. Tämä on syytä huomioida, sillä yleisesti pitkittäisaineiston oletetaan sisältävän yksilöä kohden vähintään kaksi mittausta \cite{west14}. Yksilöitä, joilla on yli 30 mittausta on koko ainestossa vain 101 kappaletta. \\\\
+Mittausten määrien jakaumista (Taulukko ~\ref{table:mittausmaarat}) huomaamme, että suurimman yksittäisen ryhmän muodostavat yksilöt, joilla on vain yksi mittaus. Tämä on syytä huomioida, sillä yleisesti pitkittäisaineiston oletetaan sisältävän yksilöä kohden vähintään kaksi mittausta \cite{west14}. Yksilöitä, joilla on yli 30 mittausta on koko ainestossa vain 101 kappaletta.\\
 
-Tutkielman soveltavassa vaiheessa tehtyjen havaintojen (REF!!) perusteella todettiin alkuperäisen FinLapset-aineiston analyysiin vaadittujen menetelmien laajentavan tämän tutkielman sille asetetun vaativuustason mukaisten rajausten ulkopuolelle. Kompromissina alkuperäisen FinLapset-aineston sijaan tutkielman aineisto rajoittuu yksilöihin, joiden kotikuntana on kunkin kalenterivuoden lopussa ollut Helsinki. Yksilöiltä, joiden kotikunta on muuttunut seuranta-aikana, otetaan kuitenkin mukaan kaikki saatavilla olevat mittaukset.\\
+Täyttääksemme pitkittäisaineiston vaatimukset, tutkielman aineistoon valittiin sellaiset yksilöt, joilla on 2\textendash9 mittausta. Lisäksi, alkuperäisen FinLapset-aineiston sijaan tutkielman aineisto rajoittuu yksilöihin, joiden kotikuntana on kunkin kalenterivuoden lopussa ollut Helsinki. Yksilöiltä, joiden kotikunta on muuttunut seuranta-aikana, otetaan kuitenkin mukaan kaikki saatavilla olevat mittaukset. Lisäksi 
 
-Täten aineiston määrää saatiin rajattua niin, että tarvittavien mallien sovittaminen onnistuu sellaisilla välinellä, joiden esittely katsotaan tämänkaltaisessa tutkielmassa perustelluiksi. Tämä ei tarkoita, että keskustelu alkuperäisen aineston analysointiin tarvittavista menetelmistä sivuutetaan.\\
-
-Tämän rajauksen lisäksi otettiin tarkasteluun mukaan vain sellaiset yksilöt, joilla on 2\textendash9 mittausta, sillä yksilöiden merkittävä osuus, joilla on vain yksi mittaus, vaikutti huomattavasti optimointialgoritmien toimintaan (REF).\\
-
-Tulee kuitenkin painottaa, että rajauksenkin jälkeen aineisto sisältää huomattavan määrän havaintoja suureltä määrältä yksilöitä ja se mahdollistaa samankaltaisten haasteiden kohtaamisen kuin alkuperäinen FinLapset-aineisto.\\
+Tulee kuitenkin painottaa, että rajauksenkin jälkeen aineisto sisältää huomattavan määrän havaintoja suurelta määrältä yksilöitä ja se mahdollistaa samankaltaisten haasteiden kohtaamisen kuin alkuperäinen FinLapset-aineisto.\\
 
 Tutkielman rajatussa aineistossa havaintoja on kaikkiaan $N = 101239$ yksilöltä ja mittausten kokonaismäärä $n = \sum\limits_{i = 1}^{N} n_{i} = 421660$. \\
 
@@ -287,7 +283,7 @@ $n_i$ & $N$\\
 9 & 1159\\
 \bottomrule
 \end{tabular}
-\caption{Tutkielman rajatun aineiston yksilökohtaisten mittauslukumäärien jakauma}
+\caption{Tutkielman rajatun aineiston yksilökohtaisten mittauslukumäärien jakauma.}
 \label{table:mittausmaaratrajattu}
 \end{table}
 
@@ -317,7 +313,7 @@ Tytöt & 49837\\
 Pojat & 51402\\
 \bottomrule
 \end{tabular}
-\caption{FinLapset-aineiston sukupuolijakauma}
+\caption{FinLapset-aineiston sukupuolijakauma.}
 \label{table:sukupuolijakauma}
 \end{table}
 
@@ -332,12 +328,12 @@ Tämän tutkielman osalta kiinnitämme huomion kahteen dimensioon, mittausaikaan
   \label{fig:lexisplot}
 \end{figure}
 
-Tärkeimpänä muuttujana tarkastelemme viimeiseksi vastemuuttuja painoindeksiä. Painoindeksin jakauma (Kuva ~\ref{fig:bmi_dens}) vaikuttaa olevan positiivisesti vino. Tämä ei kuitenkaan välttämättä ole ongelma, sillä normaalisuusoletus koskee yksinomaan jäännösvirheitä \cite{west14}. Vaikka vastemuuttujan ja jäännösvirheiden jakaumat ovat lineaaristen mallien tapauksessa analogisia \cite{fitzmaurice11}, lineaaristen sekamallien tapauksessa tarkastelemme yksilön toistettujen mittausten jäännösvirheitä.\\
+Tärkeimpänä muuttujana tarkastelemme vastemuuttuja painoindeksiä. Painoindeksin jakauma (Kuva ~\ref{fig:bmi_dens}) on positiivisesti vino. Tämä ei kuitenkaan välttämättä ole ongelma, sillä normaalisuusoletus koskee yksinomaan jäännösvirheitä \cite{west14}. Vaikka vastemuuttujan ja jäännösvirheiden jakaumat ovat lineaaristen mallien tapauksessa analogisia \cite{fitzmaurice11}, lineaaristen sekamallien tapauksessa tarkastelemme yksilön toistettujen mittausten jäännösvirheitä.\\
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/bmi_dens.png}
-  \caption{Painoindeksihavaintojen empiirinen jakauma}
+  \caption{Painoindeksihavaintojen empiirinen jakauma.}
   \label{fig:bmi_dens}
 \end{figure}
 
@@ -346,7 +342,7 @@ Toisin sanoen, kunkin yksilön havaintoihin sovitetun lineaarisen mallin (Kuva ~
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/xyplot.png}
-  \caption{Kymmenen satunnaisesti valitun yksilön painoindeksimittaukset yksinkertaisille lineaarisilla sovitesuorilla}
+  \caption{Kymmenen satunnaisesti valitun yksilön painoindeksimittaukset yksinkertaisille lineaarisilla sovitesuorilla.}
   \label{fig:xyplot}
 \end{figure}
 
@@ -357,17 +353,17 @@ Lineaariset sekamallit (LSM) ovat tilastollisten mallien joukko lähtökohtaises
 
 \cite{laird82} kuvaavat kiinteiden ja satunnaisvaikutusten yhteyttä seuraavalla tavalla: Olkoon toistettujen mittausten yksilökohtaiset todennäköisyysjakaumat samaa muotoa (\textit{form}) kaikille yksilöille, mutta sallittakoon näiden todennäköisyysjakaumien parametrien vaihtelu yksilöiden välillä. Näiden populaation \textit{satunnaisvaikutusten} parametrien jakauma muodostaa mallin toisen tason.
 
-Siirtääksemme \cite{laird82} esittämän esimerkin FinLapset-aineiston kehikoon oletamme siis, että yksittäisen lapsen painoindeksin ja valittujen taustamuuttujien (esimerkiksi ikä, sukupuoli jne.) välinen yhteys on lineaarinen, mutta kutakin lasta kohden sovitetun lineaarisen regression parametrit voivat vaihdella. Siten, ehdollisesti yksittäisen lapsen parametrejä kohtaan ja, että populaation regressioparametrit noudattavat 2-ulotteista normaalijakaumaa, toistettujen mittausten reunajakauma noudattaa moniulotteista normaalijakaumaa asetelmaa vastaavalla kovarianssirakenteella. 
+Siirtääksemme \cite{laird82} esittämän esimerkin FinLapset-aineiston kehikkoon oletamme siis, että yksittäisen lapsen painoindeksin ja valittujen taustamuuttujien (esimerkiksi ikä, sukupuoli jne.) välinen yhteys on lineaarinen, mutta kutakin lasta kohden sovitetun lineaarisen regression parametrit voivat vaihdella. Siten, populaation regressioparametrien noudattaessa 2-ulotteista normaalijakaumaa, yksilökohtaisten toistettujen mittausten reunajakauma noudattaa moniulotteista normaalijakaumaa asetelmaa vastaavalla kovarianssirakenteella. 
 
 \subsection{Lineaarisen sekamallin määritelmä}
 \label{sub:lsmmaar}
 
-Jotta voimme perusteellisesti ymmärtää lineaarisen sekamallin luonteen, aloitamme tarkastelun hyvin yleisestä tilastollisen mallin esitysmuodosta, yksinkertaisesta lineaarisesta regressiomallista mallista.
+Jotta voimme perusteellisesti ymmärtää lineaarisen sekamallin luonteen, aloitamme tarkastelun hyvin yleisestä tilastollisen mallin esitysmuodosta, yksinkertaisesta lineaarisesta regressiomallista.
 
 \subsubsection{Lineaarinen regressio}
 \label{ssb:linreg}
 
-Olkoon $y_i$ satunnaismuuttujan $Y_i$ havaittu arvo, $x_i$ satunnaismuuttujan $X_i$ havaittu arvo, $\beta_0$ (vakiotermi) ja $\beta_1$ (taustamuuttujan $x_i$ regressiokerroin) kiinteät, mutta tuntemattomat regressiokertoimet ja satunnaismuuttuja $\epsilon_i$ mallin selittämätön osa (jäännöstermi) havainnoille $i = 1,\dots,n$.
+Olkoon $y_i$ satunnaismuuttujan $Y_i$ havaittu arvo, $x_i$ satunnaismuuttujan $X_i$ havaittu arvo, $\beta_0$ (vakiotermi) ja $\beta_1$ (taustamuuttujan $x_i$ regressiokerroin) kiinteitä, mutta tuntemattomia regressiokertoimia ja satunnaismuuttuja $\epsilon_i$ mallin selittämätön osa (jäännöstermi) havainnoille $i = 1,\dots,n$.
 
 Satunnaismuuttujan $Y_i$ ja taustamuuttujan $x_i$ yhteyttä kuvaa yksinkertainen lineaarinen regressiomalli
 
@@ -375,7 +371,7 @@ $$
 Y_i = \beta_0 + \beta_1 x_i + \epsilon_i
 $$
 
-Laajennettuna useaan usean taustamuuttujan lineaariseen regressioon edellinen voidaan esittää muodossa
+Laajennettuna usean taustamuuttujan lineaariseen regressioon edellinen voidaan esittää muodossa
 
 $$
 Y_i = \beta_0 + \beta_1 x_{i1} + \dots + \beta_p x_{ip} + \epsilon_i
@@ -417,9 +413,6 @@ havainnoille $i = 1,\dots,n$. \\
 %\end{aligned}
 %$$
 
-[VIELÄ YKSI VÄLIVAIHE? ESIM \cite{fitzmaurice11} s. 76 HISTORICAL APPROACHES; repeated measures anova]
-
-
 Seuraavaksi hyödynnämme lineaarisen mallin määritelmää esitellessämme lineaariselle sekamallille ensin kaksitasoisen mallin, jonka jälkeen etenemme luontevasti tasot yhdistävään \cite{laird82} yleiseen lineaariseen sekamalliin.
 
 \subsubsection{Kaksitasomalli}
@@ -437,39 +430,15 @@ $$
 \bm{Y}_i = \bm{Z}_i \bm{\beta}_i + \bm{\epsilon}_i,
 $$
 
-jossa $\bm{Y}_i$ on yksilön $i$ $n_i$-vastevektori, $\bm{\beta}_i$ tuntemattomat regressiokertoimet sisältävä $q$-vektori ja $\bm{Z}_i \bm{\beta}_i$ yksilön $i$ tuntematon keskimääräinen vasteen kehitys (\textit{Response trajectory}). Ensimmäisen tason kontekstissa matriisi $\bm{Z}_i$ määrittelee kuinka yksilön keskimääräinen vaste muuttuu ajassa, mutta määritelmä tulee vaatimaan tarkennusta.
+jossa $\bm{Y}_i$ on yksilön $i$ $n_i$-vastevektori, $\bm{\beta}_i$ tuntemattomat regressiokertoimet sisältävä $p$-vektori ja $\bm{Z}_i \bm{\beta}_i$ yksilön $i$ tuntematon keskimääräinen vasteen kehitys (\textit{Response trajectory}). Ensimmäisen tason kontekstissa matriisi $\bm{Z}_i$ määrittelee kuinka yksilön keskimääräinen vaste muuttuu ajassa, mutta määritelmä tulee vaatimaan tarkennusta.
 
-Niin sanottujen yksilöiden välillä vaihtelevien kiinteiden, mutta tuntemattomien vaikutusten lisäksi ensimmäiseen tasoon liittyy myös yksilön $i$ mittauksia koskeva satunnaisvirhe $\bm{\epsilon_i}$, jossa $\bm{\epsilon_i} \sim N(0,\bm{R}_i)$, jossa $\bm{R}_i$ on jokin $n_i \times n_i$ kovarianssimatriisi. Yksinkertaisuuden vuoksi voimme olettaa, että $\bm{R}_i = \sigma^2\bm{I}_{n_i}$
-
-Kuvataksemme täsmällisemmin mallin osia, voimme esittää mallin yksilön $i$ vastelle aukikirjoitettussa matriisimuodossa
-
-$$
-\begin{bmatrix}
-Y_{i1} \\
-\vdots \\
-Y_{in_{i}} \\
-\end{bmatrix}=
-\begin{bmatrix}
-1 & t_{i1} \\
-\vdots \\
-1 & t_{in_{i}} \\
-\end{bmatrix}+
-\begin{bmatrix}
-\beta_{1i} \\
-\beta_{2i} \\
-\end{bmatrix}+
-\begin{bmatrix}
-e_{i1} \\
-\vdots \\
-e_{in_{i}} \\
-\end{bmatrix}
-$$
+Niin sanottujen yksilöiden välillä vaihtelevien kiinteiden, mutta tuntemattomien vaikutusten lisäksi ensimmäiseen tasoon liittyy myös yksilön $i$ mittauksia koskeva satunnaisvirhe $\bm{\epsilon_i}$, jossa $\bm{\epsilon_i} \sim N(0,\bm{R}_i)$, jossa $\bm{R}_i$ on jokin $n_i \times n_i$ kovarianssimatriisi. Yksinkertaisuuden vuoksi voimme olettaa, että $\bm{R}_i = \sigma^2\bm{I}_{n_i}.$
 
 \paragraph{Toinen taso}\mbox{}\\
 
 Toisella tasolla tuomme malliin oletuksen, että yksilökohtaiset vaikutukset $\bm{\beta}_i$ ovat satunnaismuuttujia jollakin odotusarvolla ja kovarianssilla.
 
-Keskeistä on $\bm{\beta}_i$ yksilöiden välisen vaihtelun mallintaminen mittausajankohdasta riippumattomien vasteen yksilöllisiä eroja selittävinen taustamuuttujien funktiona \cite{fitzmaurice11}.
+Keskeistä on $\bm{\beta}_i$ yksilöiden välisen vaihtelun mallintaminen mittausajankohdasta riippumattomien vasteen yksilöllisiä eroja selittävien taustamuuttujien funktiona \cite{fitzmaurice11}.
 
 Siten $\bm{\beta}_i$ odotusarvoksi saamme
 
@@ -496,7 +465,7 @@ $$
 \bm{\beta}_i = \bm{K}_i \bm{\beta} + \bm{b}_i,
 $$
 
-jossa $\bm{b}_i \sim N(0,\bm{G})$ \\
+jossa $\bm{b}_i \sim N(0,\bm{G})$. \\
 
 Tässä $\bm{b}_i$ kuvaa $i$:nnen yksilön poikkeamaa keskimääräisestä vasteesta, kun yksilöiden yhteiset taustamuuttujat on huomioitu \cite{fitzmaurice11}.
 
@@ -558,7 +527,7 @@ $$
 
 Siten vahvistamme tulkinnan, että parametrit $\bm{\beta}$ kuvaavat koko tarkastelujoukon yhteisiä, niin kutsuttuja \textit{kiinteitä} vaikutuksia ja ottaen huomioon kiinteät vaikutukset, $\bm{b}_i$ kuvaa yksilön $i$ poikkeamaa koko tarkastelujoukon keskimääräisesta vasteesta, toisin sanoen mallin \textit{satunnaisvaikutuksia}. \\
 
-\cite{fitzmaurice11} mukaan lineaarisen sekamallin kaksitasoesitys asettaa erityisvaatimuksia myös mallin kovarianssille. Koska kovarianssirakenteella on monin tavoin keskeinen asema, sekä yleisen lineaarisen sekamallin teoriassa, että pitkittäisaineiston erityistapauksessa, erotamme sen käsittelyn omaksi osiokseen.\\ 
+\cite{fitzmaurice11} mukaan lineaarisen sekamallin kaksitasoesitys asettaa erityisvaatimuksia myös mallin kovarianssille. Koska kovarianssirakenteella on monin tavoin keskeinen asema, sekä yleisen lineaarisen sekamallin teoriassa, että pitkittäisaineiston erityistapauksessa, erotamme sen käsittelyn omaksi luvukseen.\\ 
 
 \subsection{Kovarianssirakenteet}
 \label{sub:kovarianssirakenteet}
@@ -740,7 +709,7 @@ Vaikka tasakorrelaatiorakenteen esitetään soveltuvan tilanteisiin, joissa tois
 
 On luontevaa ajatella pitkittäisaineiston yksilön $i$ mittausten välillä vallitsevan jokin korrelaatio ja ajallisesti lähellä olevien mittaukset olevan samankaltaisempia kuin ajallisesti etäämmällä olevien. Yksilön mittausten residuaaleja kuvaavan kovarianssirakenteen tulisi siis heijastaa tällaista asetelmaa.\\
 
-Tasapainoisen pitkittäisaineiston tapauksessa \textit{autoregressiivinen} kovarianssirakenne on usein sopiva valinta.
+Tasapainoisen pitkittäisaineiston tapauksessa \textit{autoregressiivinen} kovarianssirakenne on usein sopiva valinta. Tällöin kovarianssimatriisi $\bm{R}_i$ on muotoa
 
 $$
 \bm{R}_i =
@@ -832,11 +801,11 @@ $$
 
 jossa $n = \sum\limits_{i=1}^{N} n_i$.\\
 
-\cite{west14} mukaan olisi mahdollista estimoida $\bm{\beta}_i$ ja $\bm{\theta}$ samanaikaisesti, mutta käytännössa algoritminen optimointi suoritetaan usein \textit{profiloimalla} $\bm{\beta}$ ulos log-uskottavuusfunktioista. \\
+\cite{west14} mukaan olisi mahdollista estimoida $\bm{\beta}_i$ ja $\bm{\theta}$ samanaikaisesti, mutta käytännössä algoritminen optimointi suoritetaan usein \textit{profiloimalla} $\bm{\beta}$ ulos log-uskottavuusfunktioista. \\
 
 Vaikka yleisessä tapauksessa $\bm{\theta}$ on tuntematon, sellaisen erityistapauksen käsittely, että $\bm{\theta}$ on tunnettu, tarjoaa tärkeän välivaiheen lopullisen profiili-log-uskottavuusfunktion muodostamiseksi.\\
 
-Parametrivektorin $\bm{\theta}$ ollessa tunnettu, estimoitavaksi jäävät ainoastaan kiinteät vaikutukset $\bm{\beta}_i$. Log-uskottavuusfunktio on tällöin vain parametrin $\bm{\beta}_i$ funktio ja sen optimointion yhteensopivaa tappiofunktion (\textit{loss function}) $q(\bm{\beta})$ minimoinnin kanssa, joka määritellään
+Parametrivektorin $\bm{\theta}$ ollessa tunnettu, estimoitavaksi jäävät ainoastaan kiinteät vaikutukset $\bm{\beta}_i$. Log-uskottavuusfunktio on tällöin vain parametrin $\bm{\beta}_i$ funktio ja sen optimointi on yhteensopivaa tappiofunktion (\textit{loss function}) $q(\bm{\beta})$ minimoinnin kanssa, joka määritellään
 
 $$
 q(\bm{\beta}) = \frac{1}{2} \sum\limits_{i=1}^{N} [\bm{y}_i - \bm{X}_i \bm{\beta}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \bm{\beta}].
@@ -848,17 +817,17 @@ Derivoimalla log-uskottavuusfunktio $\bm{\beta}$ suhteen saamme
 
 $$
 \begin{aligned}
-\frac{\partial L(\bm{\beta}, \bm{\theta};\bm{y})}{\partial \bm{\beta}} &= \sum\limits_{i=1}^{m}\bm{X}_{i}^\top \bm{V}_i^{-1} (\bm{y}_i - \bm{X}_{i} \bm{\beta})
+\frac{\partial L(\bm{\beta}, \bm{\theta};\bm{y})}{\partial \bm{\beta}} &= \sum\limits_{i=1}^{N}\bm{X}_{i}^\top \bm{V}_i^{-1} (\bm{y}_i - \bm{X}_{i} \bm{\beta})
 \end{aligned}
 $$
 
-ja asettamalla $\sum\limits_{i=1}^{m}\bm{X}_{i}^\top \bm{V}_i^{-1} (\bm{y}_i - \bm{X}_{i} \bm{\beta}) = 0$ saamme normaaliyhtälömuodon
+ja asettamalla $\sum\limits_{i=1}^{N}\bm{X}_{i}^\top \bm{V}_i^{-1} (\bm{y}_i - \bm{X}_{i} \bm{\beta}) = 0$ saamme normaaliyhtälömuodon
 
 $$
 \begin{aligned}
-\sum\limits_{i=1}^{m}\bm{X}_{i}^\top \bm{V}_i^{-1} (\bm{y}_i - \bm{X}_{i} \bm{\beta}) &= 0 \\
-\sum\limits_{i=1}^{m}\bm{X}_{i}^\top \bm{V}_i^{-1}\bm{y}_i - \sum\limits_{i=1}^{m}(\bm{X}_{i}^\top \bm{V}_i^{-1}\bm{X}_{i}) \bm{\beta} &= 0 \\
- \sum\limits_{i=1}^{m}(\bm{X}_{i}^\top \bm{V}_i^{-1}\bm{X}_{i}) \bm{\beta} &= \sum\limits_{i=1}^{m}\bm{X}_{i}^\top \bm{V}_i^{-1}\bm{y}_i \\
+\sum\limits_{i=1}^{N}\bm{X}_{i}^\top \bm{V}_i^{-1} (\bm{y}_i - \bm{X}_{i} \bm{\beta}) &= 0 \\
+\sum\limits_{i=1}^{N}\bm{X}_{i}^\top \bm{V}_i^{-1}\bm{y}_i - \sum\limits_{i=1}^{N}(\bm{X}_{i}^\top \bm{V}_i^{-1}\bm{X}_{i}) \bm{\beta} &= 0 \\
+ \sum\limits_{i=1}^{N}(\bm{X}_{i}^\top \bm{V}_i^{-1}\bm{X}_{i}) \bm{\beta} &= \sum\limits_{i=1}^{N}\bm{X}_{i}^\top \bm{V}_i^{-1}\bm{y}_i \\
 \end{aligned}
 $$
 
@@ -866,7 +835,7 @@ $$
 jolloin parametrivektorin $\bm{\beta}$ optimaaliselle arvolle löydetään suljetun muodon ratkaisu
 
 $$
-\hat{\bm{\beta}} =  (\sum\limits_{i=1}^{m} \bm{X}_{i}^\top \bm{V}_i^{-1} \bm{X}_{i})^{-1} \sum\limits_{i=1}^{m} \bm{X}_{i}^\top \bm{V}_i^{-1} \bm{y}_i,
+\hat{\bm{\beta}} =  (\sum\limits_{i=1}^{N} \bm{X}_{i}^\top \bm{V}_i^{-1} \bm{X}_{i})^{-1} \sum\limits_{i=1}^{N} \bm{X}_{i}^\top \bm{V}_i^{-1} \bm{y}_i,
 $$
 
 joka, $\bm{y}_i$ ollessa normaalijakautunut, on ominaisuuksiltaan \textit{paras lineaarinen harhaton estimaattori} \cite{west14}.\\
@@ -877,12 +846,12 @@ Muodostetaan profiloitu log-uskottavuusfunktio $l(\bm{\theta} ; \bm{y})$ sijoitt
 
 $$
 \begin{aligned}
-l(\bm{\theta};\bm{y}) &= -\frac{1}{2} n \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{m} \log (\det (\bm{V}_i)) -\frac{1}{2} \sum\limits_{i=1}^{m} [\bm{y}_i - \bm{X}_i \hat{\bm{\beta}}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \hat{\bm{\beta}}] \\
-&= -\frac{1}{2} n \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{m} \log (\det (\bm{V}_i)) -\frac{1}{2} \sum\limits_{i=1}^{m} \bm{r}_{i}^\top \bm{V}_i^{-1} \bm{r}_{i},
+l(\bm{\theta};\bm{y}) &= -\frac{1}{2} n \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{N} \log (\det (\bm{V}_i)) -\frac{1}{2} \sum\limits_{i=1}^{N} [\bm{y}_i - \bm{X}_i \hat{\bm{\beta}}]^\top \bm{V}_i^{-1} [\bm{y}_i - \bm{X}_i \hat{\bm{\beta}}] \\
+&= -\frac{1}{2} n \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{N} \log (\det (\bm{V}_i)) -\frac{1}{2} \sum\limits_{i=1}^{N} \bm{r}_{i}^\top \bm{V}_i^{-1} \bm{r}_{i},
 \end{aligned}
 $$
 
-jossa $\bm{r}_i = \bm{y}_i - \bm{X}_i \hat{\bm{\beta}} = \bm{y}_i - \bm{X}_i (\sum\limits_{i=1}^{m} \bm{X}_{i}^\top \bm{V}_i^{-1} \bm{X}_{i})^{-1} \sum\limits_{i=1}^{m} \bm{X}_{i}^\top \bm{V}_i^{-1} \bm{y}_i$
+jossa $\bm{r}_i = \bm{y}_i - \bm{X}_i \hat{\bm{\beta}} = \bm{y}_i - \bm{X}_i (\sum\limits_{i=1}^{N} \bm{X}_{i}^\top \bm{V}_i^{-1} \bm{X}_{i})^{-1} \sum\limits_{i=1}^{N} \bm{X}_{i}^\top \bm{V}_i^{-1} \bm{y}_i$
 
 Kun estimaatit $\hat{\bm{G}}$ ja $\hat{\bm{R}}_i$ ovat löytyneet, ratkaistaan $\hat{\bm{V}}_i$ sijoittamalla
 
@@ -893,7 +862,7 @@ $$
 Siten $\hat{\bm{\beta}}_i$ estimaattoriksi saamme sijoittamalla $\hat{\bm{V}}_i$ yleistetyn PNS-estimaattorin yhtälöön
 
 $$
-\hat{\bm{\beta}} =  (\sum\limits_{i=1}^{m} \bm{X}_{i}^\top \hat{\bm{V}}_i^{-1} \bm{X}_{i})^{-1} \sum\limits_{i=1}^{m} \bm{X}_{i}^\top \hat{\bm{V}}_i^{-1} \bm{y}_i,
+\hat{\bm{\beta}} =  (\sum\limits_{i=1}^{N} \bm{X}_{i}^\top \hat{\bm{V}}_i^{-1} \bm{X}_{i})^{-1} \sum\limits_{i=1}^{N} \bm{X}_{i}^\top \hat{\bm{V}}_i^{-1} \bm{y}_i,
 $$
 
 joka on ominaisuuksiltaan \textit{paras empiirinen lineaarinen harhaton estimaattori} \cite{west14}. \\
@@ -901,20 +870,20 @@ joka on ominaisuuksiltaan \textit{paras empiirinen lineaarinen harhaton estimaat
 Kovarianssimatriisi estimaattorille $\hat{\bm{\beta}}$ on
 
 $$
-Cov(\hat{\bm{\beta}}) = (\sum\limits_{i=1}^{m} \bm{X}_{i}^\top \hat{\bm{V}}_i^{-1} \bm{X}_{i})^{-1} \\
+Cov(\hat{\bm{\beta}}) = (\sum\limits_{i=1}^{N} \bm{X}_{i}^\top \hat{\bm{V}}_i^{-1} \bm{X}_{i})^{-1} \\
 $$
 
-\cite{west14} mukaan suuriman uskottavuuden kovarianssiparametrien estimaatit ovat kuitenkin harhaisia, sillä niissä ei oteta huomioon $p$ kiinteiden vaikutusten parametrien $\bm{\beta}$ estimoinnista johtuvaa vapausasteiden menetystä. \cite{diggle02} esittää myös, että suurimman uskottavuuden menetelmä on erittäin herkkä väärin spesifioidulle matriisille $\bm{X}_{i}$ ja voi johtaa ei-konsistenttiin kovarianssiparametrin estimaattoriin.\\
+\cite{west14} mukaan suuriman uskottavuuden kovarianssiparametrien estimaatit ovat kuitenkin harhaisia, sillä niissä ei oteta huomioon $p$ kiinteiden vaikutusten parametrien $\bm{\beta}$ estimoinnista johtuvaa vapausasteiden menetystä. \cite{diggle13} esittää myös, että suurimman uskottavuuden menetelmä on erittäin herkkä väärin spesifioidulle matriisille $\bm{X}_{i}$ ja voi johtaa ei-konsistenttiin kovarianssiparametrin estimaattoriin.\\
 
-Lineaaristen sekamallien tapauksessa vaihtoehdoksi suurimman uskottavuuden menetelmälle suositellaan REML-menetelmää \cite{diggle02, pinheiro00, verbeke00}.\\
+Lineaaristen sekamallien tapauksessa vaihtoehdoksi suurimman uskottavuuden menetelmälle suositellaan REML-menetelmää \cite{diggle13, pinheiro00, verbeke00}.\\
 
-REML-menetelmän estimaattori on suurimman uskottavuuden estimaattori sellaiselle lineaarimuunnokselle $\bm{K}_{i}^\top \bm{y}_i$, jossa $\bm{K}_i$ on $mn_{i} \times (mn_{i} - p)$ matriisi ja jolle $\bm{K}_{i}^\top \bm{X}_i = 0$ ja 
+REML-menetelmän estimaattori on suurimman uskottavuuden estimaattori sellaiselle lineaarimuunnokselle $\bm{K}_{i}^\top \bm{y}_i$, jossa $\bm{K}_i$ on $Nn_{i} \times (N    n_{i} - p)$ matriisi ja jolle $\bm{K}_{i}^\top \bm{X}_i = 0$ ja 
 $$
 \bm{K}_{i}^\top \bm{y}_i \sim N(0, \bm{K}_{i}^\top \bm{V}_i \bm{K}_{i}).\\
 $$
 
 
-Sopiva ehdokas matriisille $\bm{K}_{i}$ on projektio $\bm{Q}_i = \bm{I}_i - \bm{X}_i(\bm{X}_i^\top \bm{X}_i)^{-1} \bm{X}_i^\top$, jolla $\text{E}(\bm{K}_{i}^\top \bm{y}_i) = 0$ riippumatta parametrien $\bm{\beta}$ arvoista \cite{diggle02}. \\
+Sopiva ehdokas matriisille $\bm{K}_{i}$ on projektio $\bm{Q}_i = \bm{I}_i - \bm{X}_i(\bm{X}_i^\top \bm{X}_i)^{-1} \bm{X}_i^\top$, jolla $\text{E}(\bm{K}_{i}^\top \bm{y}_i) = 0$ riippumatta parametrien $\bm{\beta}$ arvoista \cite{diggle13}. \\
 
 \cite{nissinen09} mukaan REML-menetelmän uskottavuusfunktio voidaan muotoilla määritelemällä sellainen $n_i \times (n_i - p)$ matriisi $\bm{A}_i$, jolle $\bm{A}_i \bm{A}_i^\top = \bm{Q}_i$ ja $\bm{A}_{i}^\top \bm{A}_i = \bm{I}_i$. Silloin $\bm{A}_i$ on sopiva valinta matriisille $\bm{K}_i$ ja 
 
@@ -938,19 +907,19 @@ jossa $\bm{\hat{\beta}}$ yleistetty PNS-estimaattori.\\
 \cite{nissinen09} osoittaa myös, että $\bm{A}_i$ liittyy tiheysfunktioon vain epäsuorasti $\bm{X}_{i}^\top \bm{X}_i$ kautta, joka puolestaan ei riipu matriisista $\bm{V}_i$, eikä myöskään vaikuta uskottavuusfunktion optimointiin ja REML-menetelmän log-uskottavuusfunktio voidaan siten kirjoittaa
 
 $$
-l(\bm{V}_i;\bm{y}_i) = -\frac{1}{2} n \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{m} \log (\det (\bm{X}_{i}^\top \bm{V}_{i}^{-1} \bm{X}_{i})) -\frac{1}{2} \sum\limits_{i=1}^{m} \log (\det (\bm{V}_{i})) -\frac{1}{2} \sum\limits_{i=1}^{m} \bm{r}_{i}^\top \bm{V}_i^{-1} \bm{r}_{i}, \\
+l(\bm{V}_i;\bm{y}_i) = -\frac{1}{2} n \log (2\pi) -\frac{1}{2} \sum\limits_{i=1}^{N} \log (\det (\bm{X}_{i}^\top \bm{V}_{i}^{-1} \bm{X}_{i})) -\frac{1}{2} \sum\limits_{i=1}^{N} \log (\det (\bm{V}_{i})) -\frac{1}{2} \sum\limits_{i=1}^{N} \bm{r}_{i}^\top \bm{V}_i^{-1} \bm{r}_{i}, \\
 $$
 
-jossa $n = \sum\limits_{i=1}^{m} n_i$
+jossa $n = \sum\limits_{i=1}^{N} n_i$
 
-Huomioitavaa on, että ML- ja REML-menetelmien log-uskottavuusfunktiot eroavat vain niin kutsutun sakkotermin $\sum\limits_{i=1}^{m} \log (\det (\bm{X}_{i}^\top \bm{V}_{i}^{-1} \bm{X}_{i}))$ perusteella. Siten käytännössä samat optimointialgoritmit ovat sovellettavissa molempien numeeriseen estimointiin. \\
+Huomioitavaa on, että ML- ja REML-menetelmien log-uskottavuusfunktiot eroavat vain niin kutsutun sakkotermin $\sum\limits_{i=1}^{N} \log (\det (\bm{X}_{i}^\top \bm{V}_{i}^{-1} \bm{X}_{i}))$ perusteella. Siten käytännössä samat optimointialgoritmit ovat sovellettavissa molempien numeeriseen estimointiin. \\
 
-\cite{diggle02} tarkentavat, että ML- ja REML-menetelmät ovat asymptoottisesti ekvivalentteja ja siten yleisiä teoreettisia eroja on menetelmistä vaikea osoittaa, mutta sovelluksissa REML-menetelmän on osoitettu suorituvan tehokkaammin tilanteissa, joissa esimerkiksi käännettävä kovarianssimatriisi on lähes singulaarinen. Koska sakkotermi on $p \times p$ matriisi, ML- ja REML-menetelmien erot korostuvat vain, jos $p$ on suuri suhteessa aineiston mittausten kokonaismäärään $n = \sum\limits_{i=1}^{m} n_i$ \\                                                                  
+\cite{diggle13} tarkentavat, että ML- ja REML-menetelmät ovat asymptoottisesti ekvivalentteja ja siten yleisiä teoreettisia eroja on menetelmistä vaikea osoittaa, mutta sovelluksissa REML-menetelmän on osoitettu suoriutuvan tehokkaammin tilanteissa, joissa esimerkiksi käännettävä kovarianssimatriisi on lähes singulaarinen. Koska sakkotermi on $p \times p$ matriisi, ML- ja REML-menetelmien erot korostuvat vain, jos $p$ on suuri suhteessa aineiston mittausten kokonaismäärään $n = \sum\limits_{i=1}^{N} n_i$ \\                                                                  
 
 Sijoittamalla estimaattori $\hat{\bm{V}}_{i_{\text{REML}}}$ yleistetyn PNS-estimaattorin $\hat{\bm{\beta}}$ kaavaan, saadaan
 
 $$
-\hat{\bm{\beta}}_{\text{REML}} =  (\sum\limits_{i=1}^{m} \bm{X}_{i}^\top \hat{\bm{V}}_{i_{\text{REML}}}^{-1} \bm{X}_{i})^{-1} \sum\limits_{i=1}^{m} \bm{X}_{i}^\top \hat{\bm{V}}_{i_{\text{REML}}}^{-1} \bm{y}_i,
+\hat{\bm{\beta}}_{\text{REML}} =  (\sum\limits_{i=1}^{N} \bm{X}_{i}^\top \hat{\bm{V}}_{i_{\text{REML}}}^{-1} \bm{X}_{i})^{-1} \sum\limits_{i=1}^{N} \bm{X}_{i}^\top \hat{\bm{V}}_{i_{\text{REML}}}^{-1} \bm{y}_i,
 $$
 
 \subsection{Satunnaisvaikutusten ennustaminen}
@@ -1031,7 +1000,7 @@ $$
 jossa 
 
 $$
-\hat{\bm{P}} = \hat{\bm{V}}_{i}^{-1}(\bm{I}_{n_i} - \bm{X}_{i} (\bm{X}_{i}^\top \bm{V}_{i}^{-1} \bm{X}_{i})^{-1} \bm{X}_{i}^\top \hat{\bm{V}}_{i}^{-1})
+\hat{\bm{P}} = \hat{\bm{V}}_{i}^{-1}(\bm{I}_{n_i} - \bm{X}_{i} (\bm{X}_{i}^\top \bm{V}_{i}^{-1} \bm{X}_{i})^{-1} \bm{X}_{i}^\top \hat{\bm{V}}_{i}^{-1}).
 $$
 
 Ennusteen kovarianssimatriisiksi saadaan mukaillen
@@ -1043,12 +1012,12 @@ $$
 \cite{verbeke00} mukaan $Cov(\hat{\bm{b}}_{i_\text{EBLUP}})$ on aliarvio $\hat{\bm{b}}_{i_\text{EBLUP}} - \bm{b}_{i}$ vaihtelusta ja usein päättely perustuu
 
 $$
-Cov(\hat{\bm{b}}_{i_\text{EBLUP}} - \bm{b}_{i})
+Cov(\hat{\bm{b}}_{i_\text{EBLUP}} - \bm{b}_{i}).
 $$
 
-\cite{verbeke00} kuitenkin korostavat, että edellämainittu lähestymistapa tulisi tulkita bayesiläisessä viitekehyksessä, sillä $\bm{b}_{i}$ tulkitaan satunnaisparametriksi. \\
+\cite{verbeke00} kuitenkin korostavat, että edellä mainittu lähestymistapa tulisi tulkita bayesiläisessä viitekehyksessä, sillä $\bm{b}_{i}$ tulkitaan satunnaisparametriksi. \\
 
-Itse asiassa, sekä \cite{nissinen09}, että \cite{verbeke00} esittelevät vaihtoehtoiseksi lähestymistavaksi Hendersonin sekamalliyhtälöt, jossa $\hat{\bm{\beta}}$ ja $\hat{\bm{b}}_i$ estimoidaan samanaikaisesti lineaarisen yhtälöryhmän ratkaisuna, mutta \cite{verbeke00} tarjoaa laajemman tilastotieteenfilosofisen pohjan päättelylle.\\
+Itse asiassa, sekä \cite{nissinen09}, että \cite{verbeke00} esittelevät vaihtoehtoiseksi lähestymistavaksi \cite{henderson59} sekamalliyhtälöt, jossa $\hat{\bm{\beta}}$ ja $\hat{\bm{b}}_i$ estimoidaan samanaikaisesti lineaarisen yhtälöryhmän ratkaisuna, mutta \cite{verbeke00} tarjoaa laajemman tilastotieteenfilosofisen pohjan päättelylle.\\
 
 \cite{verbeke00} mukaillen Hendersonin sekamalliyhtälöiden voidaan osoittaa olevan yhteensopivia edellisen esitystavan kanssa määrittelemällä lineaarinen sekamalli muodossa
 
@@ -1060,12 +1029,12 @@ jossa yksilökohtaiset vektorit ja matriisit ovat yhdistetty vektoreiksi $\bm{Y}
 
 $$
 \begin{aligned}
-\bm{y} &= [\bm{y}_{1}^\top, \dots, \bm{y}_{m}^\top]^\top \\
-\bm{b} &= [\bm{b}_{1}^\top, \dots, \bm{b}_{m}^\top]^\top \\
-\bm{X} &= [\bm{X}_{1}^\top, \dots, \bm{X}_{m}^\top]^\top \\
-\bm{Z} &= diag(\bm{Z}_{1}, \dots, \bm{Z}_{m}) \\
-\bm{G} &= diag(\bm{G}_{1}, \dots, \bm{G}_{m}) \\
-\bm{R} &= diag(\bm{R}_{1}, \dots, \bm{R}_{m}), \\
+\bm{y} &= [\bm{y}_{1}^\top, \dots, \bm{y}_{N}^\top]^\top \\
+\bm{b} &= [\bm{b}_{1}^\top, \dots, \bm{b}_{N}^\top]^\top \\
+\bm{X} &= [\bm{X}_{1}^\top, \dots, \bm{X}_{N}^\top]^\top \\
+\bm{Z} &= diag(\bm{Z}_{1}, \dots, \bm{Z}_{N}) \\
+\bm{G} &= diag(\bm{G}_{1}, \dots, \bm{G}_{N}) \\
+\bm{R} &= diag(\bm{R}_{1}, \dots, \bm{R}_{N}), \\
 \end{aligned}
 $$
 
@@ -1091,7 +1060,7 @@ Sekamalliyhtälöjen ratkaisut ovat $\hat{\bm{\beta}}$ ja $\hat{\bm{b}}$, jotka 
 
 \cite{laird82} ovat osoittaneet, että niin ML- kuin REML-estimaatit voidaan laskea numeerisesti EM-algoritmilla, mutta huomauttavat konvergointiongelmista erityisesti ML-estimoinnissa, jos suurin uskottavuus saavutetaan lähellä parametriavaruuden rajaa \cite{verbeke00}.\\
 
-\cite{verbeke00} mukaan nykyään on ylestä käyttää kaikkien mallin parametrian estimointiin Newton-Raphson-menetelmää. Tarkan kuvauksen algoritmien implementointiin antavat \cite{lindstrom88} ja \cite{lindstrom90}, joista jälkimmäiseen mm. R-ohjelmiston \textbf{nlme}-paketin dokumentaatiossa viitataan \cite{nlme13}.\\
+\cite{verbeke00} mukaan nykyään on ylestä käyttää kaikkien mallin parametrien estimointiin Newton-Raphson-menetelmää. Tarkan kuvauksen algoritmien implementointiin antavat \cite{lindstrom88} ja \cite{lindstrom90}, joista jälkimmäiseen mm. R-ohjelmiston \textbf{nlme}-paketin dokumentaatiossa viitataan \cite{nlme13}.\\
 
 \subsection{Mallidiagnostiikka}
 \label{sub:mallidiag}
@@ -1100,7 +1069,7 @@ Mallin valinnassa ja arvioinnissa keskeistä on valita sopiva malli, joka vastaa
 
 Keskeisiä työkaluja sopivan mallin etsintään ovat mallin residuaalijakauman ja estimoitujen parametrien tarkastelu sekä mallien keskinäisen vertailun mahdollistavat kriteerit.\\
 
-Uskottavuusosamäärän testi on hyvin tunnettu menetelmä kahden mallin vertailuun. Menelmässä vertaillaan kahden sisäkkäisen (\textit{nested}) mallin, rajoittamattoman vertailumallin ja rajoitetun nollahypoteesimallin uskottavuusfunktioita.\\
+Uskottavuusosamäärän testi on hyvin tunnettu menetelmä kahden mallin vertailuun. Menetelmässä vertaillaan kahden sisäkkäisen (\textit{nested}) mallin, rajoittamattoman vertailumallin ja rajoitetun nollahypoteesimallin uskottavuusfunktioita.\\
 
 Tarkemmin muotoiltuna, rajoitetun mallin parametriavaruuden tulee olla rajoittamattoman mallin parametriavaruuden osajoukko \cite{west14}.\\
 
@@ -1110,15 +1079,15 @@ $$
 -2 \log(\frac{L_0}{L}),
 $$
 
-jonka tuottama testisuure noudattaa asymptoottisesti $\chi^2$-jakaumaa vapausastein $p-p_0$, $p$ ja $p_0$ ollessa rajoittamattoman ja rajoitetun mallin parametrien lukumäärät.\\
+jossa $L$ on rajoittamattoman mallin ja $L_0$ rajoitetun mallin uskottavuus.
+
+Uskottavuusosamäärän testin testisuure noudattaa asymptoottisesti $\chi^2$-jakaumaa vapausastein $p-p_0$, $p$ ja $p_0$ ollessa rajoittamattoman ja rajoitetun mallin parametrien lukumäärät.\\
 
  Uskottavuusosamäärän testi soveltuu lineaaristen sekamallien vertailuun sekä ML- että REML-menetelmillä, mutta jälkimmäisessä tapauksessa molempien mallien tulee olla estimoitu REML-menetelmällä ja kiinteiden vaikutusten parametrien identtisiä \cite{pinheiro00}.\\
  
  Kiinteiden vaikutusten parametrien mukaan rajoitetun ja rajoittamattoman mallin vertailuun tulee siis perustua ainoastaan ML-menetelmään. Vertaillessa malleja kiinteiden vaikutusten parametrien perusteella, tulee vuorostaan kovarianssiparametrien olla samoja rajoitetussa ja rajoittamattomassa mallissa \cite{west14}.\\
  
- Kovarianssiparametrien perusteella rajoitetun ja rajoittamattoman mallin vertailun tulisi perustua vuorostaan REML-menetelmään, sillä REML-estimoitujen kovarianssiparametrien on osoitettu olevan ML-estimaatteja harhattomampia \cite{west14}.\\
- 
- \cite{pinheiro00} HUOM. TARKENNA VIELÄ MITÄ TARKOITTAA: The asymptotic results for likelihood ratio tests have to be adjusted for boundary conditions!!!! \\
+ Kovarianssiparametrien perusteella rajoitetun ja rajoittamattoman mallin vertailun tulisi perustua vuorostaan REML-menetelmään, sillä kovarianssiparametrien REML-estimaattien harhan on osoitettu olevan ML-estimaatteja pienempää \cite{west14}.\\
  
  Toisen mallien vertailun kannalta hyödyllisen menetelmäjoukon muodostavat informaatiokriteerit. Informaatiokriteerit arvioivat mallin ja aineiston yhteensopivuutta optimoidun log-uskottavuusfunktion perusteella lisäten arvioon parametrien lukumäärään perustuvan sakkotermin.\\
  
@@ -1150,7 +1119,7 @@ jonka tuottama testisuure noudattaa asymptoottisesti $\chi^2$-jakaumaa vapausast
 \hat{\bm{\epsilon}}_i = \bm{y}_i - \bm{X}_i \hat{\bm{\beta}} - \bm{Z}_i \hat{\bm{b}}_i. \\
  $$
  
- TARKENNA BURZYKOWSKI 266 marginal vs conditional
+ %TARKENNA BURZYKOWSKI 266 marginal vs conditional
  
  Niin kutsutut \textit{raa'at} residuaalit eivät sovellu hyvin mallin arviointiin, sillä ne ovat, huolimatta todellisista residuaalesta, usein keskenään korreloituneita ja heteroskedastisia \cite{west14}.\\
  
@@ -1176,7 +1145,7 @@ Tästä johdamme, ja lopuksi kiteytämme, keskeiset löydökset ja peilaamme nä
 
 Tässä vaiheessa suuntaamme kiinnostuksemme siihen, minkälainen yhteys painoindeksin ajallisella muutoksella on yksilön ikään ja sukupuoleen.\\
 
-Kuten jo alustavassa ainesiton tarkastelussa huomioimme, aikadimensio vaatii erityistä huomiota. \cite{fitzmaurice11} varoittaa, että iän käyttäminen ajan \textit{metamittarina} tuo malliin kaksi informaation lähdettä.\\
+Kuten jo alustavassa aineiston tarkastelussa huomioimme, aikadimensio vaatii erityistä huomiota. \cite{fitzmaurice11} varoittaa, että iän käyttäminen ajan \textit{metamittarina} tuo malliin kaksi informaation lähdettä.\\
 
 Ensimmäinen informaation lähde on yksilöiden välinen poikkileikkausvaikutus, joka seuraa siitä, että yksilöt voidaan mitata eri ikäisinä.\\
 
@@ -1185,7 +1154,7 @@ Aineiston tarkastelu tästä näkökulmasta paljastaa myös mahdollisen huolen p
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/bmi_age.png}
-  \caption{Yksilökohtaiset painoindeksiprofiilit iän mukaan (harmaa). 100 satunnaisen yksilön painoindeksiprofiilit korostettuna mustalla}
+  \caption{Yksilökohtaiset painoindeksiprofiilit iän mukaan (harmaa). 100 satunnaisen yksilön painoindeksiprofiilit korostettuna mustalla.}
   \label{fig:bmi_age}
 \end{figure}
 
@@ -1195,13 +1164,13 @@ Toinen lähde on yksilökohtainen pitkittäisvaikutus, jonka taustalla on yksil�
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/bmi_follow.png}
-  \caption{Yksilökohtaiset painoindeksiprofiilit seuranta-ajan mukaan (harmaa). 100 satunnaisen yksilön painoindeksiprofiilit korostettuna mustalla}
+  \caption{Yksilökohtaiset painoindeksiprofiilit seuranta-ajan mukaan (harmaa). 100 satunnaisen yksilön painoindeksiprofiilit korostettuna mustalla.}
   \label{fig:bmi_follow}
 \end{figure}
 
 Vaikka, koko lapsen kehityskaari huomioiden, painoindeksin kehitys voi hyvin olla epälineaarista, huomioiden vain havaitut seuranta-ajanjaksot, yksittäisen yksilön tapauksessa voimme pitää likimain kiinni lineaarisuusoletuksesta.\\
 
-Iän mukana malliin sisällytettyjen, mahdollisesti ristiriitaisten informaation lähteiden erottamiseksi \cite{fitzmaurice11} suosittelee ajan operationalisoimista kahdeksi eri muuttujaksi, joista yksilön ikä ensimmäisellä mittauksella $\text{IKÄ}_{i0}$ (\textit{baseline age}) tuo malliin iän poikkileikkausvaikutuksen ja ikä mittaushetkellä $\text{IKÄ}_{ij}$ pitkittäisvaikutuksen. Palaamme ajan operationalisointiin mallinvalintaosiossa.\\
+Iän mukana malliin sisällytettyjen, mahdollisesti ristiriitaisten informaation lähteiden erottamiseksi \cite{fitzmaurice11} suosittelevat ajan operationalisoimista kahdeksi eri muuttujaksi, joista yksilön ikä ensimmäisellä mittauksella $\text{IKÄ}_{i0}$ (\textit{baseline age}) tuo malliin iän poikkileikkausvaikutuksen ja ikä mittaushetkellä $\text{IKÄ}_{ij}$ pitkittäisvaikutuksen. Palaamme ajan operationalisointiin mallinvalintaosiossa.\\
 
 \subsubsection{Ylhäältä alas -strategia}
 \label{ssb:ylhalas}
@@ -1234,7 +1203,7 @@ Tyttö & $[0,2)$ & 16,11 & 2980 & 1,401 & 12,71 & 23,23\\
  & $[13,17)$ & 21,09 & 42378 & 3,729 & 12,77 & 45,55\\
 \bottomrule
 \end{tabular}
-\caption{Painoindeksijakauman tunnuslukuja luokiteltuna biologisen sukupuolen ja ikäluokan perusteella}
+\caption{Painoindeksijakauman tunnuslukuja luokiteltuna biologisen sukupuolen ja ikäluokan perusteella.}
 \label{table:deskrtaulu}
 \end{table}
 
@@ -1262,7 +1231,7 @@ $\hat{\beta}_0$ & 13,939 & 0,0098 & 0,0000 & 13,920 & 13,958\\
 $\hat{\beta}_1$ & 0,4310 & 0,0010 & 0,0000 & 0,4291 & 0,4330\\
 \bottomrule
 \end{tabular}
-\caption{Yksinkertaisen lineaarisen regressiomallin ~\ref{eq:lm1} parametrien estimaatit ja keskivirheet}
+\caption{Yksinkertaisen lineaarisen regressiomallin (~\ref{eq:lm1}) parametrien estimaatit, keskivirheet, tilastollinen merkitsevyys ja luottamusväli.}
 \label{table:lm1}
 \end{table}
 
@@ -1275,12 +1244,12 @@ se(\hat{\beta}_0)= \sqrt{\hat{\sigma}^2 \Bigg( \frac{1}{n}+\frac{( \frac{1}{n}\s
 $$
 
 $$
-\text{se}(\hat{\beta}_1) = \sqrt{\frac{\hat{\sigma}^2}{\sum_i (\text{IKÄ}_i - \frac{1}{n}\sum\limits_{i = 1}^{n}\text{IKÄ}_i)^2}}
+\text{se}(\hat{\beta}_1) = \sqrt{\frac{\hat{\sigma}^2}{\sum_i (\text{IKÄ}_i - \frac{1}{n}\sum\limits_{i = 1}^{n}\text{IKÄ}_i)^2}},
 $$
 
-, jossa $\hat{\sigma}^2 = \frac{1}{n-2} \sum_i \hat{\epsilon}_i^2$,\\
+jossa $\hat{\sigma}^2 = \frac{1}{n-2} \sum_i \hat{\epsilon}_i^2$,\\
 
-seuraa, että havaintomäärän $n$ ollessa hyvin suuri keskivirheet jäävät aina pieniksi. Teknisessä mielessä, voimme siis luottaa, että estimaattorimme tuottamat estimaatit ovat täsmällisiä, mutta ne voivat silti olla hyvinkin harhaisia.\\
+seuraa, että havaintomäärän $n$ ollessa hyvin suuri keskivirheet jäävät aina pieniksi. Teknisessä mielessä voimme siis luottaa, että estimaattorimme tuottamat estimaatit ovat täsmällisiä, mutta ne voivat silti olla hyvinkin harhaisia.\\
 
 Tutkitaan seuraavaksi sukupuolen vaikutusta lisäämällä malliin muuttuja $\text{SUKUPUOLI}_i$\\
 
@@ -1288,7 +1257,7 @@ Tutkitaan seuraavaksi sukupuolen vaikutusta lisäämällä malliin muuttuja $\te
 \text{BMI}_i = \beta_0 + \beta_1 \times \text{IKÄ}_i + \beta_2 \times \text{SUKUPUOLI}_i + \epsilon_i \label{eq:lm2}\\
 \end{equation}
 
-Vaikuttaisi siltä, että sukupuolella ei vaikuttaisi olevan merkitsevää vaikutusta keskimääräiseen painoindeksiin (Taulukko ~\ref{table:lm2}). Tässä tapauksessa tilastollinen merkitsevyys $\text{P}$ päätellään vertaamaalla T-testisuureen arvoa $t_0$ $t$-jakauman arvoon $T$.\\
+Vaikuttaisi siltä, että sukupuolella ei ole merkitsevää vaikutusta keskimääräiseen painoindeksiin (Taulukko ~\ref{table:lm2}).\\
 
 \begin{table}[H]
 \centering
@@ -1301,23 +1270,9 @@ $\hat{\beta}_1$ & 0,4310 & 0,0010 & 0,0000 & 0,4291 & 0,4330\\
 $\hat{\beta}_2$ & -0,0025 & 0,0086 & 0,7761 & -0,0194 & 0,0145\\
 \bottomrule
 \end{tabular}
-\caption{Lineaarisen regressiomallin ~\ref{eq:lm2} parametrien estimaatit ja keskivirheet kun malliin on lisätty biologisen sukupuolen vaikutus}
+\caption{Lineaarisen regressiomallin ~\ref{eq:lm2} parametrien estimaatit ja keskivirheet kun malliin on lisätty biologisen sukupuolen vaikutus.}
 \label{table:lm2}
 \end{table}
-
-Testisuure
-
-$$
-t_0 = \frac{\hat{\beta}_2 - 0}{\text{se}(\hat{\beta}_2)},
-$$
-
-noudattaa $t$-jakaumaa vapausastein $n-2$, jolloin P-arvoksi saadaan
-
-$$
-\text{P} = 2(1-P(T \leq t_0)).
-$$
-
-P-arvo tiivistää informaatiota siitä, kuinka kaukana estimaatti $\hat{\beta}_2$ on nollasta suhteessa estimaattorin täsmällisyyteen.\\
 
 Tarkastellaan kolmatta mallia, jossa lisäämme iän ja sukupuolen yhdysvaikutuksen.\\
 
@@ -1325,7 +1280,7 @@ Tarkastellaan kolmatta mallia, jossa lisäämme iän ja sukupuolen yhdysvaikutuk
 \text{BMI}_i = \beta_0 + \beta_1 \times \text{IKÄ}_i + \beta_2 \times \text{SUKUPUOLI}_i + \beta_3 \times \text{IKÄ}_i \times \text{SUKUPUOLI}_i + \epsilon_i \label{eq:lm3}\\
 \end{equation}
 
-Nyt sekä sukupuoli, että iän ja sukupuolen yhdysvaikutukset ovat merkitseviä. Mallin tuloksista (~\ref{table:lm3}) voimme nähdä, että iän estimaatti on hieman edellistä pienempi. Nyt iän estimaatti viittaa päävaikutukseen, kun sukupuolena on poika, kun taas iän ja sukupuolen yhdysvaikutus viittaa muutokseen iän päävaikutuksesta, kun sukupuolena tyttö.\\
+Nyt sekä sukupuoli, että iän ja sukupuolen yhdysvaikutukset ovat merkitseviä. Mallin tuloksista (Taulukko~\ref{table:lm3}) voimme nähdä, että iän estimaatti on hieman edellistä pienempi. Nyt iän estimaatti viittaa päävaikutukseen, kun sukupuolena on poika, kun taas iän ja sukupuolen yhdysvaikutus viittaa muutokseen iän päävaikutuksesta, kun sukupuolena tyttö.\\
 
 \begin{table}[H]
 \centering
@@ -1339,7 +1294,7 @@ $\hat{\beta}_2$ & -0,2831 & 0,0196 & 0,0000 & -0,3215 & -0,2447\\
 $\hat{\beta}_3$ & 0,0322 & 0,0020 & 0,0000 & 0,0283 & 0,0362\\
 \bottomrule
 \end{tabular}
-\caption{Lineaarisen regressiomallin ~\ref{eq:lm3} parametrien estimaatit ja keskivirheet kun malliin on lisätty biologisen sukupuolen ja iän yhdysvaikutus}
+\caption{Lineaarisen regressiomallin ~\ref{eq:lm3} parametrien estimaatit, keskivirheet, tilastollinen merkitsevyys ja luottamusväli. kun malliin on lisätty biologisen sukupuolen ja iän yhdysvaikutus.}
 \label{table:lm3}
 \end{table}
 
@@ -1367,7 +1322,7 @@ LM ~\ref{eq:lm2} & 4 & -1033025 & 2066058 & 2066102\\
 LM ~\ref{eq:lm3} & 5 & -1032898 & 2065806 & 2065861\\
 \bottomrule
 \end{tabular}
-\caption{Lineaaristen mallien vapausasteiden, log-uskottavuuksien ja informaatiokriteerien vertailu}
+\caption{Lineaaristen mallien vapausasteiden, log-uskottavuuksien ja informaatiokriteerien vertailu.}
 \label{table:lm_summary}
 \end{table}
 
@@ -1405,7 +1360,7 @@ $\hat{\beta}_3$ & -0,3285 & 0,0231 & 0,0000 & -0,3737 & -0,2833\\
 $\hat{\beta}_4$ & 0,0404 & 0,0019 & 0,0000 & 0,0367 & 0,0442\\
 \bottomrule
 \end{tabular}
-\caption{Keskiarvorakenteen kiinteiden vaikustusten ML-estimaatit}
+\caption{Keskiarvorakenteen kiinteiden vaikustusten ML-estimaatit, keskivirheet, tilastollinen merkitsevyys ja luottamusväli.}
 \label{table:lme0}
 \end{table}
 
@@ -1447,7 +1402,7 @@ $\hat{\sigma^2}_{\text{b}_{0i}}$ & 6,224 & 2,495 & 0 & 6,167* & 6,280*\\
 $\hat{\sigma^2}$ & 1,382 & 1,176 & 0 & 1,376* & 1,387*\\
 \bottomrule
 \end{tabular}
-\caption{Keskiarvorakenteen satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00})}
+\caption{Keskiarvorakenteen satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00}).}
 \label{table:lme1}
 \end{table}
 
@@ -1465,14 +1420,14 @@ Vakiotermin satunnaisvaikutusten $\text{b}_{0i}$ (Kuva ~\ref{fig:lme1_ranef}) ja
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme_satunnaisvaikutukset.png}
-  \caption{Kiinteiden vaikutusten mallin vakiotermin ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Kiinteiden vaikutusten mallin vakiotermin ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti.}
   \label{fig:lme1_ranef}
 \end{figure}
 
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme_residuaalit.png}
-  \caption{Kiinteiden vaikutusten mallin yksilökohtaisten mittausten Pearson-residuaalit ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Kiinteiden vaikutusten mallin yksilökohtaisten mittausten Pearsonin residuaalit ja tiheysfunktion Gaussin ydinestimaatti.}
   \label{fig:lme1_resid}
 \end{figure}
 
@@ -1536,7 +1491,7 @@ $\hat{\beta}_3$ & -0,3614 & 0,0225 & 0,0000 & -0,4055 & -0,3173\\
 $\hat{\beta}_4$ & 0,0432 & 0,0034 & 0,0000 & 0,0366 & 0,0497\\
 \bottomrule
 \end{tabular}
-\caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} kiinteiden vaikustusten REML-estimaatit}
+\caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} kiinteiden vaikustusten REML-estimaatit.}
 \label{table:lme2}
 \end{table}
 
@@ -1555,7 +1510,7 @@ $\hat{\sigma}_{\text{b}_{0i}, \text{b}_{1i}}$ & -1,0566 & - & - & - & -\\
 $\hat{\sigma^2}$ & 0,5926 & 1,176 & 0 & 0,5889* & 0,5964*\\
 \bottomrule
 \end{tabular}
-\caption{Satunnaisvaikutusmallin LSM~\ref{eq:lme2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00})}
+\caption{Satunnaisvaikutusmallin LSM~\ref{eq:lme2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla (\cite{pinheiro00}).}
 \label{table:lme3}
 \end{table}
 
@@ -1573,23 +1528,23 @@ Vakiotermin ennustettujen satunnaisvaikutusten jakauma (Taulukko ~\ref{fig:lme2_
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_vakio_satunnaisvaikutukset.png}
-  \caption{Satunnaisvaikutusten mallin vakiotermin ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Satunnaisvaikutusten mallin vakiotermin ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti.}
   \label{fig:lme2_vakio_ranef}
 \end{figure}
 
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_ika_satunnaisvaikutukset.png}
-  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} iän ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} iän ennustetut satunnaisvaikutukset ja tiheysfunktion Gaussin ydinestimaatti.}
   \label{fig:lme2_ika_ranef}
 \end{figure}
 
-Pienemmän varianssin lisäksi residuaalien jakauma (Taulukko~\ref{fig:lme2_resid}) näyttää vastaavan jakaumaoletuksia huomattavasti edeltävää mallia paremmin, joskin lopullinen arvio vaatii tarkempaa tarkastelua. Tähän palamme lopullisen mallin arvioinnissa.\\
+Pienemmän varianssin lisäksi residuaalien jakauma (Taulukko~\ref{fig:lme2_resid}) näyttää vastaavan jakaumaoletuksia huomattavasti edeltävää mallia paremmin, joskin lopullinen arvio vaatii tarkempaa tarkastelua.\\
 
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_residuaalit.png}
-  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} yksilökohtaisten mittausten Pearson-residuaalit ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} yksilökohtaisten mittausten Pearsonin residuaalit ja tiheysfunktion Gaussin ydinestimaatti.}
   \label{fig:lme2_resid}
 \end{figure}
 
@@ -1608,7 +1563,7 @@ LSM~\ref{eq:lme1} & 7 & -813634 & 1627282 & 1627359\\
 LSM~\ref{eq:lme2} & 9 & -729237 & 1458492 & 1458591\\
 \bottomrule
 \end{tabular}
-\caption{Lineaarisen mallin ja lineaaristen sekamallien vapausasteiden, log-uskottavuuksien ja informaatiokriteerien vertailu}
+\caption{Lineaarisen mallin ja lineaaristen sekamallien vapausasteiden, log-uskottavuuksien ja informaatiokriteerien vertailu.}
 \label{table:lme_summary}
 \end{table}
 
@@ -1647,14 +1602,14 @@ $$
 
 satunnaisvaikutusten komponentti $\bm{Z}_i \bm{G} \bm{Z}_i^\top$ ja yksilökohtaisten residuaalien komponentti $\bm{W}_i \bm{C}_i \bm{W}_i$ kilpailevat osin keskenään, tulee komponenttien määrittely suunnitella huolella ja kiinnittää huomiota mm. monimutkaisten satunnaisvaikutusten ja varianssi- ja korrelaatiorakenteiden samanaikaiseen mallintamiseen.\\
 
-Näitä huomioita noudattaen, varianssin heteroskedastisuuden ja residuaalien korreloituneisuuden tarkastelu on tärkeä vaihe, mutta suhtaudumme suuntaa-antavasti mahdollisiin ehdotuksiin niiden ratkaisemiseksi ja rajaamme \cite{pinheiro00} tarjoaman laajennetun lineaarisen sekamallin määrittelmän tämän tarkastelun ulkopuolelle.\\
+Näitä huomioita noudattaen, varianssin heteroskedastisuuden ja residuaalien korreloituneisuuden tarkastelu on tärkeä vaihe, mutta suhtaudumme suuntaa antavasti mahdollisiin ehdotuksiin niiden ratkaisemiseksi ja rajaamme \cite{pinheiro00} tarjoaman laajennetun lineaarisen sekamallin määrittelmän tämän tarkastelun ulkopuolelle.\\
 
 Vaikka satunnaisvaikutusmallin residuaalien jakauma vaikutti lupaavalta, mikäli tarkastelemme residuaaleja iän suhteen (Kuva~\ref{fig:lme2_ika_resid}) paljastaa, ettei oletus varianssin homoskedastisuudesta ole pitävä. Silmämääräisesti varianssi vaikuttaa olevan pienempi nuorempana ja kasvavan iän myötä, tosin aivan pienten lasten kohdalla on havaittavissa myös merkittävää harhaa.\\
 
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_ika_residuaalit.png}
-  \caption{Satunnaisvaikutusten mallin yksilökohtaisten mittausten Pearson-residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Satunnaisvaikutusten mallin yksilökohtaisten mittausten Pearsonin residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti.}
   \label{fig:lme2_ika_resid}
 \end{figure}
 
@@ -1677,7 +1632,7 @@ $$
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_vario.png}
-  \caption{Satunnaisvaikutusten mallin empiirinen semivariogrammi ($\hat{\gamma}$)}
+  \caption{Satunnaisvaikutusten mallin empiirinen semivariogrammi ($\hat{\gamma}$).}
   \label{fig:lme2_vario}
 \end{figure}
 
@@ -1706,7 +1661,7 @@ Tällöin saamme varianssipainoiksi $1/\sqrt{\text{IKÄ}_{ij}}$, joiden avulla v
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_varfunc.png}
-  \caption{Varianssipainokertoimien $1/g(\text{IKÄ}_{ij})$ muutos iän suhteen}
+  \caption{Varianssipainokertoimien $1/g(\text{IKÄ}_{ij})$ muutos iän suhteen.}
   \label{fig:lme2_varfunc}
 \end{figure}
 
@@ -1715,14 +1670,14 @@ Satunnaisvaikutusten varianssipainotetun mallin residuaalien vaihtelu (Kuva ~\re
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_ika_v_residuaalit.png}
-  \caption{Satunnaisvaikutusten varianssipainotetun mallin yksilökohtaisten mittausten Pearson-residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti}
+  \caption{Satunnaisvaikutusten varianssipainotetun mallin yksilökohtaisten mittausten Pearsonin residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti}
   \label{fig:lme2_ika_v_resid}
 \end{figure}
 
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_v_vario.png}
-  \caption{Satunnaisvaikutusten varianssipainotetun mallin empiirinen semivariogrammi ($\hat{\gamma}$)}
+  \caption{Satunnaisvaikutusten varianssipainotetun mallin empiirinen semivariogrammi ($\hat{\gamma}$).}
   \label{fig:lme2_v_vario}
 \end{figure}
 
@@ -1733,7 +1688,7 @@ Korrelaatioparametrin estimaatiksi saamme $\hat{\phi} = 0,591$, mikä viittaa ko
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_corfunc.png}
-  \caption{CAR(1)-mallin autokorrelaatiofunktion $\hat{\phi}^s$ muutos $s$ suhteen, jossa $s>0$ on mittausten etäisyys vuosina ja $\hat{\phi} = 0,591$}
+  \caption{CAR(1)-mallin autokorrelaatiofunktion $\hat{\phi}^s$ muutos $s$ suhteen, jossa $s>0$ on mittausten etäisyys vuosina ja $\hat{\phi} = 0,591$.}
   \label{fig:lme2_corfunc}
 \end{figure}
 
@@ -1744,7 +1699,7 @@ Residuaaleissa on havaittavissa merkittävää parannusta, vaikka varianssissa i
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_ika_vc_residuaalit.png}
-  \caption{Satunnaisvaikutusten laajennetun mallin yksilökohtaisten mittausten Pearson-residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti.}
+  \caption{Satunnaisvaikutusten laajennetun mallin yksilökohtaisten mittausten Pearsonin residuaalit iän suhteen ja tiheysfunktion Gaussin ydinestimaatti.}
   \label{fig:lme2_ika_vc_resid}
 \end{figure}
 
@@ -1768,7 +1723,7 @@ $\hat{\beta}_3$ & -0,3179 & 0,0175 & 0,0000 & -0,3522 & -0,2835\\
 $\hat{\beta}_4$ & 0,0447 & 0,0032 & 0,0000 & 0,0383 & 0,0510\\
 \bottomrule
 \end{tabular}
-\caption{Laajennetun satunnaisvaikutusmallin $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} kiinteiden vaikustusten REML-estimaatit}
+\caption{Laajennetun satunnaisvaikutusmallin $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} kiinteiden vaikustusten REML-estimaatit.}
 \label{table:lme2vk}
 \end{table}
 
@@ -1785,7 +1740,7 @@ $\hat{\sigma}_{\text{b}_{0i}, \text{b}_{1i}}$ & -0,6898 & - & - & - & - \\
 $\hat{\sigma^2}$ & 0,1611 & 0,4014 & 0 & 0,1566* & 0,1659* \\
 \bottomrule
 \end{tabular}
-\caption{Laajennetun satunnaisvaikutusmallin $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla}
+\caption{Laajennetun satunnaisvaikutusmallin $\text{LSM}_{\text{VK}}$~\ref{eq:lme2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla.}
 \label{table:lme3vk}
 \end{table}
 
@@ -1834,6 +1789,7 @@ LSM~\ref{eq:lme2.1} & 8 & -729297.8 & 1458612 & 1458699\\
 LSM~\ref{eq:lme2} & 9 & -729214.8 & 1458448 & 1458546\\
 \bottomrule
 \end{tabular}
+\caption{Kriittisten mallien ja täyden mallin log-uskottavuudet ja informaatiokriteerit.}
 \label{table:kriittinen}
 \end{table}
 
@@ -1850,7 +1806,7 @@ $\hat{\beta}_1$ & -0,1730 & 0,0020 & 0,0000 & -0,1769 & -0,1690\\
 $\hat{\beta}_2$ & 0,4045 & 0,0018 & 0,0000 & 0,4010 & 0,4080\\
 \bottomrule
 \end{tabular}
-\caption{Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} kiinteiden vaikustusten ML-estimaatit}
+\caption{Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} kiinteiden vaikustusten ML-estimaatit.}
 \label{table:lme2.2}
 \end{table}
 
@@ -1867,7 +1823,7 @@ $\hat{\sigma}_{\text{b}_{0i}, \text{b}_{1i}}$ & -1,0658 & - & - & - & - \\
 $\hat{\sigma^2}$ & 0,5938 & 0,7706 & 0 & 0,5900* & 0.5977* \\
 \bottomrule
 \end{tabular}
-\caption{Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla}
+\caption{Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} satunnaisvaikustusten ja residuaalien varianssi-kovarianssiestimaatit. Kovarianssille ei saatavilla keskivirhettä tai luottamusvälejä (-). *Luottamusvälit arvioitu normaaliapproksimaatiolla.}
 \label{table:lme2.2rand}
 \end{table}
 
@@ -1888,25 +1844,25 @@ Kuvan~\ref{fig:lme_resid_qq} mallien symmetrinen, mutta hännistä kaareutuva ku
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_qq.png}
-  \caption{Kriittinen malli $\text{LSM}$~\ref{eq:lme2.2}}
+  \caption{Kriittinen malli $\text{LSM}$~\ref{eq:lme2.2}.}
   \label{fig:lme_krit_qq}
 \end{subfigure}%
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_qq.png}
-  \caption{Täysi malli $\text{LSM}$~\ref{eq:lme2}}
+  \caption{Täysi malli $\text{LSM}$~\ref{eq:lme2}.}
   \label{fig:lme_taysi_qq}
 \end{subfigure}
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_vc_qq.png}
-  \caption{Kriittinen malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2}}
+  \caption{Kriittinen malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2}.}
   \label{fig:lme_vk_krit_qq}
 \end{subfigure}%
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_vc_qq.png}
-  \caption{Täysi malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2}}
+  \caption{Täysi malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2}.}
   \label{fig:lme_vk_taysi_qq}
 \end{subfigure}
  \caption{Kriittisen (a) ja täyden mallin (b) sekä vastaavien laajennettujen mallien (c) ja (d) kvantiili-kvantiilikuvaajat.}
@@ -1922,49 +1878,49 @@ Kuvan~\ref{fig:lme_ranef_qq} perusteella vakiotermin ennustetut satunnaisvaikutu
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_qq_ranef_int.png}
-  \caption{$\text{LSM}$~\ref{eq:lme2.2} (Vakiotermi)}
+  \caption{$\text{LSM}$~\ref{eq:lme2.2} (Vakiotermi).}
   \label{fig:lme_krit_int_qq}
 \end{subfigure}%
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_qq_ranef_ika.png}
-  \caption{$\text{LSM}$~\ref{eq:lme2.2} (Ikä)}
+  \caption{$\text{LSM}$~\ref{eq:lme2.2} (Ikä).}
   \label{fig:lme_krit_ika_qq}
 \end{subfigure}
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_qq_ranef_int.png}
-  \caption{$\text{LSM}$~\ref{eq:lme2} (Vakiotermi)}
+  \caption{$\text{LSM}$~\ref{eq:lme2} (Vakiotermi).}
   \label{fig:lme_taysi_int_qq}
 \end{subfigure}%
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_qq_ranef_ika.png}
-  \caption{$\text{LSM}$~\ref{eq:lme2} (Ikä)}
+  \caption{$\text{LSM}$~\ref{eq:lme2} (Ikä).}
   \label{fig:lme_taysi_ika_qq}
 \end{subfigure}
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_vc_qq_ranef_int.png}
-  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2} (vakiotermi)}
+  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2} (vakiotermi).}
   \label{fig:lme_vk_krit_int_qq}
 \end{subfigure}%
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_vc_qq_ranef_ika.png}
-  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2} (Ikä)}
+  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2} (Ikä.)}
   \label{fig:lme_vk_krit_ika_qq}
 \end{subfigure}
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_vc_qq_ranef_int.png}
-  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2} (Vakiotermi)}
+  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2} (Vakiotermi).}
   \label{fig:lme_vk_taysi_int_qq}
 \end{subfigure}%
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_vc_qq_ranef_ika.png}
-  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2} (Ikä)}
+  \caption{$\text{LSM}_{\text{VK}}$~\ref{eq:lme2} (Ikä).}
   \label{fig:lme_vk_taysi_ika_qq}
 \end{subfigure}
  \caption{Kriittisen (a), (b) ja täyden mallin (c), (d) sekä vastaavien laajennettujen mallien (e),(f) ja (g),(h) vakiotermin ja iän ennustettujen satunnaisvaikutusten kvantiili-kvantiilikuvaajat.}
@@ -1980,25 +1936,25 @@ Kuvan~\ref{fig:lme_fitresid_qq} mukaan kriittisen ja täyden mallin  $\text{LSM}
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_fitresid.png}
-  \caption{Kriittinen malli $\text{LSM}$~\ref{eq:lme2.2}}
+  \caption{Kriittinen malli $\text{LSM}$~\ref{eq:lme2.2}.}
   \label{fig:lme_krit_fitresid}
 \end{subfigure}%
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_fitresid.png}
-  \caption{Täysi malli $\text{LSM}$~\ref{eq:lme2}}
+  \caption{Täysi malli $\text{LSM}$~\ref{eq:lme2}.}
   \label{fig:lme_taysi_fitresid}
 \end{subfigure}
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_vc_fitresid.png}
-  \caption{Kriittinen malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2}}
+  \caption{Kriittinen malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2}.}
   \label{fig:lme_vk_krit_fitresid}
 \end{subfigure}%
 \begin{subfigure}[b]{0.4\textwidth}
 \centering
   \includegraphics[width=.8\linewidth]{kuvaajat/lme3_full_vc_fitresid.png}
-  \caption{Täysi malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2}}
+  \caption{Täysi malli $\text{LSM}_{\text{VK}}$~\ref{eq:lme2}.}
   \label{fig:lme_vk_taysi_fitresid}
 \end{subfigure}
  \caption{Kriittisen (a) ja täyden mallin (b) sekä vastaavien laajennettujen mallien (c) ja (d) skaalaamattomat residuaalit suhteessa vastemuuttujan sovitteeseen.}
@@ -2029,7 +1985,7 @@ Esimerkiksi \cite{sullivan12} korostavat artikkelissaan, että lääketieteellis
 %$\hat{\beta}_2$ & -0,45 & -0,33\\
 %\bottomrule
 %\end{tabular}
-%\caption{Mallin $\text{LSM}$~\ref{eq:lme2.2} kiinteiden vaikutusten välinen %korrelaatio}
+%\caption{Mallin $\text{LSM}$~\ref{eq:lme2.2} kiinteiden vaikutusten välinen %korrelaatio.}
 %\label{table:pearsonkorr}
 %\end{table}
 
@@ -2057,15 +2013,17 @@ $R^2_{\text{LSM}(m)}$ & 0,11\\
 $R^2_{\text{LSM}(e)}$ & 0,95\\
 \bottomrule
 \end{tabular}
-\caption{\cite{johnson14} laajennettu marginaali- ja ehdollinen  pseudo-$R^2_{LSM}$}
+\caption{\cite{johnson14} laajennettu marginaali- ja ehdollinen  pseudo-$R^2_{LSM}$.}
 \label{table:r2}
 \end{table}
 
 Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} tarkastelu osoittaa empiiristä tukea sille, että \cite{laird82} kaksitasoisen lineaarisen sekamallin kehikko tarjoaa potentiaalisen työkalun FinLapset-rekisteriaineiston kaltaisesta lähteestä muodostetun pitkittäisaineiston analyysiin.\\
 
-Mallin satunnaisvaikutusten määrittely vaikuttaa parantavan huomattavasti mallin kykyä selittää yksilöiden välistä vaihtelua, mutta on pidettävä todennäköisenä, että olisi löydettävissä sellaisia painoindeksiin vaikuttavia taustatekijöitä, joiden avulla voisimme parantaa myös kiinteiden vaikutusten selitysvoimaa. Lisäksi mallissa on osoitettavissa selviä puutteita varianssin heteroskedastisuuden ja residuaalien välisen autokorrelaation huomioimisessa.\\
+Mallin satunnaisvaikutusten määrittely vaikuttaa parantavan huomattavasti mallin kykyä selittää yksilöiden välistä vaihtelua, mutta on pidettävä todennäköisenä, että olisi löydettävissä sellaisia painoindeksiin vaikuttavia taustatekijöitä, joiden avulla voisimme parantaa myös kiinteiden vaikutusten selitysvoimaa. Toisaalta, lineaarisille sekamalleille esitetystä selitysasteesta ei löydy tähän tutkielmaan valitusta peruskirjallisuudesta, joten siihen on suhtauduttava varauksella.\\
 
-Viimeiseksi haasteet mallin piste-estimaattien epävarmuustekijöiden havainnollistamisessa muodostavat suuren puutteen kokonaisuuteen nähden. Esimerkiksi yksilökohtaisissa log-uskottavuuskontribuutioissa on huomattavaa vaihtelua (Kuva~\ref{fig:logkontrib}), johon parametrien jakaumien simulointi uudelleenotannalla, esimerkiksi \cite{burzykowski13} esittämä LOO-menetelmä, voisi tuoda lisävaloa. On myös huomioitava, että tällaisen näkökulman tuominen frekventistisen uskottavuuspäättelyn piiriin vaikuttaa väkinäiseltä, sillä jo lähtökohtaisesti Bayes-menetelmät tarjoaisivat luontevamman lähestymistavan parametrien posteriorijakaumien tarkasteluun.\\
+Tutkielmassa esitetyt esimerkit varianssin heteroskedastisuuden ja residuaalien autokorrelaation huomioimisesta eivät kestäneet tarkempaa tarkastelua. Esimerkit antoivat kuitenkin viitteitä näiden ominaisuuksien olemassaolosta ja tarpeesta tarkastella niitä tarkemmin.\\
+
+Viimeiseksi, haasteet mallin piste-estimaattien epävarmuustekijöiden havainnollistamisessa muodostavat suuren puutteen kokonaisuuteen nähden. Esimerkiksi yksilökohtaisissa log-uskottavuuskontribuutioissa on huomattavaa vaihtelua (Kuva~\ref{fig:logkontrib}), johon parametrien jakaumien simulointi uudelleenotannalla, esimerkiksi \cite{burzykowski13} esittämä LOO-menetelmä, voisi tuoda lisävaloa. On myös huomioitava, että tällaisen näkökulman tuominen frekventistisen uskottavuuspäättelyn piiriin vaikuttaa väkinäiseltä, sillä jo lähtökohtaisesti Bayes-menetelmät tarjoaisivat luontevamman lähestymistavan parametrien posteriorijakaumien tarkasteluun.\\
 
 \begin{figure}[H]
 \centering

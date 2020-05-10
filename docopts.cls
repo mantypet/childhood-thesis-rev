@@ -260,19 +260,6 @@
 }
 
 \renewcommand{\maketitle}{\begin{titlepage}%
-  \if@gradu
-    \texttt{}
-  \else
-    \hspace*{85mm} \dateofacceptance \hspace{10mm} \grade\
-  \fi
-
-  \vspace{10mm}
-
-  \if@gradu
-    \texttt{}
-  \else
-    \hspace*{85mm} \instructor
-  \fi
 
   \vspace*{70mm}
 
@@ -326,7 +313,7 @@
 
 \addto\captionsfinnish{%
   \faculty{Valtiotieteellinen tiedekunta}
-  \department{laitos/osasto}%
+  \department{Tilastotiede/Valtiotieteellinen tiedekunta}%
   \subject{Tilastotiede}
 }
 \addto\captionsenglish{%
