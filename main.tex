@@ -1,10 +1,11 @@
 %allowed options finnish, swedish, english
 %after changing the language you may be forced to use recompile from scratch to get rid of errors
 \documentclass[finnish]{docopts}
+\usepackage[finnish]{babel}
+\usepackage{natbib}
 \usepackage{epsfig}
 \usepackage{subcaption}
 \usepackage{url}
-\usepackage{natbib}
 \usepackage{tikz}
 \usepackage{bm}
 \usepackage{amsmath}
@@ -12,9 +13,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 
-
 \begin{document}
-
 
 %\doublespacing
 %\onehalfspacing
@@ -31,6 +30,9 @@
 %\  Outline4 $\rightarrow$ Outline5 $\rightarrow$ Outline6 $\rightarrow$ Outline7\ }}
 
 \keywords{avainsanat, avainsanat, avainsanat}
+\depositeplace{Säiltyspaikka}
+\additionalinformation{Muita tietoja}
+
 
 \begin{abstract}
 
@@ -43,7 +45,7 @@ TIIVISTELMÄ
 \section{Johdanto}
 \label{sec:johdanto}
 
-JA TÄÄLLÄ
+JOHDANTOAJOHDANTOA
 
 \section{Pitkittäistutkimus tutkimusasetelmana}
 \label{sec:pitkittaistutkimus}
@@ -52,9 +54,9 @@ Pitkittäistutkimuksen määrittelevänä ominaispiirteenä pidetään yleisesti
 
 \cite{diggle13} mukaan taloustieteessä ja yhteiskuntatieteissä voidaan pitkittäistutkimuksesta käyttää myös termiä paneelitutkimus, mutta sovellettujen tilastollisten menetelmien kannalta, erityisesti terveystieteellisissä ja epidemiologisissa tutkimuskysymyksissä, käsitteet \textit{pitkittäistutkimus} ja sen yhteydessä havaittu \textit{pitkittäisaineisto} muodostavat luontevamman viitekehyksen.
 
-\cite{twisk13} jakaa epidemiologiset tutkimusasetelmat karkeasti kahteen tyyppiin, \textit{havainnoiviin} ja \textit{kokeellisiin} tutkimusasetelmiin (Kuva \ref{fig:epikaavio}). Havainnoivat tutkimusasetelmat puolestaan jakautuvat \textit{tapaus-verrokkitutkimukseen} ja \textit{kohorttitutkimukseen}. Lisäksi havainnoivat kohorttitutkimukset voivat olla alatyypiltään eteneviä (\textit{prospektiivinen tutkimus}), takautuvia (\textit{retrospektiivinen tutkimus}) tai poikkileikkaustutkimuksia \cite{diggle13, twisk13}.
+\cite{twisk13} jakaa epidemiologiset tutkimusasetelmat karkeasti kahteen tyyppiin, \textit{havainnoiviin} ja \textit{kokeellisiin} tutkimusasetelmiin (Kuva \ref{fig:epikaavio}). Havainnoivat tutkimusasetelmat puolestaan jakautuvat \textit{tapaus-verrokkitutkimukseen} ja \textit{kohorttitutkimukseen}. Lisäksi havainnoivat kohorttitutkimukset voivat olla alatyypiltään eteneviä (\textit{prospektiivinen tutkimus}), takautuvia (\textit{retrospektiivinen tutkimus}) tai poikkileikkaustutkimuksia. \cite{diggle13, twisk13}.
 
-\cite{twisk13} ottaa voimakkaamman kannan salliessaan pitkittäistutkimuksen käsitteen käytön edellämainituista vain prospektiivisten kohorttitutkimusten tapauksessa, kun \citeauthor{diggle13} tyytyy suosittelemaan prospektiivista aineistonkeruutapaa, lähinnä retrospektiivisen aineiston laatuun kohdistuvan kritiikin kannalta. Mainittakoon, että poikkileikkaustutkimukset eivät kuulu lainkaan pitkittäistutkimusten piiriin, sillä samaa yksilköä tarkastellaan siinä vain yhdessä aikapisteessä.\\
+\cite{twisk13} ottaa voimakkaamman kannan salliessaan pitkittäistutkimuksen käsitteen käytön edellämainituista vain prospektiivisten kohorttitutkimusten tapauksessa, kun \cite{diggle13} tyytyy suosittelemaan prospektiivista aineistonkeruutapaa, lähinnä retrospektiivisen aineiston laatuun kohdistuvan kritiikin kannalta. Mainittakoon, että poikkileikkaustutkimukset eivät kuulu lainkaan pitkittäistutkimusten piiriin, sillä samaa yksilköä tarkastellaan siinä vain yhdessä aikapisteessä.\\
 
 Tämän tutkielman asetelma ei ole ristiriidassa edellämainittujen näkökulmien kanssa, joten tutkielman piirissä omaksumme pitkittäistutkimuksen ja pitkittäisaineistojen käsitteiden käytön. 
 
@@ -81,7 +83,7 @@ Tämän tutkielman asetelma ei ole ristiriidassa edellämainittujen näkökulmie
 \subsection{Pitkittäisaineiston analyysi}
 \label{sub:pitkittaisanal}
 
-Kuten sanottu, pitkittäisaineistoille on ominaista yhden tai useamman yksilön seuranta usean havaintokerran ajan. Käytännössä useinkaan kaikilta yksilöiltä ei kyetä saamaan samaa määrää havaintoja ja havaintoajankohdat voivat vaihdella. Tällöin puhutaan epätasapainoisesta (\textit{unbalanced}) pitkittäisaineistosta \cite{laird82}.
+Kuten sanottu, pitkittäisaineistoille on ominaista yhden tai useamman yksilön seuranta usean havaintokerran ajan. Käytännössä useinkaan kaikilta yksilöiltä ei kyetä saamaan samaa määrää havaintoja ja havaintoajankohdat voivat vaihdella. Tällöin puhumme epätasapainoisesta (\textit{unbalanced}) pitkittäisaineistosta .\cite{laird82}.
 
 Mm. \cite{verbeke00, goldstein11} mukaan epätasapainoisen pitkittäisaineiston analyysissa ei suoraan voida hyödyntää yleistä monimuuttujamenetelmien kehikkoa, vaan malli tulee jakaa kahdelle tai useammalle tasolle. 
 
@@ -96,16 +98,16 @@ Palaamme kaksitasoisen mallin ja yleisen lineaarisen sekamallin määritelmään
 \subsection{FinLapset aineisto}
 \label{sub:finlapsetdata}
 
-Tutkielmassa hyödynnetty aineisto perustuu Terveyden ja hyvinvoinninlaitoksen FinLapset-rekisterihankkeen (\cite{finlapsetrekisteri}) ohessa kerättyihin tietoihin lasten ja nuorten  perustuvat lastenneuvoloiden kouluterveydenhuollon ja opiskelijaterveydenhuollon terveydenhoitokäynneillä suoritetuista paino- ja pituusmittauksista. Tiedot on kerätty osana perusterveydenhuollon avohoidon hoitoilmoitusrekisterin (Avohilmo) tietojen keräystä.\\
+Tutkielmassa hyödyntämämme aineisto perustuu Terveyden ja hyvinvoinninlaitoksen FinLapset-rekisterihankkeen \cite{finlapsetrekisteri} ohessa kerättyihin tietoihin lastenneuvoloiden, kouluterveydenhuollon ja opiskelijaterveydenhuollon terveydenhoitokäynneillä suoritetuista paino- ja pituusmittauksista. Tiedot on kerätty osana perusterveydenhuollon avohoidon hoitoilmoitusrekisterin (Avohilmo) tietojen keräystä.\\
 
 Terveystarkastuksissa kerättävistä tiedoista pituus- ja painotiedot ovat olleet osa Avohilmon tietosisältöä vuodesta 2010 lähtien, mutta tietopuutteiden vuoksi tutkielman aineisto on rajattu vuosiin 2013\textendash2020.\\
 
-FinLapset-rekisterihankkeen keskeisiä tutkimuskysymyksiä olivat lasten ja nuorten ylipaino ja lihavuus sekä pituus- ja painotietojen valtakunnallinen kattavuus (\cite{finlapsetrekisteri}). Tutkielman aineistoa hyödynnetään Terveyden ja hyvinvoinnin laitoksen luvalla. Tarkastelemme seuraavaksi aineiston keskeisiä rajauksia ja teknisiä määrityksiä. \\
+FinLapset-rekisterihankkeen keskeisiä tutkimuskysymyksiä olivat lasten ja nuorten ylipaino ja lihavuus sekä pituus- ja painotietojen valtakunnallinen kattavuus \cite{finlapsetrekisteri}. Tutkielman aineistoa hyödynnämme Terveyden ja hyvinvoinnin laitoksen luvalla. Tarkastelemme seuraavaksi aineiston keskeisiä rajauksia ja teknisiä määrityksiä. \\
 
 \subsubsection{FinLapset-aineiston muodostus}
 \label{ssb:finlapsetdatamuod}
 
-Avohilmosta suoritetun poiminnan yhteydessä aineistoon on tehty seuraavat rajaukset:
+FinLapset-rekisterihankkeen yhteydessä aineistoon on tehty seuraavat rajaukset:
 
 \begin{itemize}
     \item Käynti on tehty vastaanotolla
@@ -116,7 +118,7 @@ Avohilmosta suoritetun poiminnan yhteydessä aineistoon on tehty seuraavat rajau
 
 Rajauksilla on pyritty poistamaan mahdollisia harhan lähteitä. Esimerkiksi rajaamalla tarkastelu vain terveydenhoitokäynteihin voidaan sulkea pois sellaisia käyntejä, jotka liittyvät jonkin sairauden hoitoon tai seurantaan. Näillä lapsilla käyntejä voi olla huomattavasti enemmän kuin vertaisillaan ja joihinkin sairauksiin voi myös liittyä epätavallisia painon muutoksia. \\
 
-Paino- ja pituustietojen kirjaaminen tapahtuu sähköisesti potilastietojärjestelmiin, joista ne siirretään osaksi Avohilmoa. Kirjaamiskäytännöt vaihtelevat potilastietojärjestelmittäin ja pituus- ja painomittaukset voivat olla kirjattu eri yksiköissä sekä niissä voi olla inhimillisestä kirjausvirheitä.\\
+Paino- ja pituustietojen kirjaaminen tapahtuu sähköisesti potilastietojärjestelmiin, joista ne siirretään osaksi Avohilmoa. Kirjaamiskäytännöt vaihtelevat potilastietojärjestelmittäin ja pituus- ja painomittaukset voivat olla kirjattu eri mittayksiköissä sekä niissä voi olla inhimillisestä kirjausvirheitä.\\
 
 Edellämainittuja on pyritty karsimaan seuraavilla yksinkertaisilla skaalaussäännöillä:
 
@@ -158,7 +160,7 @@ FinLapset-hankkeessa havaintoja rajattiin lisäksi siten, että lapsilta ja nuor
 
 Tulokset julkaistiin vuosilta 2014\textendash2018 sellaisilta lapsilta ja nuorilta, jotka olivat mittaushetkellä 2\textendash16-vuotiaita \cite{finlapsetrekisteri}. \\
 
-Tässä tutkielmassa noudatetaan FinLapset-aineiston rajauksia muilta osin, lukuunottamatta rajausta yhteen mittaukseen kalenterivuotta kohden tai julkaisun yhdeydessä suoritettua kalenterivuoden ja iän perusteella tehtyä rajausta. Tutustumme seuraavaksi aineistoon yksinomaan tämän tutkielman piirissä.\\
+Tässä tutkielmassa noudatamme FinLapset-aineiston rajauksia muilta osin, lukuunottamatta rajausta yhteen mittaukseen kalenterivuotta kohden tai julkaisun yhdeydessä suoritettua kalenterivuoden ja iän perusteella tehtyä rajausta. Tutustumme seuraavaksi aineistoon yksinomaan tämän tutkielman piirissä.\\
 
 \subsubsection{Rekisteripohjainen lasten ja nuorten neuvola- ja kouluterveysaineisto pitkittäisaineistona}
 \label{ssb:rekpitkittais}
@@ -218,14 +220,12 @@ $$\\
 
 Muodostamme seuraavaksi FinLapset-aineistosta tämän tutkielman näkökulmasta rajatun aineiston.\\
 
-\subsubsection{FinLapset-aineiston rajaus}
+\subsubsection{Tutkielman aineiston rajaus}
 \label{ssb:kuvailu}
 
 Tutkielman keskeinen kohde on lineaaristen sekamallien soveltuvuuden tarkastelu analyysin kohteen ollessa rekisteriaineistosta muodostettu pitkittäisaineisto. Siten kysymykset liittyvät aineistossa esiintyviin ilmiöihin tilastollisten mallien sovellettavuuden ja toiminnan näkökulmasta.\\
 
-Rekisteriaineistona FinLapset-aineisto sisältää useita tunnettuja ja tuntemattomia harhan ja mittausvirheen lähteitä, mm. tietojen puuttuminen eräiden kuntien osalta ja aineiston edustavuuden vahvistamattomuus. Tällaiset tarkastelut ja korjaavat toimenpiteet on tässä tutkielmassa pitkälti sivuutettu ja siten tämän tutkielman piirissä aineiston perusteella sen taustalla olevasta ilmiöstä tehtävien johtopäätösten suhteen tulee suorittaa varovaisuutta. \\ 
-
-\textbf{Tutkielman aineisto}
+Rekisteriaineistona FinLapset-aineisto sisältää useita tunnettuja ja tuntemattomia harhan ja mittausvirheen lähteitä, mm. tietojen puuttuminen eräiden kuntien osalta ja aineiston edustavuuden vahvistamattomuus. Tällaiset tarkastelut ja korjaavat toimenpiteet on tässä tutkielmassa pitkälti sivuutettu ja siten tämän tutkielman piirissä aineiston taustalla vallitsevista ilmiöistä tehtävien johtopäätösten suhteen tulee suorittaa varovaisuutta. \\ 
 
 Alkuperäinen FinLapset-aineisto käsittää painoindeksihavaintoja aikaväliltä 2.1.2013\textendash9.4.2020. Alkuperäisen aineiston tunnuslukuja on tulevissa tarkasteluissa merkitty selvyyden vuoksi tähdellä (*). \\
 
@@ -260,9 +260,9 @@ $n_i$ & N*\\
 
 Mittausten määrien jakaumista (Taulukko ~\ref{table:mittausmaarat}) huomaamme, että suurimman yksittäisen ryhmän muodostavat yksilöt, joilla on vain yksi mittaus. Tämä on syytä huomioida, sillä yleisesti pitkittäisaineiston oletetaan sisältävän yksilöä kohden vähintään kaksi mittausta \cite{west14}. Yksilöitä, joilla on yli 30 mittausta on koko ainestossa vain 101 kappaletta.\\
 
-Täyttääksemme pitkittäisaineiston vaatimukset, tutkielman aineistoon valittiin sellaiset yksilöt, joilla on 2\textendash9 mittausta. Lisäksi, alkuperäisen FinLapset-aineiston sijaan tutkielman aineisto rajoittuu yksilöihin, joiden kotikuntana on kunkin kalenterivuoden lopussa ollut Helsinki. Yksilöiltä, joiden kotikunta on muuttunut seuranta-aikana, otetaan kuitenkin mukaan kaikki saatavilla olevat mittaukset. Lisäksi 
+Täyttääksemme pitkittäisaineiston vaatimukset, tutkielman aineistoon valittiin sellaiset yksilöt, joilla on 2\textendash9 mittausta. Lisäksi, alkuperäisen FinLapset-aineiston sijaan tutkielman aineisto rajoittuu yksilöihin, joiden kotikuntana on kunkin kalenterivuoden lopussa ollut Helsinki. Yksilöiltä, joiden kotikunta on muuttunut seuranta-aikana, otetaan kuitenkin mukaan kaikki saatavilla olevat mittaukset.\\
 
-Tulee kuitenkin painottaa, että rajauksenkin jälkeen aineisto sisältää huomattavan määrän havaintoja suurelta määrältä yksilöitä ja se mahdollistaa samankaltaisten haasteiden kohtaamisen kuin alkuperäinen FinLapset-aineisto.\\
+Tulee kuitenkin painottaa, että rajattunakin aineisto sisältää huomattavan määrän havaintoja suurelta määrältä yksilöitä ja se mahdollistaa samankaltaisten haasteiden kohtaamisen kuin alkuperäinen FinLapset-aineisto.\\
 
 Tutkielman rajatussa aineistossa havaintoja on kaikkiaan $N = 101239$ yksilöltä ja mittausten kokonaismäärä $n = \sum\limits_{i = 1}^{N} n_{i} = 421660$. \\
 
@@ -291,7 +291,7 @@ Vaikka yksilökohtaisten mittausmäärien vaihteluväli pieneni (Taulukko ~\ref{
 
 \textbf{Tutkielman aineston muuttujat}\\
 
-Tutkielmassa hyödynnetään seuraavia FinLapset-aineiston muuttujia
+Tutkielmassa hyödynnämme seuraavia FinLapset-aineiston muuttujia
 
 \begin{itemize}
     \item Yksilön pseudonymisoitu tunniste
@@ -337,7 +337,7 @@ Tärkeimpänä muuttujana tarkastelemme vastemuuttuja painoindeksiä. Painoindek
   \label{fig:bmi_dens}
 \end{figure}
 
-Toisin sanoen, kunkin yksilön havaintoihin sovitetun lineaarisen mallin (Kuva ~\ref{fig:xyplot}) jäännösvirheiden tulisi noudattaa yksiulotteista normaalijakaumaa. Kuvasta huomaamme, että yksilöiden välillä on huomattavasti vaihtelua, mutta yksittäisen yksilön kohdalla oletus painoindeksin ja iän yhteyden lineaarisuudesta vaikuttaisi alustavasti perustellulta.\\
+Toisin sanoen, kunkin yksilön havaintoihin sovitetun lineaarisen mallin (Kuva ~\ref{fig:xyplot}) jäännösvirheiden tulisi noudattaa yksiulotteista normaalijakaumaa. Kuvasta huomaamme, että yksilöiden välillä on huomattavasti vaihtelua, mutta alustavasti yksittäisen yksilön kohdalla oletus painoindeksin ja iän yhteyden lineaarisuudesta vaikuttaisi perustellulta.\\
 
 \begin{figure}[H]
 \centering
@@ -2034,9 +2034,9 @@ Viimeiseksi, haasteet mallin piste-estimaattien epävarmuustekijöiden havainnol
 
 \section{Johtopäätökset}
 
-TÄÄLLÄ JO
+JOHTOPÄÄTÖKSETJOHTOPÄÄTÖKSET
 
-FinLapset aineisto - induktivismi
+%induktivismi
 
 % --- References ---
 
@@ -2045,7 +2045,7 @@ FinLapset aineisto - induktivismi
 %\bibliographystyle{plain}
 %\bibliographystyle{acm}
 %\bibliographystyle{ieeetr}
-\bibliographystyle{apalike}
+\bibliographystyle{finplain}
 
 \bibliography{references}
 

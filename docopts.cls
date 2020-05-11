@@ -20,33 +20,14 @@
 %% original source files, as listed above, are part of the
 %% same distribution. (The sources need not necessarily be
 %% in the same archive or directory.)
-%% \CharacterTable
-%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
-%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
-%%   Digits        \0\1\2\3\4\5\6\7\8\9
-%%   Exclamation   \!     Double quote  \"     Hash (number) \#
-%%   Dollar        \$     Percent       \%     Ampersand     \&
-%%   Acute accent  \'     Left paren    \(     Right paren   \)
-%%   Asterisk      \*     Plus          \+     Comma         \,
-%%   Minus         \-     Point         \.     Solidus       \/
-%%   Colon         \:     Semicolon     \;     Less than     \<
-%%   Equals        \=     Greater than  \>     Question mark \?
-%%   Commercial at \@     Left bracket  \[     Backslash     \\
-%%   Right bracket \]     Circumflex    \^     Underscore    \_
-%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
-%%   Right brace   \}     Tilde         \~}
-\NeedsTeXFormat{LaTeX2e}[2000/06/01]
+
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{docopts}
-  [2007/09/12 v1.1 Dokumenttiluokka TiKi-kurssia varten]
 \newif\if@finnish
-\newif\if@swedish
-\newif\if@english
 \newif\if@gradu
 \newif\if@emptyfirstpagenumber
 
 \DeclareOption{finnish}{\@finnishtrue}
-\DeclareOption{swedish}{\@swedishtrue}
-\DeclareOption{english}{\@englishtrue}
 \DeclareOption{gradu}{\@gradutrue}
 \DeclareOption{emptyfirstpagenumber}{\@emptyfirstpagenumbertrue}
 \newif\if@defaulttypesize
@@ -95,22 +76,11 @@
   \PassOptionsToClass{titlepage}{article}
 \fi
 \ProcessOptions\relax
-\LoadClass{article}[2000/05/19]
-\RequirePackage{latexsym}[1998/08/17 v2.2e Standard LaTeX package (lasy symbols)]
-\RequirePackage[utf8]{inputenc}[2000/07/01 v0.996 Input encoding file ]
-\RequirePackage[T1]{fontenc}[2000/08/30 v1.91 Standard LaTeX package]
-
-\if@finnish
-  \RequirePackage[finnish]{babel}[2001/03/01 v3.7h The Babel package]
-\fi
-\if@english
-  \RequirePackage[english]{babel}[2001/03/01 v3.7h The Babel package]
-\fi
-\if@swedish
-   \RequirePackage[swedish]{babel}[2001/03/01 v3.7h The Babel package]
-\fi
-
-\RequirePackage{geometry}[1999/10/07 v2.2 Page Geometry]
+\LoadClass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{latexsym}
+\usepackage{geometry}
 \newcommand{\defaultsettings}{%
   \if@twoside
     \geometry{top=2.5cm, left=2.8cm,
@@ -207,57 +177,21 @@
   \\ % Rivinvaihto.
   \hspace{1em}%
 }
-\RequirePackage{openbib}
-\addto\captionsfinnish{\def\refname{Lähteet}}
-\addto\captionsenglish{\def\enclname{Appendices}}
-\addto\captionsswedish{\def\enclname{Bilagor}}
-\renewenvironment{thebibliography}[1]
-     {\section*{\refname
-        \@mkboth{\uppercase{\refname}}{\uppercase{\refname}}
-        \addcontentsline{toc}{section}{\refname}}%
-      \list{\@biblabel{\arabic{enumiv}}}%
-           {\settowidth\labelwidth{\makebox[1em]{}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\arabic{enumiv}}}%
-        \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
-      \sloppy\clubpenalty4000\widowpenalty4000%
-      \sfcode`\.=\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}
-\def\@biblabel#1{#1}
+
+
 \def\datefinnish{%
   \def\today{\number\day.\number\month.\number\year}}
 \newcommand{\level}[1]{\gdef\@level{#1}}
-\level{}
+\level{Pro Gradu}
 
-\addto\captionsfinnish{%
-  \def\dateofacceptance{hyväksymispäivä}%
-  \def\grade{arvosana}%
-  \def\instructor{arvostelija}%
-  \def\uh{HELSINGIN YLIOPISTO}%
-  \def\helsinki{Helsinki}%
-  \def\ccs{Statistics}%
-}
-\addto\captionsenglish{%
-  \def\dateofacceptance{Date of acceptance}%
-  \def\grade{Grade}%
-  \def\instructor{Instructor}%
-  \def\uh{UNIVERSITY OF HELSINKI}%
-  \def\helsinki{Helsinki}%
-  \def\ccs{Statistics}%
-}
-\addto\captionsswedish{%
-  \def\dateofacceptance{godk.datum}%
-  \def\grade{vitsord}%
-  \def\instructor{bedömare}%
-  \def\uh{HELSINGFORS UNIVERSITET}%
-  \def\helsinki{Helsingfors}%
-  \def\ccs{Statistics}%
-}
+
+\def\dateofacceptance{hyväksymispäivä}%
+\def\grade{arvosana}%
+\def\instructor{arvostelija}%
+\def\uh{HELSINGIN YLIOPISTO}%
+\def\helsinki{Helsinki}%
+\def\ccs{Statistics}%
+
 
 \renewcommand{\maketitle}{\begin{titlepage}%
 
@@ -301,31 +235,15 @@
 \keywords{}
 
 % fill out the number of pages per language
-\if@finnish
-  \numberofpagesinformation{\numberofpages\ sivua + \numberofappendixpages\ liitesivua}
-\fi
-\if@english 
-  \numberofpagesinformation{\numberofpages\ pages + \numberofappendixpages\ appendix pages}
-\fi
-\if@swedish  
-  \numberofpagesinformation{\numberofpages\ sidor + \numberofappendixpages\ appendix sidor}
-\fi
 
-\addto\captionsfinnish{%
-  \faculty{Valtiotieteellinen tiedekunta}
-  \department{Tilastotiede/Valtiotieteellinen tiedekunta}%
-  \subject{Tilastotiede}
-}
-\addto\captionsenglish{%
-  \faculty{Faculty of Social Sciences}
-  \department{Department of Social Research}%
-  \subject{Statistics}
-}
-\addto\captionsswedish{%
-  \faculty{Statsvetenskapliga fakulteten}
-  \department{Institutionen f\"or socialvetenskap}%
-  \subject{Statistik}
-}
+\numberofpagesinformation{\numberofpages\ sivua + \numberofappendixpages\ liitesivua}
+
+
+\faculty{Valtiotieteellinen tiedekunta}
+\department{Tilastotiede/Valtiotieteellinen tiedekunta}%
+\subject{Tilastotiede}
+
+
 \newsavebox{\@abstract}
 \newenvironment{@summary}{
   \begin{lrbox}{\@abstract}
