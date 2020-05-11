@@ -56,7 +56,7 @@ Pitkittäistutkimuksen määrittelevänä ominaispiirteenä pidetään yleisesti
 
 \cite{twisk13} jakaa epidemiologiset tutkimusasetelmat karkeasti kahteen tyyppiin, \textit{havainnoiviin} ja \textit{kokeellisiin} tutkimusasetelmiin (Kuva \ref{fig:epikaavio}). Havainnoivat tutkimusasetelmat puolestaan jakautuvat \textit{tapaus-verrokkitutkimukseen} ja \textit{kohorttitutkimukseen}. Lisäksi havainnoivat kohorttitutkimukset voivat olla alatyypiltään eteneviä (\textit{prospektiivinen tutkimus}), takautuvia (\textit{retrospektiivinen tutkimus}) tai poikkileikkaustutkimuksia. \cite{diggle13, twisk13}.
 
-\cite{twisk13} ottaa voimakkaamman kannan salliessaan pitkittäistutkimuksen käsitteen käytön edellämainituista vain prospektiivisten kohorttitutkimusten tapauksessa, kun \cite{diggle13} tyytyy suosittelemaan prospektiivista aineistonkeruutapaa, lähinnä retrospektiivisen aineiston laatuun kohdistuvan kritiikin kannalta. Mainittakoon, että poikkileikkaustutkimukset eivät kuulu lainkaan pitkittäistutkimusten piiriin, sillä samaa yksilköä tarkastellaan siinä vain yhdessä aikapisteessä.\\
+\cite{twisk13} ottaa voimakkaamman kannan salliessaan pitkittäistutkimuksen käsitteen käytön edellämainituista vain prospektiivisten kohorttitutkimusten tapauksessa, kun \cite{diggle13} tyytyvät suosittelemaan prospektiivista aineistonkeruutapaa, lähinnä retrospektiivisen aineiston laatuun kohdistuvan kritiikin kannalta. Mainittakoon, että poikkileikkaustutkimukset eivät kuulu lainkaan pitkittäistutkimusten piiriin, sillä samaa yksilköä tarkastellaan siinä vain yhdessä aikapisteessä.\\
 
 Tämän tutkielman asetelma ei ole ristiriidassa edellämainittujen näkökulmien kanssa, joten tutkielman piirissä omaksumme pitkittäistutkimuksen ja pitkittäisaineistojen käsitteiden käytön. 
 
@@ -294,11 +294,9 @@ Vaikka yksilökohtaisten mittausmäärien vaihteluväli pieneni (Taulukko ~\ref{
 Tutkielmassa hyödynnämme seuraavia FinLapset-aineiston muuttujia
 
 \begin{itemize}
-    \item Yksilön pseudonymisoitu tunniste
-    \item Käynnin päivämäärä
+    \item Käynnin yhteydessä kirjattu painoindeksi
+    \item Käynnin yhteydessä kirjattu ikä
     \item Biologinen sukupuoli
-    \item Syntymäpäivämäärä
-    \item Painoindeksi
 \end{itemize}
 
 Sukupuolijakauma (Taulukko ~\ref{table:sukupuolijakauma}) vaikuttaa kuvaavaan likimain Suomen väestöä, jossa tyttöjen osuus on hieman poikien osuutta pienempi.\\
@@ -319,12 +317,12 @@ Pojat & 51402\\
 
 Tutkielman aineistossa esiintyy kolme kiinnostavaa aikadimensiota. Ensimmäinen näistä on yksilön ikä mittaushetkellä, toinen on aika, jolloin mittaus on suoritettu ja kolmas on syntymäkohortti. Näillä dimensioilla on muihin muuttujiin verrattuna poikkeuksellinen ominaisuus, sillä kunkin dimension voi yksikäsitteisesti päätellä kahdesta muusta. Nämä dimensiot muodostavat ikä-periodi-kohortti-ilmiön, jota on analysoitu myös lineaaristen sekamallien kirjallisuudessa \cite{yang06}.\\
 
-Tämän tutkielman osalta kiinnitämme huomion kahteen dimensioon, mittausaikaan ja yksilön ikään mittaushetkellä. Näitä voi luontevasti kuvata esimerkiksi Lexis-diagrammeilla (Kuva ~\ref{fig:lexisplot}), joissa pitkittäisaineisto kuvataan yksilökohtaisina polkuina, x-akselin kuvatessa aikadimensiota ja y-akselin ikää mittaushetkellä.\\
+Tämän tutkielman osalta oleellisia ovat dimensiot mittausaika ja yksilön ikä mittaushetkellä. Näitä voi luontevasti havainnollistaa esimerkiksi Lexis-diagrammeilla (Kuva ~\ref{fig:lexisplot}), joissa pitkittäisaineisto kuvataan yksilökohtaisina polkuina, x-akselin kuvatessa aikadimensiota ja y-akselin ikää mittaushetkellä.\\
 
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lex_plot.png}
-  \caption{Lexis-diagrammi mittauksen päivämäärän ja mittaushetken iän mukaan. Kaikkien yksilöiden mittausaikajanat esitetty harmaana. Sadan satunnaisesti valitun yksilön mittausaikajanoja on havainnollistettu mustalla ja yksittäisiä mittausajankohtia mustilla palloilla.}
+  \caption{Mittausajankohdan ja iän suhdetta havainnollistava Lexis-diagrammi. Mahdollisia seurantapolkuja ja havaintoja kuvattu mustilla viivoilla ja palloilla.}
   \label{fig:lexisplot}
 \end{figure}
 
@@ -337,12 +335,12 @@ Tärkeimpänä muuttujana tarkastelemme vastemuuttuja painoindeksiä. Painoindek
   \label{fig:bmi_dens}
 \end{figure}
 
-Toisin sanoen, kunkin yksilön havaintoihin sovitetun lineaarisen mallin (Kuva ~\ref{fig:xyplot}) jäännösvirheiden tulisi noudattaa yksiulotteista normaalijakaumaa. Kuvasta huomaamme, että yksilöiden välillä on huomattavasti vaihtelua, mutta alustavasti yksittäisen yksilön kohdalla oletus painoindeksin ja iän yhteyden lineaarisuudesta vaikuttaisi perustellulta.\\
+Toisin sanoen, kunkin yksilön havaintoihin sovitetun lineaarisen mallin (Kuva ~\ref{fig:xyplot}) jäännösvirheiden tulisi noudattaa yksiulotteista normaalijakaumaa. Esimerkkikuva havainnollistaa tämänkaltaista yksilöiden välistä vaihtelua ja lineaarisuusoletusta.\\
 
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/xyplot.png}
-  \caption{Kymmenen satunnaisesti valitun yksilön painoindeksimittaukset yksinkertaisille lineaarisilla sovitesuorilla.}
+  \caption{Mahdollisia regressiosuoria ja havaintoja kuvattu mustilla viivoilla ja palloilla.}
   \label{fig:xyplot}
 \end{figure}
 
@@ -1154,7 +1152,7 @@ Aineiston tarkastelu tästä näkökulmasta paljastaa myös mahdollisen huolen p
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/bmi_age.png}
-  \caption{Yksilökohtaiset painoindeksiprofiilit iän mukaan (harmaa). 100 satunnaisen yksilön painoindeksiprofiilit korostettuna mustalla.}
+  \caption{Yksilökohtaiset painoindeksiprofiilit iän mukaan (harmaa). Mahdollisia painoindeksiprofiileja korostettu mustalla.}
   \label{fig:bmi_age}
 \end{figure}
 
@@ -1164,7 +1162,7 @@ Toinen lähde on yksilökohtainen pitkittäisvaikutus, jonka taustalla on yksil�
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/bmi_follow.png}
-  \caption{Yksilökohtaiset painoindeksiprofiilit seuranta-ajan mukaan (harmaa). 100 satunnaisen yksilön painoindeksiprofiilit korostettuna mustalla.}
+  \caption{Yksilökohtaiset painoindeksiprofiilit seuranta-ajan mukaan (harmaa). Mahdollisia painoindeksiprofiileja korostettu mustalla.}
   \label{fig:bmi_follow}
 \end{figure}
 
@@ -1411,7 +1409,7 @@ Kiinteiden vaikutusten mallin lähtöaineistolle ennustetuista arvoista (Kuva ~\
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme_bmi_ennuste.png}
-  \caption{Kiinteiden vaikutusten mallin lähtöaineistolle ennustetut painoindeksin arvot. Sadan satunnaisen yksilön profiilit korostettuna mustalla.}
+  \caption{Kiinteiden vaikutusten mallin lähtöaineistolle ennustetut painoindeksin arvot. Mahdollisia ennusteprofiileja korostettu mustalla.}
   \label{fig:lme1_bmi_pred}
 \end{figure}
 
@@ -1519,7 +1517,7 @@ Aineistolle ennustettujen painoindeksiarvojen tarkastelu (Kuva ~\ref{fig:lme2_bm
 \begin{figure}[H]
 \centering
   \includegraphics[scale=0.8]{kuvaajat/lme2_bmi_ennuste.png}
-  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} lähtöaineistolle ennustetut painoindeksin arvot. Sadan satunnaisen yksilön profiilit korostettuna mustalla.}
+  \caption{Satunnaisvaikutusten mallin LSM~\ref{eq:lme2} lähtöaineistolle ennustetut painoindeksin arvot. Mahdollisia ennusteprofiileja korostettu mustalla.}
   \label{fig:lme2_bmi_pred}
 \end{figure}
 
@@ -2023,7 +2021,7 @@ Mallin satunnaisvaikutusten määrittely vaikuttaa parantavan huomattavasti mall
 
 Tutkielmassa esitetyt esimerkit varianssin heteroskedastisuuden ja residuaalien autokorrelaation huomioimisesta eivät kestäneet tarkempaa tarkastelua. Esimerkit antoivat kuitenkin viitteitä näiden ominaisuuksien olemassaolosta ja tarpeesta tarkastella niitä tarkemmin.\\
 
-Viimeiseksi, haasteet mallin piste-estimaattien epävarmuustekijöiden havainnollistamisessa muodostavat suuren puutteen kokonaisuuteen nähden. Esimerkiksi yksilökohtaisissa log-uskottavuuskontribuutioissa on huomattavaa vaihtelua (Kuva~\ref{fig:logkontrib}), johon parametrien jakaumien simulointi uudelleenotannalla, esimerkiksi \cite{burzykowski13} esittämä LOO-menetelmä, voisi tuoda lisävaloa. On myös huomioitava, että tällaisen näkökulman tuominen frekventistisen uskottavuuspäättelyn piiriin vaikuttaa väkinäiseltä, sillä jo lähtökohtaisesti Bayes-menetelmät tarjoaisivat luontevamman lähestymistavan parametrien posteriorijakaumien tarkasteluun.\\
+Viimeiseksi, haasteet mallin piste-estimaattien epävarmuustekijöiden havainnollistamisessa muodostavat suuren puutteen kokonaisuuteen nähden. Esimerkiksi yksilökohtaisissa log-uskottavuuskontribuutioissa on huomattavaa vaihtelua (Kuva~\ref{fig:logkontrib}), johon parametrien jakaumien simulointi uudelleenotannalla, kuten \cite{burzykowski13} esittämä LOO-menetelmä, voisi tuoda lisävaloa. On myös huomioitava, että tällaisen näkökulman tuominen frekventistisen uskottavuuspäättelyn piiriin vaikuttaa väkinäiseltä, sillä jo lähtökohtaisesti Bayes-menetelmät tarjoaisivat luontevamman lähestymistavan parametrien posteriorijakaumien tarkasteluun.\\
 
 \begin{figure}[H]
 \centering
@@ -2034,7 +2032,13 @@ Viimeiseksi, haasteet mallin piste-estimaattien epävarmuustekijöiden havainnol
 
 \section{Johtopäätökset}
 
-JOHTOPÄÄTÖKSETJOHTOPÄÄTÖKSET
+Lineaariset sekamallit tarjoavat luontevan työkalun FinLapset-aineiston analyysiin. Lopullisen mallin residuaalien ja selitysvoiman tarkastelun perusteella jo hyvin yksinkertainen kiinteiden vaikutusten rakenne, yhdessä vakiotermin ja aikadimension regressiokertoimen satunnaisvaikutusten kanssa paransi huomattavasti mallin kykyä selittää aineiston vaihtelua.\\
+
+Havaitsimme kuitenkin puutteita joissakin yksinkertaista mallia koskevissa oletuksissa, mm. residuaalien jakaumasta ja niiden korreloimattomuudesta sekä residuaalivarianssin homoskedastisuudesta. Saavuimme silti johtopäätökseen, että laajennettu lineaarinen sekamalli tarjoaisi mahdollisia ratkaisuja osaan ongelmista, mutta vaatisi mallin huolellisen uudelleenmäärittelyn.\\
+
+Aineiston huomattavasta havaintomäärästä seuraten totesimme tavanomaisten mallin arvioinnin toimintatapojen olevan riittämättömiä malliin liittyvien epävarmuustekijöiden kuvaamiseen. 
+
+Mielenkiintoinen jatkokysymys
 
 %induktivismi
 
