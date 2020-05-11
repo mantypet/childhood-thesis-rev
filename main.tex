@@ -1058,7 +1058,7 @@ Sekamalliyhtälöjen ratkaisut ovat $\hat{\bm{\beta}}$ ja $\hat{\bm{b}}$, jotka 
 
 \cite{laird82} ovat osoittaneet, että niin ML- kuin REML-estimaatit voidaan laskea numeerisesti EM-algoritmilla, mutta huomauttavat konvergointiongelmista erityisesti ML-estimoinnissa, jos suurin uskottavuus saavutetaan lähellä parametriavaruuden rajaa \cite{verbeke00}.\\
 
-\cite{verbeke00} mukaan nykyään on ylestä käyttää kaikkien mallin parametrien estimointiin Newton-Raphson-menetelmää. Tarkan kuvauksen algoritmien implementointiin antavat \cite{lindstrom88} ja \cite{lindstrom90}, joista jälkimmäiseen mm. R-ohjelmiston \textbf{nlme}-paketin dokumentaatiossa viitataan \cite{nlme13}.\\
+\cite{verbeke00} mukaan nykyään on ylestä käyttää kaikkien mallin parametrien estimointiin Newton-Raphson-menetelmää. Tarkan kuvauksen algoritmien implementointiin antavat \cite{lindstrom88} ja \cite{lindstrom90}, joista jälkimmäiseen mm. R-ohjelmiston \cite{rsoftware} \textbf{nlme}-paketin dokumentaatiossa viitataan \cite{nlme13}.\\
 
 \subsection{Mallidiagnostiikka}
 \label{sub:mallidiag}
@@ -2032,15 +2032,17 @@ Viimeiseksi, haasteet mallin piste-estimaattien epävarmuustekijöiden havainnol
 
 \section{Johtopäätökset}
 
-Lineaariset sekamallit tarjoavat luontevan työkalun FinLapset-aineiston analyysiin. Lopullisen mallin residuaalien ja selitysvoiman tarkastelun perusteella jo hyvin yksinkertainen kiinteiden vaikutusten rakenne, yhdessä vakiotermin ja aikadimension regressiokertoimen satunnaisvaikutusten kanssa paransi huomattavasti mallin kykyä selittää aineiston vaihtelua.\\
+Lineaariset sekamallit tarjoavat luontevan työkalun FinLapset-aineiston analyysiin. Lopullisen mallin residuaalien ja selitysvoiman tarkastelun perusteella jo hyvin yksinkertainen kiinteiden vaikutusten rakenne, yhdessä vakiotermin ja aikadimension regressiokertoimen satunnaisvaikutusten kanssa paransi huomattavasti mallin kykyä selittää aineiston vaihtelua. Tämä tarjoaa mielekkään jatkokysymyksen mielenkiintoisten kiinteiden vaikutusten löytämiselle, ja niiden vaikutusten tutkimiselle yksilö- ja populaatiotasoilla.\\
 
-Havaitsimme kuitenkin puutteita joissakin yksinkertaista mallia koskevissa oletuksissa, mm. residuaalien jakaumasta ja niiden korreloimattomuudesta sekä residuaalivarianssin homoskedastisuudesta. Saavuimme silti johtopäätökseen, että laajennettu lineaarinen sekamalli tarjoaisi mahdollisia ratkaisuja osaan ongelmista, mutta vaatisi mallin huolellisen uudelleenmäärittelyn.\\
+Havaitsimme myös puutteita joissakin mallia koskevissa oletuksissa mm. residuaalien jakaumasta ja niiden korreloimattomuudesta sekä residuaalivarianssin homoskedastisuudesta. Laajennettu lineaarinen sekamalli voisi tarjota mahdollisia ratkaisuja, mutta välttääksemme mahdollisen konfliktin satunnaisvaikutusten kovarianssimatriisin ja residuaalimatriisin välillä, tulisi malli kokonaisuudessaan määritellä huolellisesti uudelleen laajennetun mallin näkökulmasta.\\
 
-Aineiston huomattavasta havaintomäärästä seuraten totesimme tavanomaisten mallin arvioinnin toimintatapojen olevan riittämättömiä malliin liittyvien epävarmuustekijöiden kuvaamiseen. 
+FinLapset-aineiston huomattavasta havaintomäärästä seuraten totesimme monien tavanomaisten mallin arviointikäytäntöjen olevan riittämättömiä malliin liittyvien epävarmuustekijöiden kuvaamiseen ja esitimme myös joitakin vaihtoehtoisia lähestymistapoja. \cite{connelly2016} kuitenkin painottavat rekisteriaineistojen hyödyntämistä käsittelevässä artikkelissaan, että ennen rekisteriaineistosta tehtäviä päätelmiä, tulisi suurin työ analyysissä sen sijaan suunnata aineiston synnyttäneiden prosessien syvälliseen ymmärtämiseen.\\
 
-Mielenkiintoinen jatkokysymys
+\cite{fricke14} puolestaan tarkastelee tiedon ja suuren havaintomäärän yhteyttä tieto-opin näkökulmasta ja osoittaa useita ongelmia passiivisesti kertyvien massiivisten aineistojen (\textit{Big Data}) pohjalta tehtävässä päättelyssä. Hän yhdistää massiivisten aineistojen aikakaudella vallitsevan aineistolähtöisen (\textit{data-driven}) päättelyn \cite{popper86} induktion kritiikkiin. \cite{fricke14} mukaan aineistolähtöinen päättely on luonteeltaan induktiivista ja siinä korostuu harha tiedon lisääntymisestä havaintomäärän kasvaessa. Vaikka FinLapset-aineisto ei ole varsinaisesti massiivinen aineisto, on se luonteeltaan passiivista ja houkuttelee induktiiviseen päättelyyn.\\
 
-%induktivismi
+Otostutkimuksen näkökulmasta hyvin määritellystä otantakehikosta nostetun otoksen havaintomäärän lisääminen vähentää tutkimuksen mittareihin liittyvää epävarmuutta. Koska rekisteritutkimuksissa aineistoa käytetään usein muuhun, kuin sen alkuperäiseen käyttötarkoitukseen, voimme jopa kyseenalaistaa voiko kehikkoa, ja siten validia ja reliaabelia mittaria olla edes olemassa. Aineiston koko voi myös luoda induktiivisen harhan, että havaintomäärän lähestyessä populaation todellista kokoa, havaintojen perusteella ilmiötä koskevat päätelmmämme lähestyisivät myös populaation todellisen ilmiön luonnetta, silloinkin kun meiltä puuttuu täysin kyky mittarimme falsifiointiin.\\
+
+Päinvastoin, suurten aineistojen parissa meillä olisi, huolellisesti määritellyn kehikon turvin, varaa valita vain kaikista luotettavimmat ja edustavimmat havainnot, ja siten muodostaa itse ilmiön näkökulmasta validi ja reliaabeli mittari.\\
 
 % --- References ---
 
@@ -2059,61 +2061,6 @@ Mielenkiintoinen jatkokysymys
 
 \pagestyle{empty}
 
-\internalappendix{1}{Tulokset ja taulukot}
-
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: ti, touko 05, 2020 - 20.10.08
-\begin{table}[!htbp] \centering 
-  \caption{} 
-  \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lcc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-3} 
-\\[-1.8ex] & \multicolumn{2}{c}{bmi} \\ 
-\\[-1.8ex] & (1) & (2)\\ 
-\hline \\[-1.8ex] 
- ika\_alku\_i & $-$0.173$^{***}$ & $-$0.174$^{***}$ \\ 
-  & (0.002) & (0.002) \\ 
-  & & \\ 
- ika & 0.404$^{***}$ & 0.383$^{***}$ \\ 
-  & (0.002) & (0.002) \\ 
-  & & \\ 
- sukupfF &  & $-$0.361$^{***}$ \\ 
-  &  & (0.022) \\ 
-  & & \\ 
- ika:sukupfF &  & 0.043$^{***}$ \\ 
-  &  & (0.003) \\ 
-  & & \\ 
- Constant & 14.440$^{***}$ & 14.625$^{***}$ \\ 
-  & (0.014) & (0.018) \\ 
-  & & \\ 
-\hline \\[-1.8ex] 
-Observations & 421,660 & 421,660 \\ 
-Log Likelihood & $-$729,345.800 & $-$729,214.800 \\ 
-Akaike Inf. Crit. & 1,458,706.000 & 1,458,448.000 \\ 
-Bayesian Inf. Crit. & 1,458,782.000 & 1,458,546.000 \\ 
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{table} 
+\internalappendix{1}{Lineaarisen sekamallin sovittaminen lme()-funktiolla}
 
 \end{document}
-
-% NOTES & EXTRA
-
-% MARIAN KORJAUKSET
-
-% CITE STYLES
-%\cite{Rao03}
-%\cite{Bivand08}
-%\citealt{Rao03}
-%\citet{Bivand08}
-%\citep{Bivand08}
-%\citep[p.~99]{Bivand08}
-%\citep[e.g.][]{Bivand08}
-%\citep[e.g.][p.~99]{Casella02}
-%\citeauthor{Bivand08}
-%\citeyear{Bivand08}

@@ -1,0 +1,11 @@
+% CITE STYLES
+%\cite{Rao03}
+%\cite{Bivand08}
+%\citealt{Rao03}
+%\citet{Bivand08}
+%\citep{Bivand08}
+%\citep[p.~99]{Bivand08}
+%\citep[e.g.][]{Bivand08}
+%\citep[e.g.][p.~99]{Casella02}
+%\citeauthor{Bivand08}
+%\citeyear{Bivand08}
