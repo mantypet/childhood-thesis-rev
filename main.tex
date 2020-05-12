@@ -12,6 +12,24 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{listings}
+
+\lstset{ 
+  language=R,                     % the language of the code
+  basicstyle=\tiny\ttfamily, % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it is 1, each line
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+} 
 
 \begin{document}
 
@@ -47,7 +65,7 @@ TIIVISTELMÄ
 
 Terveyden ja hyvinvoinnin laitoksen FinLapset-rekisteri \cite{finlapsetrekisteri} kerää ajankohtaista tietoa lasten ja nuorten terveydestä ja hyvinvoinnista. Eräänä tietolähteenä ovat lasten ja nuorten neuvola- ja kouluterveydenhuollon käyntien yhtdeydessä kirjatut paino- ja pituustiedot, joista muodostetaan ajantasaista ja kattavaa tietoa lasten ja nuorten ylipainosta.\\
 
-Tiedot raportoidaan vuositasolla valiten kultakin yksilöltä yksi edustavaksi katsottu mittaus raportointivuotta kohden. Aineisto muodostaa tällöin vuosittaisen poikkileikkauksen lasten- ja nuorten ylipainosta ja lihavuudesta. Samoilta yksilöiltä saadaan kuitenkin useita mittauksia useilta vuosilta ja jopa useita mittauksia vuotta kohden. Raportoinnissa menetetään siis merkittävä pitkittäisulottuvuus, joka voisi tarjota hyödyllistä lisätietoa ylipainon kehityksestä.\\
+Tiedot raportoidaan vuositasolla valiten kultakin yksilöltä yksi edustavaksi katsottu mittaus raportointivuotta kohden. Aineisto muodostaa vuosittaisen poikkileikkauksen lasten- ja nuorten ylipainosta ja lihavuudesta. Samoilta yksilöiltä voidaan kuitenkin saada useita mittauksia useilta vuosilta. Raportoinnissa menetetään siis merkittävä pitkittäisulottuvuus, joka voisi tarjota hyödyllistä lisätietoa ylipainon kehityksestä.\\
 
 Tällaisen aineiston analyysiin on kehitetty useita tilastollisia menetelmiä. Osa menetelmistä asettaa aineistolle tiukkoja vaatimuksia mm. kontrolloidusta koeasetelmasta, mutta toiset ovat joustavampia aineiston ominaisuuksien suhteen. Erään monipuolisen menetelmäperheen muodostavat lineaariset sekamallit, jotka tarjoavat lupaavan analyysivälineen toistettuja mittauksia sisältävälle aineistolle.\\
 
@@ -2033,25 +2051,28 @@ Viimeiseksi, haasteet mallin piste-estimaattien epävarmuustekijöiden havainnol
 
 \begin{figure}[H]
 \centering
-  \includegraphics[scale=0.8]{kuvaajat/log.png}
+  \includegraphics[scale=0.6]{kuvaajat/log.png}
   \caption{Kriittisen mallin $\text{LSM}$~\ref{eq:lme2.2} yksilökohtaiset log-uskottavuuskontribuutiot.}
   \label{fig:logkontrib}
 \end{figure}
 
 \section{Johtopäätökset}
 
+% TODO TONE DOWN?
+
 Lineaariset sekamallit tarjoavat luontevan työkalun FinLapset-aineiston analyysiin. Lopullisen mallin residuaalien ja selitysvoiman tarkastelun perusteella jo hyvin yksinkertainen kiinteiden vaikutusten rakenne, yhdessä vakiotermin ja aikadimension regressiokertoimen satunnaisvaikutusten kanssa paransi huomattavasti mallin kykyä selittää aineiston vaihtelua. Tämä tarjoaa mielekkään jatkokysymyksen mielenkiintoisten kiinteiden vaikutusten löytämiselle, ja niiden vaikutusten tutkimiselle yksilö- ja populaatiotasoilla.\\
 
-Havaitsimme myös puutteita joissakin mallia koskevissa oletuksissa mm. residuaalien jakaumasta ja niiden korreloimattomuudesta sekä residuaalivarianssin homoskedastisuudesta. Laajennettu lineaarinen sekamalli voisi tarjota mahdollisia ratkaisuja, mutta välttääksemme mahdollisen konfliktin satunnaisvaikutusten kovarianssimatriisin ja residuaalimatriisin välillä, tulisi malli kokonaisuudessaan määritellä huolellisesti uudelleen laajennetun mallin näkökulmasta.\\
+Havaitsimme myös puutteita joissakin mallia koskevissa oletuksissa mm. residuaalien jakaumasta ja niiden korreloimattomuudesta, sekä residuaalivarianssin homoskedastisuudesta. Laajennettu lineaarinen sekamalli voisi tarjota mahdollisia ratkaisuja, mutta välttääksemme mahdollisen konfliktin satunnaisvaikutusten kovarianssimatriisin ja residuaalimatriisin välillä, tulisi malli kokonaisuudessaan määritellä huolellisesti laajennetun mallin näkökulmasta.\\
 
-FinLapset-aineiston huomattavasta havaintomäärästä seuraten totesimme monien tavanomaisten mallin arviointikäytäntöjen olevan riittämättömiä malliin liittyvien epävarmuustekijöiden kuvaamiseen ja esitimme myös joitakin vaihtoehtoisia lähestymistapoja. \cite{connelly2016} kuitenkin painottavat rekisteriaineistojen hyödyntämistä käsittelevässä artikkelissaan, että ennen rekisteriaineistosta tehtäviä päätelmiä, tulisi suurin työ analyysissä sen sijaan suunnata aineiston synnyttäneiden prosessien syvälliseen ymmärtämiseen.\\
+FinLapset-aineiston huomattavasta havaintomäärästä seuraten, totesimme monien tavanomaisten mallin arviointikäytäntöjen olevan riittämättömiä malliin liittyvien epävarmuustekijöiden kuvaamiseen ja esitimme myös joitakin vaihtoehtoisia lähestymistapoja. Esimerkiksi \cite{connelly2016} kuitenkin painottavat rekisteriaineistojen hyödyntämistä käsittelevässä artikkelissaan, että ennen rekisteriaineistosta johdettuja päätelmiä, tulisi suurin työ analyysissä sen sijaan suunnata aineiston synnyttäneiden prosessien syvälliseen ymmärtämiseen.\\
 
-\cite{fricke14} puolestaan tarkastelee tiedon ja suuren havaintomäärän yhteyttä tieto-opin näkökulmasta ja osoittaa useita ongelmia passiivisesti kertyvien massiivisten aineistojen (\textit{Big Data}) pohjalta tehtävässä päättelyssä. Hän yhdistää massiivisten aineistojen aikakaudella vallitsevan aineistolähtöisen (\textit{data-driven}) päättelyn \cite{popper86} induktion kritiikkiin. \cite{fricke14} mukaan aineistolähtöinen päättely on luonteeltaan induktiivista ja siinä korostuu harha tiedon lisääntymisestä havaintomäärän kasvaessa. Vaikka FinLapset-aineisto ei ole varsinaisesti massiivinen aineisto, on se luonteeltaan passiivista ja houkuttelee induktiiviseen päättelyyn.\\
+\cite{fricke14} puolestaan tarkastelee tiedon ja suuren havaintomäärän yhteyttä tieto-opin näkökulmasta ja osoittaa useita ongelmia passiivisesti kertyvien massiivisten aineistojen (\textit{Big Data}) pohjalta tehtävässä päättelyssä. Hän yhdistää massiivisten aineistojen aikakaudella vallitsevan aineistolähtöisen (\textit{data-driven}) päättelyn \cite{popper86} induktion kritiikkiin. \cite{fricke14} mukaan aineistolähtöinen päättely on luonteeltaan induktiivista ja siinä korostuu harha tiedon lisääntymisestä havaintomäärän kasvaessa. Vaikka FinLapset-aineisto ei ole varsinaisesti massiivinen aineisto, on se rekisteriaineistona luonteeltaan passiivista ja houkuttelee induktiiviseen päättelyyn.\\
 
-Otostutkimuksen näkökulmasta hyvin määritellystä otantakehikosta nostetun otoksen havaintomäärän lisääminen vähentää tutkimuksen mittareihin liittyvää epävarmuutta. Koska rekisteritutkimuksissa aineistoa käytetään usein muuhun, kuin sen alkuperäiseen käyttötarkoitukseen, voimme jopa kyseenalaistaa voiko kehikkoa, ja siten validia ja reliaabelia mittaria olla edes olemassa. Aineiston koko voi myös luoda induktiivisen harhan, että havaintomäärän lähestyessä populaation todellista kokoa, havaintojen perusteella ilmiötä koskevat päätelmmämme lähestyisivät myös populaation todellisen ilmiön luonnetta, silloinkin kun meiltä puuttuu täysin kyky mittarimme falsifiointiin.\\
+Otostutkimuksen näkökulmasta, hyvin määritellystä otantakehikosta nostetun otoksen havaintomäärän lisääminen vähentää tutkimuksen mittareihin liittyvää epävarmuutta. Koska rekisteritutkimuksissa aineistoa käytetään usein muuhun, kuin sen alkuperäiseen käyttötarkoitukseen, voimme jopa kyseenalaistaa voiko kehikkoa, ja siten validia ja reliaabelia mittaria olla edes olemassa. Aineiston koko voi myös luoda induktiivisen harhan, että havaintomäärän lähestyessä populaation todellista kokoa, havaintojen perusteella ilmiötä koskevat päätelmmämme lähestyisivät myös populaation todellisen ilmiön luonnetta, silloinkin kun meiltä puuttuu täysin kyky mittarimme falsifiointiin.\\
 
-Päinvastoin, suurten aineistojen parissa meillä olisi, huolellisesti määritellyn kehikon turvin, varaa valita vain kaikista luotettavimmat ja edustavimmat havainnot, ja siten muodostaa itse ilmiön näkökulmasta validi ja reliaabeli mittari.\\
+Päinvastoin, huolellisesti määritellyn kehikon turvin olisi suurten aineistojen parissa varaa aktiivisesti rajautua tutkimuskysymyksen kannalta vain kaikista luotettavimpiin ja edustavimpiin havaintoihin ja muodostaa itse ilmiön näkökulmasta validi ja reliaabeli mittari.\\
 
+\newpage
 % --- References ---
 
 \nocite{*}
@@ -2070,5 +2091,151 @@ Päinvastoin, suurten aineistojen parissa meillä olisi, huolellisesti määrite
 \pagestyle{empty}
 
 \internalappendix{1}{Lineaarisen sekamallin sovittaminen lme()-funktiolla}
+\label{appx:lme}
+
+Tutkielman mallit sovitettiin R-ohjelmiston \cite{rsoftware} \textbf{nlme}-paketin \textbf{lme}-funktiolla. \\
+
+
+LM~\ref{eq:lm3} \\
+
+\begin{lstlisting}
+ lm(bmi ~ ika*sukupuoli,
+    data = aineisto)
+\end{lstlisting}
+
+LSM~\ref{eq:lme1}\\
+
+\begin{lstlisting}
+  lme(bmi ~ ika_i0 + ika*sukupuoli,
+     random = ~1 | yksilo,
+     data = aineisto,
+     method = "ML",
+     control = lmeControl(returnObject = T,
+                          opt = "optim",
+                          optimMethod = "Nelder-Mead"))
+\end{lstlisting}
+
+LSM~\ref{eq:lme2}\\
+
+\begin{lstlisting}
+ lme(bmi ~ ika_i0 + ika*sukupuoli,
+     random = ~ika | yksilo,
+     data = aineisto,
+     method = "ML",
+     control = lmeControl(returnObject = T,
+                          opt = "optim",
+                          optimMethod = "Nelder-Mead"))
+\end{lstlisting}
+
+LSM~\ref{eq:lme2.1}\\
+
+\begin{lstlisting}
+ lme(bmi ~ ika_i0 + ika + sukupuoli,
+     random = ~ika | yksilo,
+     data = aineisto,
+     method = "ML",
+     control = lmeControl(returnObject = T,
+                          opt = "optim",
+                          optimMethod = "Nelder-Mead"))
+\end{lstlisting}
+
+LSM~\ref{eq:lme2.2}\\
+
+\begin{lstlisting}
+ lme(bmi ~ ika_i0 + ika,
+     random = ~ika | yksilo,
+     data = aineisto,
+     method = "ML",
+     control = lmeControl(returnObject = T,
+                          opt = "optim",
+                          optimMethod = "Nelder-Mead"))
+\end{lstlisting}
+
+$\text{LSM}_{\text{VK}}$~\ref{eq:lme2}\\
+
+\begin{lstlisting}
+ lme(bmi ~ ika_i0 + ika*sukupuoli,
+     random = ~ika | yksilo,
+     weights = varFixed(~ika),
+     correlation = corCAR1(form = ~ika | yksilo),
+     data = aineisto,
+     method = "ML",
+     control = lmeControl(returnObject = T,
+                          opt = "optim",
+                          optimMethod = "Nelder-Mead"))
+\end{lstlisting}
+
+$\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2}\\
+
+\begin{lstlisting}
+ lme(bmi ~ ika_i0 + ika*sukupuoli,
+     random = ~ika | yksilo,
+     weights = varFixed(~ika),
+     correlation = corCAR1(form = ~ika | yksilo),
+     data = aineisto,
+     method = "ML",
+     control = lmeControl(returnObject = T,
+                          opt = "optim",
+                          optimMethod = "Nelder-Mead"))
+\end{lstlisting}
+
+\internalappendix{1}{Optimointimenetelmät}
+\label{appx:opt}
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: ti, touko 12, 2020 - 21.30.33
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{4}{c}{bmi} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ Constant & 14.433$^{***}$ & 14.440$^{***}$ & 14.433$^{***}$ & 14.454$^{***}$ \\ 
+  & (0.014) & (0.014) & (0.014) & (0.014) \\ 
+  & & & & \\ 
+ ika\_alku\_i & $-$0.171$^{***}$ & $-$0.173$^{***}$ & $-$0.171$^{***}$ & $-$0.171$^{***}$ \\ 
+  & (0.002) & (0.002) & (0.002) & (0.002) \\ 
+  & & & & \\ 
+ ika & 0.404$^{***}$ & 0.404$^{***}$ & 0.404$^{***}$ & 0.406$^{***}$ \\ 
+  & (0.002) & (0.002) & (0.002) & (0.002) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+  & Variance & StdDev\\
+  & & & & \\ 
+(Intercept) & 8.497 & 8.451 & 8.496 &\\
+  & (2.915) & (2.907) & (2.915) & (0.014) \\ 
+ika & 0.212 & 0.213 & 0.212 &\\
+  & (0.461) & (0.462) & (0.461) & (0.014) \\ 
+Residual & 0.592 & 0.594 & 0.592 &\\
+  & (0.770) & (0.771) & (0.770) & (0.014) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 421,660 & 421,660 & 421,660 & 421,660 \\ 
+Log Likelihood & $-$729,343.000 & $-$729,345.800 & $-$729,343.000 & $-$729,556.100 \\ 
+Akaike Inf. Crit. & 1,458,700.000 & 1,458,706.000 & 1,458,700.000 & 1,459,126.000 \\ 
+Bayesian Inf. Crit. & 1,458,777.000 & 1,458,782.000 & 1,458,777.000 & 1,459,203.000 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\toprule
+  & Variance & StdDev\\
+\midrule
+(Intercept) & 8.4972605 & 2.9150061\\
+ika & 0.2121372 & 0.4605836\\
+Residual & 0.5924079 & 0.7696804\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \end{document}
