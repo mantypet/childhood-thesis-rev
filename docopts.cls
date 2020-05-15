@@ -182,13 +182,13 @@
 \def\datefinnish{%
   \def\today{\number\day.\number\month.\number\year}}
 \newcommand{\level}[1]{\gdef\@level{#1}}
-\level{Pro Gradu}
+\level{Pro Gradu -tutkielma}
 
 
 \def\dateofacceptance{hyväksymispäivä}%
 \def\grade{arvosana}%
 \def\instructor{arvostelija}%
-\def\uh{HELSINGIN YLIOPISTO}%
+\def\uh{Helsingin yliopisto}%
 \def\helsinki{Helsinki}%
 \def\ccs{Statistics}%
 
@@ -205,13 +205,12 @@
 
   \vfill
 
-  \helsinki\ \@date
-
-  \@level
-
   \uh\\
-  \@department
-
+  \@faculty\\
+  \@subject\\
+  \@level\\
+  \@date\\
+  
   \end{titlepage}%
 }
 \def\division{\char'057}
@@ -225,24 +224,18 @@
 \newcommand{\classification}[1]{\gdef\@classification{#1}}
 \newcommand{\keywords}[1]{\gdef\@keywords{#1}}
 
-\faculty{}
+\faculty{Valtiotieteellinen tiedekunta}
 \department{}
-\subject{}
+\subject{Tilastotiede}
 \depositeplace{}
 \additionalinformation{}
 \numberofpagesinformation{}
 \classification{}
-\keywords{}
+\keywords{Lineaarinen sekamalli, pitkittäisaineisto, rekisteriaineisto, FinLapset, Terveyden ja hyvinvoinnin laitos}
 
 % fill out the number of pages per language
 
 \numberofpagesinformation{\numberofpages\ sivua + \numberofappendixpages\ liitesivua}
-
-
-\faculty{Valtiotieteellinen tiedekunta}
-\department{Tilastotiede/Valtiotieteellinen tiedekunta}%
-\subject{Tilastotiede}
-
 
 \newsavebox{\@abstract}
 \newenvironment{@summary}{

@@ -1,5 +1,3 @@
-%allowed options finnish, swedish, english
-%after changing the language you may be forced to use recompile from scratch to get rid of errors
 \documentclass[finnish]{docopts}
 \usepackage[finnish]{babel}
 \usepackage{natbib}
@@ -42,14 +40,6 @@
 \date{\today}
 
 \maketitle
-
-%\classification{\protect{\ \\
-%\  Outline1 $\rightarrow$ Outline2 $\rightarrow$ Outline3\  \\
-%\  Outline4 $\rightarrow$ Outline5 $\rightarrow$ Outline6 $\rightarrow$ Outline7\ }}
-
-\keywords{Lineaarinen sekamalli, pitkittäisaineisto, rekisteriaineisto, FinLapset, Terveyden ja hyvinvoinnin laitos}
-\depositeplace{}
-\additionalinformation{}
 
 \begin{abstract}
 
@@ -1565,7 +1555,7 @@ Valitsemme mallin LSM~\ref{eq:lme2} seuraavan vaiheen tarkasteluun, jossa tutkim
 
 \cite{pinheiro00} tuovat esiin, että \cite{laird82} mukainen lineaarisen sekamallin määrittely tuo huomattavaa joustavuutta satunnaisvaikutusten rakenteen määrittelyyn, jos yksilökohtaiset residuaalit ovat korreloimattomia ja niiden varianssi on vakio. Ristiriitaisia tuloksia voi kuitenkin syntyä tapauksissa, joissa yksilön residuaalit ovat korreloituneita, niiden varianssissa esiintyy heteroskedastisuutta tai molempia samanaikaisesti.\\
 
-Kappaleessa~\ref{sub:kovarianssirakenteet} totesimme, että matriisiin $\bm{R}_i$ voidaan korreloimattoman diagonaalirakenteen sijaan sisällyttää myös muita rakenteita. \cite{pinheiro00} mukaan tämä käytännössä vaatii kuitenkin lineaarisen sekamallin laajentamista.\\
+Alaluvussa~\ref{sub:kovarianssirakenteet} totesimme, että matriisiin $\bm{R}_i$ voidaan korreloimattoman diagonaalirakenteen sijaan sisällyttää myös muita rakenteita. \cite{pinheiro00} mukaan tämä käytännössä vaatii kuitenkin lineaarisen sekamallin laajentamista.\\
 
 \cite{pinheiro00} näyttävät, että residuaalien kovarianssimatriisille $\bm{R}_i$ löytyy hajotelma
 
@@ -1674,7 +1664,7 @@ Satunnaisvaikutusten varianssipainotetun mallin residuaalien vaihtelu (Kuva~\ref
   \label{fig:lme2_v_vario}
 \end{figure}
 
-Kovarianssirakenteita käsittelevässä kappaleessa~\ref{sub:kovarianssirakenteet} esittelimme ensimmäisen asteen autoregressiivisen mallin AR(1) kovarianssirakenteen olevan riittämätön epätasapainoiseen aineistoon. \cite{pinheiro00} määrittelevät ensimmäisen asteen autoregressiiviseksi autokorrelaatiofunktioksi $h(k,\phi)=\phi^k$, jossa korrelaatioparametri $\phi$ on \textit{lag-1}-korrelaatiokerroin ja $k=0,1,\dots n_i$ Tämä voidaan heidän mukaansa yleistää jatkuvan autoregressiivisen mallin CAR(1) autokorrelaatiofunktioksi $h(s,\phi)=\phi^s$, jossa $s>0$ ja $\phi>0$.
+Kovarianssirakenteita käsittelevässä alaluvussa~\ref{sub:kovarianssirakenteet} esittelimme ensimmäisen asteen autoregressiivisen mallin AR(1) kovarianssirakenteen olevan riittämätön epätasapainoiseen aineistoon. \cite{pinheiro00} määrittelevät ensimmäisen asteen autoregressiiviseksi autokorrelaatiofunktioksi $h(k,\phi)=\phi^k$, jossa korrelaatioparametri $\phi$ on \textit{lag-1}-korrelaatiokerroin ja $k=0,1,\dots n_i$ Tämä voidaan heidän mukaansa yleistää jatkuvan autoregressiivisen mallin CAR(1) autokorrelaatiofunktioksi $h(s,\phi)=\phi^s$, jossa $s>0$ ja $\phi>0$.
 
 Korrelaatioparametrin estimaatiksi saamme $\hat{\phi} = 0,591$, mikä viittaa korkeaan autokorrelaatioon \citep{pinheiro00}. Kuvan~\ref{fig:lme2_corfunc} mukaan korrelaatio laskee jyrkemmin noin kahden vuoden etäisyyteen saakka, jonka jälkeen se suppenee kohti nollaa. Tämä on ensimmäisten kolmen vuoden osalta likimain yhtäpitävää empiirisen semivariogrammin tulosten suhteen, mutta ei vastaa tilannetta yli kolmen vuoden etäisyyksillä.\\
 
@@ -1966,22 +1956,6 @@ Toisin sanoen, uskomme mallin $\text{LSM}$~\ref{eq:lme2.2} estimaattorien tuotta
 
 Esimerkiksi \cite{sullivan12} korostavat artikkelissaan, että lääketieteellisen tutkimuksen näkökulmasta, tilastollisen mallin pohjalta tehty mielekäs tulkinta tulisi perustaa itse vaikutusten voimakkuuteen (\textit{effect size}), ei siihen poikkeavatko vaikutukset merkitsevästi annetun hypoteesin mukaisesta vertailuarvosta.\\
 
-%Eräs tällainen näkökulma \cite{sullivan12} mukaan on regressiokertoimien välinen korrelaatio
-
-%\begin{table}[H]
-%\centering
-%\begin{tabular}{lrr}
-%\toprule
-%  & $\hat{\beta}_0$ & $\hat{\beta}_1$\\
-%\midrule
-%$\hat{\beta}_1$ & -0,56 & \\
-%$\hat{\beta}_2$ & -0,45 & -0,33\\
-%\bottomrule
-%\end{tabular}
-%\caption{Mallin $\text{LSM}$~\ref{eq:lme2.2} kiinteiden vaikutusten välinen %korrelaatio.}
-%\label{table:pearsonkorr}
-%\end{table}
-
 \cite{nakagawa13} ja laajentaen \cite{johnson14} esittävät artikkeleissaan lineaarisiin sekamalleihin soveltuvan marginaalisen pseudo-selitysasteen ($R^2_{\text{LSM}(m)}$), huomioiden ainoastaan residuaalivarianssin 
 
 $$
@@ -2028,13 +2002,13 @@ Viimeiseksi, pienistä keskivirheistä seuraneet haasteet mallin piste-estimaatt
 \section{Johtopäätökset}
 \label{sec:johto}
 
-% TODO TONE DOWN?
-
 Lineaariset sekamallit tarjoavat luontevan työkalun FinLapset-aineiston analyysiin. Lopullisen mallin residuaalien ja selitysvoiman tarkastelun perusteella jo hyvin yksinkertainen kiinteiden vaikutusten rakenne, yhdessä vakiotermin ja aikadimension regressiokertoimen satunnaisvaikutusten kanssa paransi huomattavasti mallin kykyä selittää aineiston vaihtelua. Tämä tarjoaa mielekkään jatkokysymyksen mielenkiintoisten kiinteiden vaikutusten löytämiselle, ja niiden vaikutusten tutkimiselle yksilö- ja populaatiotasoilla.\\
 
 Havaitsimme myös puutteita joissakin mallia koskevissa oletuksissa mm. residuaalien jakaumasta ja niiden korreloimattomuudesta, sekä residuaalivarianssin homoskedastisuudesta. Laajennettu lineaarinen sekamalli voisi tarjota mahdollisia ratkaisuja, mutta välttääksemme mahdollisen konfliktin satunnaisvaikutusten kovarianssimatriisin ja residuaalimatriisin välillä, tulisi malli kokonaisuudessaan määritellä huolellisesti laajennetun mallin näkökulmasta.\\
 
 FinLapset-aineiston huomattavasta havaintomäärästä seuraten, totesimme monien tavanomaisten mallin arviointikäytäntöjen olevan riittämättömiä malliin liittyvien epävarmuustekijöiden kuvaamiseen ja esitimme myös joitakin vaihtoehtoisia lähestymistapoja. Esimerkiksi \cite{connelly2016} kuitenkin painottavat rekisteriaineistojen hyödyntämistä käsittelevässä artikkelissaan, että ennen rekisteriaineistosta johdettuja päätelmiä, tulisi suurin työ analyysissä sen sijaan suunnata aineiston synnyttäneiden prosessien syvälliseen ymmärtämiseen.\\
+
+\newpage
 
 \cite{fricke14} puolestaan tarkastelee tiedon ja suuren havaintomäärän yhteyttä tieto-opin näkökulmasta ja osoittaa useita ongelmia passiivisesti kertyvien massiivisten aineistojen (\textit{Big Data}) pohjalta tehtävässä päättelyssä. Hän yhdistää massiivisten aineistojen aikakaudella vallitsevan aineistolähtöisen (\textit{data-driven}) päättelyn \cite{popper86} induktion kritiikkiin. \cite{fricke14} mukaan aineistolähtöinen päättely on luonteeltaan induktiivista ja siinä korostuu harha tiedon lisääntymisestä havaintomäärän kasvaessa. Vaikka FinLapset-aineisto ei ole varsinaisesti massiivinen aineisto, on se rekisteriaineistona luonteeltaan passiivista ja houkuttelee induktiiviseen päättelyyn.\\
 
@@ -2043,13 +2017,9 @@ Otostutkimuksen näkökulmasta, hyvin määritellystä otantakehikosta nostetun 
 Päinvastoin, huolellisesti määritellyn kehikon turvin olisi suurten aineistojen parissa varaa aktiivisesti rajautua tutkimuskysymyksen kannalta vain kaikista luotettavimpiin ja edustavimpiin havaintoihin ja muodostaa itse ilmiön näkökulmasta validi ja reliaabeli mittari.\\
 
 \newpage
-% --- References ---
+% --- Viitteet ---
 
 \nocite{*}
-% one of these or  ...
-%\bibliographystyle{plain}
-%\bibliographystyle{acm}
-%\bibliographystyle{ieeetr}
 \bibliographystyle{finplain}
 
 \bibliography{references}
