@@ -59,7 +59,7 @@ Tutkielmassa arvioimme lineaaristen sekamallien soveltuvuutta FinLapset-rekister
 
 Lineaariset sekamallit muodostavat luontevan analyysikehikon FinLapset-rekisteriaineiston kaltaisen pitkittäisaineiston analyysiin. Yksinään iän kiinteä populaatiovaikutus, yhdessä yksilö- ja ikäkohtaisten satunnaisvaikutusten kanssa selittää mallin vaihtelua erittäin hyvin. Painoindeksin ja iän yhteyden lineaarisuusoletus jää kuitenkin epäilyksen alaiseksi ja yksilökohtaisten residuaalien autokorrelaatio sekä varianssin heteroskedastisuus osoittautuvat merkittäviksi haasteiksi.\\
 
-Rekisteriaineistolle tyypilliset ominaisuudet, kuten passiivisesta kertymistavasta seuraava hyvin määritellyn populaatiokehikon puute ja aineistoa tuottavien prosessien osittainen tai täysi tuntemattomuus vaikeuttavat mallin estimaatteihin liittyvien epävarmuustekijöiden arviointia. Suuresta havaintomäärästä seuraten estimaattien keskivirheet ovat hyvin pieniä, mikä antaa virheellisen kuvan mallin hyvyydestä, vaikka estimaatteihin liittyvä harha jää osin tunnistamatta.\\
+Rekisteriaineistolle tyypilliset ominaisuudet, kuten passiivisesta kertymistavasta seuraava populaatiokehikon täsmällisen määrittelyn puute ja aineistoa tuottavien prosessien tuntemattomuus vaikeuttavat mallin estimaatteihin liittyvien epävarmuustekijöiden arviointia. Suuresta havaintomäärästä seuraten estimaattien keskivirheet ovat hyvin pieniä, mikä antaa virheellisen kuvan mallin hyvyydestä, vaikka estimaatteihin liittyvä harha jää osin tunnistamatta.\\
 
 Tutkielmassa näytetään, että lineaarisille sekamallelle löytyy joustavia laajennoksia, joilla osa tutkielmassa esitetyn mallin haasteista on mahdollista ylittää. Osa laajennetuista malleista ovat suoraan yhteensopivia tutkielman frekventistisen lähestymistavan kanssa, mutta useat vaihtoehtoiset menetelmät suosivat bayesiläistä ajattelutapaa. Myös näkökulmia rekisteriaineiston epävarmuuslähteiden tunnistamiseksi ja edustavuuden parantamiseksi punnitaan.\\
 
@@ -78,9 +78,7 @@ Toistettuja mittauksia sisältävän aineiston analyysiin on kehitetty useita ti
 
 Rekisteriaineistoja ei tyypillisesti ole kerätty tutkimus- tai analyysinäkökulmasta ja aineistot voivat olla myös huomattavasti otosaineistoja suurempia. Tästä syystä katsomme menetelmien joustavuuden suureksi eduksi.\\
 
-Tässä tutkielmassa tutustumme lineaarisiin sekamalleihin ja arvioimme niiden soveltuvuutta FinLapset-rekisteriaineistosta muodostetun pitkittäisaineiston analyysivälineeksi.\\
-
-Luvussa~\ref{sec:pitkittaistutkimus} tarkastelemme pitkittäistutkimusta tutkimusasetelmana ja esittelemme tutkielman aineiston. Luvussa~\ref{sec:lsm} muodostamme teoreettisen pohjan tutkielman aineiston analyysissä käytettävälle lineaariselle sekamallille. Luvun~\ref{sec:lsmanalyysi} keskiössä on tutkielman aineiston analyysiin sopivan lineaarisen sekamallin muodostaminen sekä lopullisen mallin arviointi. Lopuksi, luvussa~\ref{sec:johto} tuomme yhteen tutkielman keskeiset havainnot ja johtopäätökset.\\
+Tässä tutkielmassa tutustumme lineaarisiin sekamalleihin ja arvioimme niiden soveltuvuutta FinLapset-rekisteriaineistosta muodostetun pitkittäisaineiston analyysivälineeksi. Luvussa~\ref{sec:pitkittaistutkimus} tarkastelemme pitkittäistutkimusta tutkimusasetelmana ja esittelemme tutkielman aineiston. Luvussa~\ref{sec:lsm} muodostamme teoreettisen pohjan lineaaristen sekamallien yleiselle muodolle, mallin ominaisuuksille ja estimointimenetelmille. Luvun~\ref{sec:lsmanalyysi} keskiössä on tutkielman aineiston analyysiin sopivan lineaarisen sekamallin muodostaminen sekä lopullisen mallin arviointi. Lopuksi, luvussa~\ref{sec:johto} tuomme yhteen tutkielman keskeiset havainnot ja johtopäätökset.\\
 
 \section{Pitkittäistutkimus tutkimusasetelmana}
 \label{sec:pitkittaistutkimus}
@@ -128,14 +126,12 @@ Lineaaristen sekamallien kirjallisuudessa kaksitasoisen lähestymistavan peruste
 
 Palaamme kaksitasoisen mallin ja yleisen lineaarisen sekamallin määritelmään myöhemmin (Luku~\ref{sec:lsm}).\\
 
-\subsection{FinLapset aineisto}
+\subsection{FinLapset-aineisto}
 \label{sub:finlapsetdata}
 
-Tutkielmassa hyödyntämämme aineisto perustuu Terveyden ja hyvinvoinninlaitoksen FinLapset-rekisterihankkeen \citep{finlapsetrekisteri} ohessa kerättyihin tietoihin lastenneuvoloiden, kouluterveydenhuollon ja opiskelijaterveydenhuollon terveydenhoitokäynneillä suoritetuista paino- ja pituusmittauksista. Tiedot on kerätty osana perusterveydenhuollon avohoidon hoitoilmoitusrekisterin (Avohilmo) tietojen keräystä.\\
+Tutkielmassa hyödyntämämme aineisto perustuu Terveyden ja hyvinvoinninlaitoksen FinLapset-rekisterihankkeen \citep{finlapsetrekisteri} ohessa kerättyihin tietoihin lastenneuvoloiden, kouluterveydenhuollon ja opiskelijaterveydenhuollon terveydenhoitokäynneillä suoritetuista paino- ja pituusmittauksista. Tiedot on kerätty osana perusterveydenhuollon avohoidon hoitoilmoitusrekisterin (Avohilmo) tietojen keräystä. Terveystarkastuksissa kerättävistä tiedoista pituus- ja painotiedot ovat olleet osa Avohilmon tietosisältöä vuodesta 2010 lähtien, mutta tietopuutteiden vuoksi tutkielman aineisto on rajattu vuosiin 2013\textendash2020.\\
 
-Terveystarkastuksissa kerättävistä tiedoista pituus- ja painotiedot ovat olleet osa Avohilmon tietosisältöä vuodesta 2010 lähtien, mutta tietopuutteiden vuoksi tutkielman aineisto on rajattu vuosiin 2013\textendash2020.\\
-
-FinLapset-rekisterihankkeen keskeisiä tutkimuskysymyksiä olivat lasten ja nuorten ylipaino ja lihavuus sekä pituus- ja painotietojen valtakunnallinen kattavuus \citep{finlapsetrekisteri}. Tutkielman aineistoa hyödynnämme Terveyden ja hyvinvoinnin laitoksen luvalla. Tarkastelemme seuraavaksi aineiston keskeisiä rajauksia ja teknisiä määrityksiä. \\
+FinLapset-rekisterihankkeen eräitä keskeisiä tutkimuskysymyksiä ovat lasten ja nuorten ylipaino ja lihavuus sekä pituus- ja painotietojen valtakunnallinen kattavuus \citep{finlapsetrekisteri}. Tutkielman aineistoa hyödynnämme Terveyden ja hyvinvoinnin laitoksen luvalla. Tarkastelemme seuraavaksi aineiston keskeisiä rajauksia ja teknisiä määrityksiä. \\
 
 \subsubsection{FinLapset-aineiston muodostus}
 \label{ssb:finlapsetdatamuod}
@@ -181,7 +177,7 @@ $$
 \frac{\bigg( \big( \frac{34}{16,9392}\big)^{-1,7862} - 1 \bigg)}{16,9392 \cdot 0,11070} \approx 3,6,
 $$
 
-mutta vaikkapa kirjauksessa tapahtuneen näppäilyvirheen takia kirjattu painoindeksi 43 tuottaisi pistemääräksi noin 4,1.\\
+kun vaikkapa kirjauksessa tapahtuneen näppäilyvirheen takia kirjattu painoindeksi 43 tuottaisi pistemääräksi noin 4,1.\\
 
 FinLapset -hankkeessa kriittiseksi rajaksi valittiin $|\text{BMI}_z| = 4$ ja sitä poikkeavammat mittaukset rajattiin poiminnan ulkopuolelle.\\
 
@@ -198,7 +194,7 @@ Tässä tutkielmassa noudatamme FinLapset-aineiston rajauksia muilta osin, lukuu
 \subsubsection{Rekisteripohjainen lasten ja nuorten neuvola- ja kouluterveysaineisto pitkittäisaineistona}
 \label{ssb:rekpitkittais}
 
-Esittäessämme FinLapset aineiston formaalisti pitkittäisaineiston muodossa, voimme, \cite{fitzmaurice11} esitystapaa mukaillen, aloittaa määrittelemällä painoindeksin satunnaismuuttujana $Y_{ij}$ ja aineistosta havaitun arvon $y_{ij}$, jossa $i = 1, \dots, N$ on yksilöön viittaava indeksi ja $j = 1, \dots n_i$ yksilön $i$ mittaukseen viittava indeksi. On tärkeää huomioida, että FinLapset aineistossa lasten mittausmäärät vaihtelevat yksilöittäin, eli on mahdollista, että $n_i \neq n_k$, kun $i,k = 1,\dots, N$ ja $i \neq k$. FinLapset aineisto on siten epätasapainoinen pitkittäisaineisto.\\
+Esittäessämme FinLapset-aineiston formaalisti pitkittäisaineiston muodossa, voimme, \cite{fitzmaurice11} esitystapaa mukaillen, aloittaa määrittelemällä painoindeksin satunnaismuuttujana $Y_{ij}$ ja aineistosta havaitun arvon $y_{ij}$, jossa $i = 1, \dots, N$ on yksilöön viittaava indeksi ja $j = 1, \dots n_i$ yksilön $i$ mittaukseen viittava indeksi. On tärkeää huomioida, että FinLapset-aineistossa lasten mittausmäärät vaihtelevat yksilöittäin, eli on mahdollista, että $n_i \neq n_k$, kun $i,k = 1,\dots, N$ ja $i \neq k$. FinLapset-aineisto on siten epätasapainoinen pitkittäisaineisto.\\
 
 Yksilön $i$ painoindeksejä vastaavan satunnaismuuttujan vektori voidaan kirjoittaa $n_i \times 1$ matriisina
 
@@ -212,7 +208,7 @@ Y_{in_i} \\
 \end{bmatrix}
 $$
 
-Mittausajankohta FinLapset aineistossa on käynnin päivämäärä, jolla pituus- ja painomittaus on tehty. Tästä seuraa, että yksilöitä ei ole välttämättä mitattu samoina ajankohtina. Siten eräs mittausajankohdan luonteva määritelmä on yksilön $i$ $j$:nnen mittauksen päivämäärä $t_{\text{PVM}_{ij}}$.\\
+Mittausajankohta FinLapset-aineistossa on käynnin päivämäärä, jolla pituus- ja painomittaus on tehty. Tästä seuraa, että yksilöitä ei ole välttämättä mitattu samoina ajankohtina. Siten eräs mittausajankohdan luonteva määritelmä on yksilön $i$ $j$:nnen mittauksen päivämäärä $t_{\text{PVM}_{ij}}$.\\
 
 Pitkittäisaineiston aikaskaala voidaan määritellä muillakin tavoin, esimerkiksi lapsen mittausajankohdan desimaali-iän mukaan, jolloin $t_{\text{IKÄ}_{ij}} = \frac{t_{\text{PVM}_{ij}} - t_{\text{SPVM}_{i}}}{365,25}$, jossa $t_{\text{SPVM}_{i}}$ on yksilön $i$ syntymäpäivä. Jakajana käytetään lukua 365,25, jolla pyritään huomioimaan karkausvuoden vaikutus.\\ 
 
@@ -293,7 +289,7 @@ $n_i$ & N*\\
 
 Mittausten määrien jakaumista (Taulukko~\ref{table:mittausmaarat}) huomaamme, että suurimman yksittäisen ryhmän muodostavat yksilöt, joilla on vain yksi mittaus. Tämä on syytä huomioida, sillä yleisesti pitkittäisaineiston oletetaan sisältävän yksilöä kohden vähintään kaksi mittausta \citep{west14}. Yksilöitä, joilla on yli 30 mittausta on koko ainestossa vain 101 kappaletta.\\
 
-Täyttääksemme pitkittäisaineiston vaatimukset, tutkielman aineistoon valittiin sellaiset yksilöt, joilla on 2\textendash9 mittausta. Lisäksi, alkuperäisen FinLapset-aineiston sijaan tutkielman aineisto rajoittuu yksilöihin, joiden kotikuntana on kunkin kalenterivuoden lopussa ollut Helsinki. Yksilöiltä, joiden kotikunta on muuttunut seuranta-aikana, otetaan kuitenkin mukaan kaikki saatavilla olevat mittaukset.\\
+Täyttääksemme pitkittäisaineiston vaatimukset, tutkielman aineistoon valittiin sellaiset yksilöt, joilla on 2\textendash9 mittausta. Lisäksi, alkuperäisen FinLapset-aineiston sijaan tutkielman aineisto rajoittuu yksilöihin, joiden kotikuntana on kunkin kalenterivuoden lopussa ollut Helsinki. Yksilöiltä, joiden kotikunta on muuttunut seuranta-aikana, otetaan mukaan kaikki saatavilla olevat mittaukset.\\
 
 Tulee kuitenkin painottaa, että rajattunakin aineisto sisältää huomattavan määrän havaintoja suurelta määrältä yksilöitä ja se mahdollistaa samankaltaisten haasteiden kohtaamisen kuin alkuperäinen FinLapset-aineisto.\\
 
@@ -530,7 +526,7 @@ $$
 
 Siten vahvistamme tulkinnan, että parametrit $\bm{\beta}$ kuvaavat koko tarkastelujoukon yhteisiä, niin kutsuttuja \textit{kiinteitä} vaikutuksia ja ottaen huomioon kiinteät vaikutukset, $\bm{b}_i$ kuvaa yksilön $i$ poikkeamaa koko tarkastelujoukon keskimääräisesta vasteesta, toisin sanoen mallin \textit{satunnaisvaikutuksia}. \\
 
-\cite{fitzmaurice11} mukaan lineaarisen sekamallin kaksitasoesitys asettaa erityisvaatimuksia myös mallin kovarianssille. Koska kovarianssirakenteella on monin tavoin keskeinen asema, sekä yleisen lineaarisen sekamallin teoriassa, että pitkittäisaineiston erityistapauksessa, erotamme sen käsittelyn omaksi luvukseen.\\ 
+\cite{fitzmaurice11} mukaan lineaarisen sekamallin kaksitasoesitys asettaa erityisvaatimuksia myös mallin kovarianssille. Koska kovarianssirakenteella on monin tavoin keskeinen asema, sekä yleisen lineaarisen sekamallin teoriassa, että pitkittäisaineiston erityistapauksessa, erotamme sen käsittelyn omaksi alaluvukseen.\\ 
 
 \subsubsection{Kovarianssirakenteet}
 \label{sub:kovarianssirakenteet}
@@ -590,7 +586,7 @@ $$
 \begin{bmatrix}
 \text{Var}(\text{b}_{1i}) & \dots & \text{Cov}(\text{b}_{1i}, \text{b}_{qi}) \\
 \vdots & \ddots & \vdots \\
-\text{Cov}(\text{b}_{0i}, \text{b}_{qi}) & \dots & \text{Var}(\text{b}_{qi}) \\
+\text{Cov}(\text{b}_{1i}, \text{b}_{qi}) & \dots & \text{Var}(\text{b}_{qi}) \\
 \end{bmatrix}. \\
 $$
 
@@ -618,11 +614,9 @@ $$
 
 \cite{burzykowski13} sekä \cite{west14} mukaan matriisin $\bm{G}$ alkiot voidaan kuvata jonkin kovarianssiparametrivektorin $\bm{\theta}$ alkioiden funktioina $\bm{G} = \sigma(\bm{\theta}_G)$.\\
 
-Jos emme aseta muita vaatimuksia, kuin että $q \times q$ matriisi $\bm{G}$ on symmetrinen ja positiivisesti definiitti käytetään nimitystä \textit{rakenteeton} kovarianssirakenne. Tässä tapauksessa $\bm{G}$ symmetrisyyden johdosta $\bm{\theta}_G$ sisältää $(q(q + 1))/2$ parametria. \citep{burzykowski13, west14}.\\
+Jos emme aseta muita vaatimuksia, kuin että $q \times q$ matriisi $\bm{G}$ on symmetrinen ja positiivisesti definiitti, käytetään nimitystä \textit{rakenteeton} kovarianssirakenne. Tässä tapauksessa $\bm{G}$ symmetrisyyden johdosta $\bm{\theta}_G$ sisältää $(q(q + 1))/2$ parametria. \citep{burzykowski13, west14}.\\
 
-%TODO: INDEKSÖINTI ALKAEN 0, VRT INTERCEPT
-
-Tarkastellaan tarkemmin matriisin $\bm{G}$ mahdollisia kovarianssirakenteita. Esimerkiksi jos rakenteettoman kovarianssirakenteen tapauksessa oletetamme malliin kaksi satunnaisvaikutusta, satunnaisen vakiotermin ja satunnaisen kulmakertoimen. Tällöin kovarianssiparametrien määrä olisi $q=2(2+1)/2=3$, jolloin $\bm{\theta}_G$ voitaisiin kirjoittaa muodossa\\
+Tarkastellaan tarkemmin matriisin $\bm{G}$ mahdollisia kovarianssirakenteita. Esimerkiksi jos rakenteettoman kovarianssirakenteen tapauksessa oletetamme malliin kaksi satunnaisvaikutusta, satunnaisen vakiotermin ja satunnaisen regressiokertoimen. Tällöin kovarianssiparametrien määrä olisi $q=2(2+1)/2=3$, jolloin $\bm{\theta}_G$ voitaisiin kirjoittaa muodossa\\
 
 $$
 \bm{\theta}_G =
@@ -734,7 +728,7 @@ $$
 \end{bmatrix}\\
 $$
 
-Käytännön tapauksissa, koskien vaikkapa epätasapainoista pitkittäisaineistoa, on usein tarve joustavammalle matriisin $\bm{R}_i$ kovarianssirakenteelle. Sopivan rakenteen valinta vaatii kuitenkin havaitun aineiston ja tutkittavan ilmiön ominaisuuksien tarkastelua. Tähän prosessiin palaamme myöhemmin tutkielmassa (Luku~\ref{ssb:reskovar}).\\
+Käytännön tapauksissa, koskien vaikkapa epätasapainoista pitkittäisaineistoa, on usein tarve joustavammalle matriisin $\bm{R}_i$ kovarianssirakenteelle. Sopivan rakenteen valinta vaatii kuitenkin havaitun aineiston ja tutkittavan ilmiön ominaisuuksien tarkastelua. Tähän prosessiin palaamme myöhemmin tutkielmassa (Kappale~\ref{ssb:reskovar}).\\
 
 \subsection{Estimointi}
 \label{sub:estimointi}
@@ -845,7 +839,7 @@ joka, $\bm{y}_i$ ollessa normaalijakautunut, on ominaisuuksiltaan \textit{paras 
 
 Nyt voimme siirtyä tarkastelemaan kovarianssiparametrivektorin $\bm{\theta}$ ja kiinteiden parametrien vektorin $\bm{\beta}$ estimointia yleisessä tapauksessa, kun $\bm{\theta}$ on tuntematon.\\
 
-Muodostetaan profiloitu log-uskottavuusfunktio $l(\bm{\theta} ; \bm{y})$ sijoittamalla $\hat{\bm{\beta}}$ log-uskottavuus\-funktioon $l(\bm{\beta}, \bm{\theta};\bm{y})$
+Muodostetaan profiili-log-uskottavuus\-funktio $l(\bm{\theta} ; \bm{y})$ sijoittamalla $\hat{\bm{\beta}}$ log-uskottavuus\-funktioon $l(\bm{\beta}, \bm{\theta};\bm{y})$
 
 $$
 \begin{aligned}
@@ -868,7 +862,7 @@ $$
 \hat{\bm{\beta}} =  (\sum\limits_{i=1}^{N} \bm{X}_{i}^\top \hat{\bm{V}}_i^{-1} \bm{X}_{i})^{-1} \sum\limits_{i=1}^{N} \bm{X}_{i}^\top \hat{\bm{V}}_i^{-1} \bm{y}_i,
 $$
 
-joka on ominaisuuksiltaan \textit{paras empiirinen lineaarinen harhaton estimaattori} \cite{west14}. \\
+joka on ominaisuuksiltaan \textit{empiirinen paras lineaarinen harhaton estimaattori} \cite{west14}. \\
 
 Kovarianssimatriisi estimaattorille $\hat{\bm{\beta}}$ on
 
@@ -1008,7 +1002,7 @@ $$
 \hat{\bm{P}} = \hat{\bm{V}}_{i}^{-1}(\bm{I}_{n_i} - \bm{X}_{i} (\bm{X}_{i}^\top \bm{V}_{i}^{-1} \bm{X}_{i})^{-1} \bm{X}_{i}^\top \hat{\bm{V}}_{i}^{-1}).
 $$
 
-Ennusteen kovarianssimatriisiksi saadaan mukaillen
+Ennusteen kovarianssimatriisiksi saadaan
 
 $$
 Cov(\hat{\bm{b}}_{i_\text{EBLUP}}) = \hat{\bm{G}} \bm{Z}_{i}^\top \hat{\bm{P}} \bm{Z}_{i} \hat{\bm{G}}.
@@ -1169,16 +1163,16 @@ Toinen lähde on yksilökohtainen pitkittäisvaikutus, jonka taustalla on yksil�
   \label{fig:bmi_follow}
 \end{figure}
 
-Iän mukana malliin sisällytettyjen, mahdollisesti ristiriitaisten informaation lähteiden erottamiseksi \cite{fitzmaurice11} suosittelevat ajan operationalisoimista kahdeksi eri muuttujaksi, joista yksilön ikä ensimmäisellä mittauksella $\text{IKÄ}_{i0}$ (\textit{baseline age}) tuo malliin iän poikkileikkausvaikutuksen ja ikä mittaushetkellä $\text{IKÄ}_{ij}$ pitkittäisvaikutuksen. Palaamme ajan operationalisointiin mallinvalintaosiossa.\\
+Iän mukana malliin sisällytettyjen, mahdollisesti ristiriitaisten informaation lähteiden erottamiseksi \cite{fitzmaurice11} suosittelevat ajan operationalisoimista kahdeksi eri muuttujaksi, joista yksilön ikä ensimmäisellä mittauksella $\text{IKÄ}_{0i}$ (\textit{baseline age}) tuo malliin iän poikkileikkausvaikutuksen ja ikä mittaushetkellä $\text{IKÄ}_{ij}$ pitkittäisvaikutuksen. Palaamme ajan operationalisointiin mallinvalintaluvun kappaleessa~\ref{ssb:yliparammalli}).\\
 
 \subsection{Mallinvalinta}
 \label{ssb:ylhalas}
 
 \cite{west14} sekä \cite{verbeke00} lineaarisille sekamalleille esittämässään mallinvalintastrategiassa tavoitteena on ensin muodostaa kiinteitä vaikutuksia lisäämäällä \textit{yliparametrisoitu} malli, jolla voidaan selittää mahdollisimman hyvin aineistossa vallitsevaa keskimääräistä vastetta.\\
 
-Toisena askeleena on löytää mallille sopiva satunnaisvaikutusten rakenne, jolla pyritään huomioimaan aineiston hierarkkinen rakenne. Tutkielman aineiston tapauksessa hierarkia syntyy ensisijaisesti satunnaisvaihtelun sallimisessa yksilökohtaisten vakiotermien ja kulmakertoimien välillä.\\
+Toisena askeleena on löytää mallille sopiva satunnaisvaikutusten rakenne, jolla pyritään huomioimaan aineiston hierarkkinen rakenne. Tutkielman aineiston tapauksessa hierarkia syntyy ensisijaisesti satunnaisvaihtelun sallimisessa yksilökohtaisten vakiotermien ja regressiokertoimien välillä.\\
 
-Kolmannessa vaiheessa tutkitaan satunnaisvaikutusten lisäämisen jälkeen selittämättä jäänyttä vaihtelua. Huomio kohdistuu erityisesti varianssin homoskedastisuuteen sekä yksilön mittausten väliseen autokorrelaatioon.\\ 
+Kolmannessa vaiheessa tutkitaan satunnaisvaikutusten lisäämisen jälkeen selittämättä jäänyttä vaihtelua. Huomio kohdistuu erityisesti varianssin heteroskedastisuuteen sekä yksilön mittausten väliseen autokorrelaatioon.\\ 
 Viimeinen vaihe käsittää mallin parametrien kriittisen tarkastelun, varsinkin kiinteiden vaikutusten osalta ja lopullisen mallin arvioinnin.\\
 
 Aloitamme kuitenkin tarkastelemalla painoindeksin ja iän yhteyttä, sekä lisäksi mahdollista biologisen sukupuolen vaikutusta ja iän sukupuolen yhdysvaikutusta painoindeksiin naiivissa asetelmassa lineaarisen regressiomallin avulla, sivuuttaen hetkeksi pitkittäisaineiston hierarkkisen luonteen.\\
@@ -1336,7 +1330,7 @@ Siirrämme lähestymistavan nyt pitkittäisaineiston kehikkoon. Muotoilemme kiin
 
 \begin{equation}
 \begin{split}
- \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{i0} + \beta_2 \times \text{IKÄ}_{ij} + \beta_3 \times \text{SUKUPUOLI}_{ij}  \\
+ \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{0i} + \beta_2 \times \text{IKÄ}_{ij} + \beta_3 \times \text{SUKUPUOLI}_{ij}  \\
  + \beta_4 \times \text{IKÄ}_{ij} \times \text{SUKUPUOLI}_{ij} + \text{b}_{0i} + \epsilon_{ij}
 \label{eq:lme1}
 \end{split}
@@ -1363,7 +1357,7 @@ $\hat{\beta}_4$ & 0,0404 & 0,0019 & 0,0000 & 0,0367 & 0,0442\\
 \label{table:lme0}
 \end{table}
 
-Keskeinen ero on kuitenkin yksilöiden välinen satunnaisvaikutus $b_{i0}$, joka kiinteiden vaikutusten mallissa kuvaa yksilöiden vakiotermin vaihtelua. Koska $\bm{b}_i \sim N(0,\bm{G})$, ainoastaan vakiotermin vaihtelun sisältävän mallimme satunnaisvaikutusten kovarianssimatriisi on siten
+Keskeinen ero on kuitenkin yksilöiden välinen satunnaisvaikutus $b_{0i}$, joka kiinteiden vaikutusten mallissa kuvaa yksilöiden vakiotermin vaihtelua. Koska $\bm{b}_i \sim N(0,\bm{G})$, ainoastaan vakiotermin vaihtelun sisältävän mallimme satunnaisvaikutusten kovarianssimatriisi on siten
 
 $$
 \bm{G} = 
@@ -1428,7 +1422,7 @@ Vakiotermin satunnaisvaikutusten $\text{b}_{0i}$ (Kuva~\ref{fig:lme1_ranef}) ja 
   \label{fig:lme1_resid}
 \end{figure}
 
-Kiinteiden vaikutusten malli ei sellaisenaan vaikuta riittävältä tutkielman aineiston analyysivälineeksi. Tarkastellaan, kuinka satunnaisvaikutusten rakennetta tarkentamalla voisimme parantaa mallin yhteensopivuutta.\\
+Kiinteiden vaikutusten malli ei sellaisenaan vaikuta riittävältä tutkielman aineiston analyysivälineeksi. Tarkastelemme seuraavaksi, kuinka satunnaisvaikutusten rakennetta tarkentamalla voisimme parantaa mallin yhteensopivuutta.\\
 
 \subsubsection{Satunnaisvaikutusten rakenteen valinta}
 \label{ssb:satunnaisrakenneval}
@@ -1439,21 +1433,21 @@ Tutkimme seuraavaksi millainen seuraus iän satunnaisvaikutuksen lisäämisellä
 
 \begin{equation}
 \begin{split}
- \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{i0} + \beta_2 \times \text{IKÄ}_{ij} + \beta_3 \times \text{SUKUPUOLI}_{ij} \\
+ \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{0i} + \beta_2 \times \text{IKÄ}_{ij} + \beta_3 \times \text{SUKUPUOLI}_{ij} \\
 + \beta_4 \times \text{IKÄ}_{ij} \times \text{SUKUPUOLI}_{ij} + \text{b}_{0i} + \text{b}_{1i} \times \text{IKÄ}_{ij} + \epsilon_{ij},
 \label{eq:lme2}
 \end{split}
 \end{equation}
 
-jossa $\text{b}_{i0}$ vakiotermin satunnaisvaikutus ja $\text{b}_{i1}$ iän satunnaisvaikutus.\\ 
+jossa $\text{b}_{0i}$ vakiotermin satunnaisvaikutus ja $\text{b}_{1i}$ iän satunnaisvaikutus.\\ 
 
 Merkitään satunnaisvaikutusten parametrivektoria
 
 $$
 \bm{b}_i =
 \begin{bmatrix}
-\text{b}_{i0} \\
-\text{b}_{i1} \\
+\text{b}_{0i} \\
+\text{b}_{1i} \\
 \end{bmatrix},
 $$
 
@@ -1680,9 +1674,9 @@ Satunnaisvaikutusten varianssipainotetun mallin residuaalien vaihtelu (Kuva~\ref
   \label{fig:lme2_v_vario}
 \end{figure}
 
-Kovarianssirakenteita käsittelevässä kappaleessa (Kappale~\ref{sub:kovarianssirakenteet}) esittelimme ensimmäisen asteen autoregressiivisen mallin AR(1) kovarianssirakenteen olevan riittämätön epätasapainoiseen aineistoon. \cite{pinheiro00} määrittelevät ensimmäisen asteen autoregressiiviseksi autokorrelaatiofunktioksi $h(k,\phi)=\phi^k$, jossa korrelaatioparametri $\phi$ on \textit{lag-1}-korrelaatiokerroin ja $k=0,1,\dots n_i$ Tämä voidaan heidän mukaansa yleistää jatkuvan autoregressiivisen mallin CAR(1) autokorrelaatiofunktioksi $h(s,\phi)=\phi^s$, jossa $s>0$ ja $\phi>0$.
+Kovarianssirakenteita käsittelevässä kappaleessa~\ref{sub:kovarianssirakenteet} esittelimme ensimmäisen asteen autoregressiivisen mallin AR(1) kovarianssirakenteen olevan riittämätön epätasapainoiseen aineistoon. \cite{pinheiro00} määrittelevät ensimmäisen asteen autoregressiiviseksi autokorrelaatiofunktioksi $h(k,\phi)=\phi^k$, jossa korrelaatioparametri $\phi$ on \textit{lag-1}-korrelaatiokerroin ja $k=0,1,\dots n_i$ Tämä voidaan heidän mukaansa yleistää jatkuvan autoregressiivisen mallin CAR(1) autokorrelaatiofunktioksi $h(s,\phi)=\phi^s$, jossa $s>0$ ja $\phi>0$.
 
-Korrelaatioparametrin estimaatiksi saamme $\hat{\phi} = 0,591$, mikä viittaa kohtalaisen korkeaan autokorrelaatioon. Kuvan~\ref{fig:lme2_corfunc} mukaan korrelaatio laskee jyrkemmin noin kahden vuoden etäisyyteen saakka, jonka jälkeen se suppenee kohti nollaa. Tämä on ensimmäisten kolmen vuoden osalta likimain yhtäpitävää empiirisen semivariogrammin tulosten suhteen, mutta ei vastaa tilannetta yli kolmen vuoden etäisyyksillä.\\
+Korrelaatioparametrin estimaatiksi saamme $\hat{\phi} = 0,591$, mikä viittaa korkeaan autokorrelaatioon \citep{pinheiro00}. Kuvan~\ref{fig:lme2_corfunc} mukaan korrelaatio laskee jyrkemmin noin kahden vuoden etäisyyteen saakka, jonka jälkeen se suppenee kohti nollaa. Tämä on ensimmäisten kolmen vuoden osalta likimain yhtäpitävää empiirisen semivariogrammin tulosten suhteen, mutta ei vastaa tilannetta yli kolmen vuoden etäisyyksillä.\\
 
 \begin{figure}[H]
 \centering
@@ -1758,7 +1752,7 @@ Kriittisiksi malleiksi muodostamme satunnaisvaikutusten mallin ilman kiinteää 
 
 \begin{equation}
 \begin{split}
- \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{i0} + \beta_2 \times \text{IKÄ}_{ij} + \beta_3 \times \text{SUKUPUOLI}_{ij}\\
+ \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{0i} + \beta_2 \times \text{IKÄ}_{ij} + \beta_3 \times \text{SUKUPUOLI}_{ij}\\
  + \text{b}_{0i} + \text{b}_{1i} \times \text{IKÄ}_{ij} + \epsilon_{ij},
 \label{eq:lme2.1}
 \end{split}
@@ -1768,7 +1762,7 @@ sekä täysin ilman kiinteää sukupuolen vaikutusta (LSM~\ref{eq:lme2.2})
 
 \begin{equation}
 \begin{split}
- \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{i0} + \beta_2 \times \text{IKÄ}_{ij} + \text{b}_{0i} + \text{b}_{1i} \times \text{IKÄ}_{ij} + \epsilon_{ij}.
+ \text{BMI}_{ij} = \beta_0 + \beta_1 \times \text{IKÄ}_{0i} + \beta_2 \times \text{IKÄ}_{ij} + \text{b}_{0i} + \text{b}_{1i} \times \text{IKÄ}_{ij} + \epsilon_{ij}.
 \label{eq:lme2.2}
 \end{split}
 \end{equation}
@@ -2090,7 +2084,7 @@ LM~\ref{eq:lm3} \\
 LSM~\ref{eq:lme1}\\
 
 \begin{lstlisting}
-  lme(bmi~ ika_i0 + ika*sukupuoli,
+  lme(bmi~ ika_0i + ika*sukupuoli,
      random =~1 | yksilo,
      data = aineisto,
      method = "ML",
@@ -2100,7 +2094,7 @@ LSM~\ref{eq:lme1}\\
 LSM~\ref{eq:lme2}\\
 
 \begin{lstlisting}
- lme(bmi~ ika_i0 + ika*sukupuoli,
+ lme(bmi~ ika_0i + ika*sukupuoli,
      random =~ika | yksilo,
      data = aineisto,
      method = "ML",
@@ -2110,7 +2104,7 @@ LSM~\ref{eq:lme2}\\
 LSM~\ref{eq:lme2.1}\\
 
 \begin{lstlisting}
- lme(bmi~ ika_i0 + ika + sukupuoli,
+ lme(bmi~ ika_0i + ika + sukupuoli,
      random =~ika | yksilo,
      data = aineisto,
      method = "ML",
@@ -2120,7 +2114,7 @@ LSM~\ref{eq:lme2.1}\\
 LSM~\ref{eq:lme2.2}\\
 
 \begin{lstlisting}
- lme(bmi~ ika_i0 + ika,
+ lme(bmi~ ika_0i + ika,
      random =~ika | yksilo,
      data = aineisto,
      method = "ML",
@@ -2130,7 +2124,7 @@ LSM~\ref{eq:lme2.2}\\
 $\text{LSM}_{\text{VK}}$~\ref{eq:lme2}\\
 
 \begin{lstlisting}
- lme(bmi~ ika_i0 + ika*sukupuoli,
+ lme(bmi~ ika_0i + ika*sukupuoli,
      random =~ika | yksilo,
      weights = varFixed(~ika),
      correlation = corCAR1(form =~ika | yksilo),
@@ -2142,7 +2136,7 @@ $\text{LSM}_{\text{VK}}$~\ref{eq:lme2}\\
 $\text{LSM}_{\text{VK}}$~\ref{eq:lme2.2}\\
 
 \begin{lstlisting}
- lme(bmi~ ika_i0 + ika*sukupuoli,
+ lme(bmi~ ika_0i + ika*sukupuoli,
      random =~ika | yksilo,
      weights = varFixed(~ika),
      correlation = corCAR1(form =~ika | yksilo),
@@ -2175,7 +2169,7 @@ Nelder-Mead -menetelmän estimaatit poikkeavat hieman nlminb- ja L-BFGS-B -menet
  Vakiotermi ($\hat{\beta_0}$) & 14,432802 & 14,439736 & 14,432899\\ 
   & (0,013605) & (0,013543) & (0,013604)\\ 
   & & &\\ 
- ika\_i0 ($\hat{\beta_1}$) & $-$0,171405 & $-$0,172975 & $-$0,171421\\ 
+ ika\_0i ($\hat{\beta_1}$) & $-$0,171405 & $-$0,172975 & $-$0,171421\\ 
   & (0,002031) & (0,002024) & (0,002031)\\ 
   & & & & \\ 
  ika ($\hat{\beta_2}$) & 0,404348 & 0,404479 & 0,404351\\ 
